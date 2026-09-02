@@ -1,0 +1,228 @@
+[
+  {
+    "id": "2021-s01",
+    "year": 2021,
+    "number": 1,
+    "type": "single",
+    "chapter": "线性表",
+    "topic": "带头结点循环单链表删除首元素",
+    "difficulty": 2,
+    "question": "已知头指针 h 指向一个带头结点的非空循环链表，结点结构为 {data, next}，其中 next 是指向直接后继结点的指针，p 是尾指针，q 是临时指针。现在要删除该链表的第一个元素，正确的语句序列是______。",
+    "options": {
+      "A": "h->next = h->next->next; q = h->next; free(q);",
+      "B": "q = h->next; h->next = h->next->next; free(q);",
+      "C": "q = h->next; h->next = q->next; if(p != q) p = h; free(q);",
+      "D": "q = h->next; h->next = q->next; if(p == q) p = h; free(q);"
+    },
+    "answer": null,
+    "explanation": null
+  },
+  {
+    "id": "2021-s02",
+    "year": 2021,
+    "number": 2,
+    "type": "single",
+    "chapter": "栈队列和数组",
+    "topic": "输出受限双端队列",
+    "difficulty": 3,
+    "question": "已知初始为空的队列 Q 的一端仅能进行入队操作，另外一端既能进行入队操作又能进行出队操作。若 Q 的入队序列是 1, 2, 3, 4, 5，则不能得到的出队序列是______。",
+    "options": {
+      "A": "5, 4, 3, 1, 2",
+      "B": "5, 3, 1, 2, 4",
+      "C": "4, 2, 1, 3, 5",
+      "D": "4, 1, 3, 2, 5"
+    },
+    "answer": null,
+    "explanation": null
+  },
+  {
+    "id": "2021-s03",
+    "year": 2021,
+    "number": 3,
+    "type": "single",
+    "chapter": "栈队列和数组",
+    "topic": "二维数组行优先地址计算",
+    "difficulty": 2,
+    "question": "已知二维数组 A 按行优先方式存储，每个元素占用 1 个存储单元。若元素 A[0][0] 的存储地址是 100，A[3][3] 的存储地址是 220，则元素 A[5][5] 的存储地址是______。",
+    "options": {
+      "A": "295",
+      "B": "300",
+      "C": "301",
+      "D": "306"
+    },
+    "answer": null,
+    "explanation": null
+  },
+  {
+    "id": "2021-s04",
+    "year": 2021,
+    "number": 4,
+    "type": "single",
+    "chapter": "树与二叉树",
+    "topic": "由遍历序列重建二叉树求森林棵数",
+    "difficulty": 3,
+    "question": "某森林 F 对应的二叉树为 T，若 T 的先序遍历序列是 a, b, d, c, e, g, f，中序遍历序列是 b, d, a, e, g, c, f，则 F 中树的棵数是______。",
+    "options": {
+      "A": "1",
+      "B": "2",
+      "C": "3",
+      "D": "4"
+    },
+    "answer": null,
+    "explanation": null
+  },
+  {
+    "id": "2021-s05",
+    "year": 2021,
+    "number": 5,
+    "type": "single",
+    "chapter": "树与二叉树",
+    "topic": "哈夫曼树与WPL",
+    "difficulty": 2,
+    "question": "若某二叉树有 5 个叶结点，其权值分别为 10, 12, 16, 21, 30，则其最小的带权路径长度（WPL）是______。",
+    "options": {
+      "A": "89",
+      "B": "200",
+      "C": "208",
+      "D": "289"
+    },
+    "answer": null,
+    "explanation": null
+  },
+  {
+    "id": "2021-s06",
+    "year": 2021,
+    "number": 6,
+    "type": "single",
+    "chapter": "树与二叉树",
+    "topic": "AVL树插入与平衡旋转",
+    "difficulty": 2,
+    "question": "给定平衡二叉树如下图所示，插入关键字 23 后，根中的关键字是______。（图形题：根 20，左孩子 16、右孩子 30；30 的左孩子 25、右孩子 40，原图见 images/2021/page-1.png 第6题处）",
+    "options": {
+      "A": "16",
+      "B": "20",
+      "C": "23",
+      "D": "25"
+    },
+    "answer": null,
+    "explanation": null
+  },
+  {
+    "id": "2021-s07",
+    "year": 2021,
+    "number": 7,
+    "type": "single",
+    "chapter": "图",
+    "topic": "拓扑有序序列计数",
+    "difficulty": 2,
+    "question": "给定如下有向图，该图的拓扑有序序列的个数是______。（图形题：顶点 A、B、C、D、E、F；有向边 A→B，A→F，B→F，B→C，B→D，C→D，D→E，F→E，原图见 images/2021/page-2.png 第7题处）",
+    "options": {
+      "A": "1",
+      "B": "2",
+      "C": "3",
+      "D": "4"
+    },
+    "answer": null,
+    "explanation": null
+  },
+  {
+    "id": "2021-s08",
+    "year": 2021,
+    "number": 8,
+    "type": "single",
+    "chapter": "图",
+    "topic": "Dijkstra算法执行过程",
+    "difficulty": 3,
+    "question": "使用 Dijkstra 算法求下图中从顶点 1 到其余各顶点的最短路径，将当前找到的从顶点 1 到顶点 2, 3, 4, 5 的最短路径长度保存在数组 dist 中，求出第二条最短路径后，dist 中的内容更新为______。（图形题：有向图，顶点 1、2、3、4、5；有向边 1→5 权6，1→2 权26，1→3 权3，5→2 权15，5→4 权8，4→2 权6，4→3 权1，2→3 权22，原图见 images/2021/page-2.png 第8题处）",
+    "options": {
+      "A": "26, 3, 14, 6",
+      "B": "25, 3, 14, 6",
+      "C": "21, 3, 14, 6",
+      "D": "15, 3, 14, 6"
+    },
+    "answer": null,
+    "explanation": null
+  },
+  {
+    "id": "2021-s09",
+    "year": 2021,
+    "number": 9,
+    "type": "single",
+    "chapter": "查找",
+    "topic": "3阶B树结点数上限",
+    "difficulty": 2,
+    "question": "在一棵高度为 3 的 3 阶 B 树中，根为第 1 层，若第 2 层中有 4 个关键字，则该树的结点个数最多是______。",
+    "options": {
+      "A": "11",
+      "B": "10",
+      "C": "9",
+      "D": "8"
+    },
+    "answer": null,
+    "explanation": null
+  },
+  {
+    "id": "2021-s10",
+    "year": 2021,
+    "number": 10,
+    "type": "single",
+    "chapter": "排序",
+    "topic": "LSD基数排序第一趟分配收集",
+    "difficulty": 2,
+    "question": "设数组 S[] = {93, 946, 372, 9, 146, 151, 301, 485, 236, 327, 43, 892}，采用最低位优先（LSD）基数排序将 S 排列成升序序列。第 1 趟分配、收集后，元素 372 之前、之后紧密相邻的元素分别是______。",
+    "options": {
+      "A": "43, 892",
+      "B": "236, 301",
+      "C": "301, 892",
+      "D": "485, 301"
+    },
+    "answer": null,
+    "explanation": null
+  },
+  {
+    "id": "2021-s11",
+    "year": 2021,
+    "number": 11,
+    "type": "single",
+    "chapter": "排序",
+    "topic": "大根堆依次插入建堆",
+    "difficulty": 3,
+    "question": "将关键字 6, 9, 1, 5, 8, 4, 7 依次插入到初始为空的大根堆 H 中，得到的 H 是______。",
+    "options": {
+      "A": "9, 8, 7, 6, 5, 4, 1",
+      "B": "9, 8, 7, 5, 6, 1, 4",
+      "C": "9, 8, 7, 5, 6, 4, 1",
+      "D": "9, 6, 7, 5, 8, 4, 1"
+    },
+    "answer": null,
+    "explanation": null
+  },
+  {
+    "id": "2021-c41",
+    "year": 2021,
+    "number": 41,
+    "type": "comprehensive",
+    "chapter": "图",
+    "topic": "EL路径存在性判定算法设计",
+    "difficulty": 3,
+    "score": 15,
+    "question": "已知无向连通图 G 由顶点集 V 和边集 E 组成，|E|>0，当 G 中度为奇数的顶点个数为不大于 2 的偶数时，G 存在包含所有边且长度为 |E| 的路径（称为 EL 路径）。设图 G 采用邻接矩阵存储，类型定义如下：typedef struct { int numVertices, numEdges; char VerticesList[MAXV]; int Edge[MAXV][MAXV]; } MGraph;（其中 numVertices、numEdges 为图中实际的顶点数和边数，VerticesList 为顶点表，MAXV 为已定义常量，Edge 为邻接矩阵。）请设计算法 int IsExistEL(MGraph G)，判断 G 是否存在 EL 路径，若存在，则返回 1，否则返回 0。要求：1）给出算法的基本设计思想；2）根据设计思想，采用 C 或 C++ 语言描述算法，关键之处给出注释；3）说明你所设计算法的时间复杂度和空间复杂度。",
+    "options": null,
+    "answer": null,
+    "explanation": null
+  },
+  {
+    "id": "2021-c42",
+    "year": 2021,
+    "number": 42,
+    "type": "comprehensive",
+    "chapter": "排序",
+    "topic": "比较计数排序的分析与稳定性改造",
+    "difficulty": 2,
+    "score": 8,
+    "question": "已知某排序算法如下：void cmpCountSort(int a[], int b[], int n) { int i, j, *count; count = (int *)malloc(sizeof(int)*n); for(i=0; i<n; i++) count[i]=0; for(i=0; i<n-1; i++) for(j=i+1; j<n; j++) if(a[i]<a[j]) count[j]++; else count[i]++; for(i=0; i<n; i++) b[count[i]] = a[i]; free(count); } 请回答下列问题：1）若有 int a[] = {25, -10, 25, 10, 11, 19}, b[6];，则调用 cmpCountSort(a, b, 6) 后数组 b 中的内容是什么？2）若 a 中含有 n 个元素，则算法执行过程中，元素之间的比较次数是多少？3）该算法是稳定的吗？若是，则阐述理由；否则，修改为稳定排序算法。",
+    "options": null,
+    "answer": null,
+    "explanation": null
+  }
+]

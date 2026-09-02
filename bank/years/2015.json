@@ -1,0 +1,228 @@
+[
+  {
+    "id": "2015-s01",
+    "year": 2015,
+    "number": 1,
+    "type": "single",
+    "chapter": "栈队列和数组",
+    "topic": "函数调用栈的保存顺序",
+    "difficulty": 2,
+    "question": "已知程序如下：\nint S(int n)\n{ return (n<=0)?0:s(n-1)+n; }\nvoid main()\n{ cout<< S(1); }\n程序运行时使用栈来保存调用过程的信息，自栈底到栈顶保存的信息依次对应的是______。",
+    "options": {
+      "A": "main()→S(1)→S(0)",
+      "B": "S(0)→S(1)→main()",
+      "C": "main()→S(0)→S(1)",
+      "D": "S(1)→S(0)→main()"
+    },
+    "answer": null,
+    "explanation": null
+  },
+  {
+    "id": "2015-s02",
+    "year": 2015,
+    "number": 2,
+    "type": "single",
+    "chapter": "树与二叉树",
+    "topic": "先序序列确定的不同二叉树个数",
+    "difficulty": 2,
+    "question": "先序序列为 a, b, c, d 的不同二叉树的个数是______。",
+    "options": {
+      "A": "13",
+      "B": "14",
+      "C": "15",
+      "D": "16"
+    },
+    "answer": null,
+    "explanation": null
+  },
+  {
+    "id": "2015-s03",
+    "year": 2015,
+    "number": 3,
+    "type": "single",
+    "chapter": "树与二叉树",
+    "topic": "哈夫曼树路径权值序列判定",
+    "difficulty": 2,
+    "question": "下列选项给出的是从根分别到达两个叶结点路径上的权值序列，能属于同一棵哈夫曼树的是______。",
+    "options": {
+      "A": "24, 10, 5 和 24, 10, 7",
+      "B": "24, 10, 5 和 24, 12, 7",
+      "C": "24, 10, 10 和 24, 14, 11",
+      "D": "24, 10, 5 和 24, 14, 6"
+    },
+    "answer": null,
+    "explanation": null
+  },
+  {
+    "id": "2015-s04",
+    "year": 2015,
+    "number": 4,
+    "type": "single",
+    "chapter": "树与二叉树",
+    "topic": "AVL树中序降序的性质",
+    "difficulty": 2,
+    "question": "现有一棵无重复关键字的平衡二叉树（AVL 树），对其进行中序遍历可得到一个降序序列。下列关于该平衡二叉树的叙述中，正确的是______。",
+    "options": {
+      "A": "根结点的度一定为 2",
+      "B": "树中最小元素一定是叶结点",
+      "C": "最后插入的元素一定是叶结点",
+      "D": "树中最大元素一定是无左子树"
+    },
+    "answer": null,
+    "explanation": null
+  },
+  {
+    "id": "2015-s05",
+    "year": 2015,
+    "number": 5,
+    "type": "single",
+    "chapter": "图",
+    "topic": "深度优先遍历序列个数",
+    "difficulty": 2,
+    "question": "设有向图 G = (V, E)，顶点集 V = {V₀, V₁, V₂, V₃}，边集 E = {<V₀,V₁>, <V₀,V₃>, <V₁,V₃>}。若从顶点 V₀ 开始对图进行深度优先遍历，则可能得到的不同遍历序列个数是______。",
+    "options": {
+      "A": "2",
+      "B": "3",
+      "C": "4",
+      "D": "5"
+    },
+    "answer": null,
+    "explanation": null
+  },
+  {
+    "id": "2015-s06",
+    "year": 2015,
+    "number": 6,
+    "type": "single",
+    "chapter": "图",
+    "topic": "Kruskal与Prim第二次所选的边",
+    "difficulty": 3,
+    "question": "求下面带权图的最小（代价）生成树时，可能是克鲁斯卡尔（Kruskal）算法第 2 次选中但不是普里姆（Prim）算法（从 V₄ 开始）第 2 次选中的边是______。（图：无向带权图，顶点 V₁（左上）、V₂（右上）、V₃（左下）、V₄（右下）；边及权值：V₁—V₂ 权 10，V₁—V₃ 权 8，V₁—V₄ 权 5，V₂—V₄ 权 11，V₃—V₄ 权 8，V₂—V₃ 权【?】（该边权值扫描件无法辨认，以原图为准）。原图见 images/2015/page-1.png 第6题处）",
+    "options": {
+      "A": "(V₁,V₃)",
+      "B": "(V₁,V₄)",
+      "C": "(V₂,V₃)",
+      "D": "(V₃,V₄)"
+    },
+    "answer": null,
+    "explanation": null
+  },
+  {
+    "id": "2015-s07",
+    "year": 2015,
+    "number": 7,
+    "type": "single",
+    "chapter": "查找",
+    "topic": "折半查找比较序列判定",
+    "difficulty": 2,
+    "question": "下列选项中，不能构成折半查找中关键字比较序列的是______。",
+    "options": {
+      "A": "500, 200, 450, 180",
+      "B": "500, 450, 200, 180",
+      "C": "180, 500, 200, 450",
+      "D": "180, 200, 500, 450"
+    },
+    "answer": null,
+    "explanation": null
+  },
+  {
+    "id": "2015-s08",
+    "year": 2015,
+    "number": 8,
+    "type": "single",
+    "chapter": "查找",
+    "topic": "KMP失配后的指针取值",
+    "difficulty": 2,
+    "question": "已知字符串 S 为 \"abaabaabacacaabaabbc\"，模式串 t 为 \"ababc\"。采用 KMP 算法进行匹配，第一处出现失配（s[i]≠t[j]）时，i=j=5，则下次开始匹配时，i 和 j 的值分别是______。",
+    "options": {
+      "A": "i=1, j=0",
+      "B": "i=5, j=0",
+      "C": "i=5, j=2",
+      "D": "i=6, j=2"
+    },
+    "answer": null,
+    "explanation": null
+  },
+  {
+    "id": "2015-s09",
+    "year": 2015,
+    "number": 9,
+    "type": "single",
+    "chapter": "排序",
+    "topic": "移动次数与初始排列无关的排序",
+    "difficulty": 1,
+    "question": "下列排序算法中，元素的移动次数与关键字的初始排列次序无关的是______。",
+    "options": {
+      "A": "直接插入排序",
+      "B": "起泡排序",
+      "C": "基数排序",
+      "D": "快速排序"
+    },
+    "answer": null,
+    "explanation": null
+  },
+  {
+    "id": "2015-s10",
+    "year": 2015,
+    "number": 10,
+    "type": "single",
+    "chapter": "排序",
+    "topic": "小根堆删除后重建的比较次数",
+    "difficulty": 2,
+    "question": "已知小根堆为 8, 15, 10, 21, 34, 16, 12，删除关键字 8 之后需重建堆，在此过程中，关键字之间的比较次数是______。",
+    "options": {
+      "A": "1",
+      "B": "2",
+      "C": "3",
+      "D": "4"
+    },
+    "answer": null,
+    "explanation": null
+  },
+  {
+    "id": "2015-s11",
+    "year": 2015,
+    "number": 11,
+    "type": "single",
+    "chapter": "排序",
+    "topic": "希尔排序组内排序方法",
+    "difficulty": 1,
+    "question": "希尔排序的组内排序采用的是______。",
+    "options": {
+      "A": "直接插入排序",
+      "B": "折半插入排序",
+      "C": "快速排序",
+      "D": "归并排序"
+    },
+    "answer": null,
+    "explanation": null
+  },
+  {
+    "id": "2015-c41",
+    "year": 2015,
+    "number": 41,
+    "type": "comprehensive",
+    "chapter": "线性表",
+    "topic": "单链表绝对值去重的算法设计",
+    "difficulty": 3,
+    "score": 15,
+    "question": "用单链表保存 m 个整数，结点的结构包含 data、link 两个域，且 |data| ≤ n（n 为正整数）。现要求设计一个时间复杂度尽可能高效的算法，对于链表中 data 的绝对值相等的结点，仅保留第一次出现的结点而删除其余绝对值相等的结点。例如，若给定的单链表 HEAD 如下：HEAD 指向一个数据域为空的表头结点，其后依次为结点 21、-15、15、-7、15，尾结点指针为空（示意图见 images/2015/page-5.png 第41题处）。\n则删除结点后的 HEAD 为：HEAD 指向表头结点，其后依次为结点 21、-15、-7。\n要求：\n1）给出算法的基本设计思想。\n2）使用 C 或 C++ 语言，给出单链表结点的数据类型定义。\n3）根据设计思想，采用 C 或 C++ 语言描述算法，关键之处给出注释。\n4）说明所设计算法的时间复杂度和空间复杂度。",
+    "options": null,
+    "answer": null,
+    "explanation": null
+  },
+  {
+    "id": "2015-c42",
+    "year": 2015,
+    "number": 42,
+    "type": "comprehensive",
+    "chapter": "图",
+    "topic": "邻接矩阵及其幂的含义",
+    "difficulty": 2,
+    "score": 8,
+    "question": "已知含有 5 个顶点的图 G 如下图所示。（图：无向图，顶点 0、1、2、3、4；顶点位置：0（上中）、1（右上）、2（左）、3（下中）、4（右）；无向边：(0,1)、(0,2)、(0,4)、(1,4)、(2,3)、(3,4)。原图见 images/2015/page-6.png 第42题处）\n请回答下列问题：\n1）写出图 G 的邻接矩阵 A（行、列下标从 0 开始）。\n2）求 A²，矩阵 A² 中位于 0 行 3 列元素值的含义是什么？\n3）若已知具有 n（n≥2）个顶点的图的邻接矩阵为 B，则 Bᵐ（2≤m≤n）中非零元素的含义是什么？",
+    "options": null,
+    "answer": null,
+    "explanation": null
+  }
+]

@@ -1,0 +1,228 @@
+[
+  {
+    "id": "2024-s01",
+    "year": 2024,
+    "number": 1,
+    "type": "single",
+    "chapter": "线性表",
+    "topic": "单链表指针操作结果",
+    "difficulty": 2,
+    "question": "已知带头结点的非空单链表 L 的头指针为 h，结点结构为（data | next），其中 next 是指向直接后继结点的指针。现有指针 p 和 q，若 p 指向 L 中非首且非尾的任意一个结点，则执行语句序列 \"q=p->next; p->next=q->next; q->next=h->next; h->next=q;\" 的结果是（ ）。",
+    "options": {
+      "A": "在 p 所指结点后插入 q 所指结点",
+      "B": "在 q 所指结点后插入 p 所指结点",
+      "C": "将 p 所指结点移动到 L 的头结点之后",
+      "D": "将 q 所指结点移动到 L 的头结点之后"
+    },
+    "answer": null,
+    "explanation": null
+  },
+  {
+    "id": "2024-s02",
+    "year": 2024,
+    "number": 2,
+    "type": "single",
+    "chapter": "栈队列和数组",
+    "topic": "中缀表达式转后缀表达式",
+    "difficulty": 2,
+    "question": "与表达式 x+y*(z-u)/v 等价的后缀表达式是（ ）。",
+    "options": {
+      "A": "xyzu-*v/+",
+      "B": "xyzu-v/*+",
+      "C": "【?】x/*y-zuv",
+      "D": "+x*y-/zuv"
+    },
+    "answer": null,
+    "explanation": null
+  },
+  {
+    "id": "2024-s03",
+    "year": 2024,
+    "number": 3,
+    "type": "single",
+    "chapter": "树与二叉树",
+    "topic": "中序序列相邻结点与孩子关系",
+    "difficulty": 2,
+    "question": "若 p、q 和 v 均为二叉树 T 中的结点，v 有两个孩子结点，T 的中序遍历序列形如：\"…, p, v, q, …\"，则下列叙述中，正确的是（ ）。",
+    "options": {
+      "A": "p 没有右孩子，q 没有左孩子",
+      "B": "p 没有右孩子，q 有左孩子",
+      "C": "p 有右孩子，q 没有左孩子",
+      "D": "p 有右孩子，q 有左孩子"
+    },
+    "answer": null,
+    "explanation": null
+  },
+  {
+    "id": "2024-s04",
+    "year": 2024,
+    "number": 4,
+    "type": "single",
+    "chapter": "图",
+    "topic": "邻接多重表求顶点度",
+    "difficulty": 2,
+    "question": "若无向图 G=(V, E) 的邻接多重表如下图所示，则 G 中顶点 b 与 d 的度分别是（ ）。（图为邻接多重表：顶点表依次为 0(a)、1(b)、2(c)、3(d)、4(e)，各顶点后链接若干边结点，边结点含 mark/ivex/ilink/jvex/jlink 域；原图见 images/2024/page-1.png 第4题处）",
+    "options": {
+      "A": "0, 2",
+      "B": "2, 4",
+      "C": "2, 5",
+      "D": "3, 4"
+    },
+    "answer": null,
+    "explanation": null
+  },
+  {
+    "id": "2024-s05",
+    "year": 2024,
+    "number": 5,
+    "type": "single",
+    "chapter": "查找",
+    "topic": "折半查找适用条件",
+    "difficulty": 1,
+    "question": "下列数据结构中，不适合直接使用折半查找的是（ ）。\nⅠ. 有序链表　Ⅱ. 无序数组　Ⅲ. 有序静态链表　Ⅳ. 无序静态链表",
+    "options": {
+      "A": "仅Ⅰ、Ⅲ",
+      "B": "仅Ⅱ、Ⅳ",
+      "C": "仅Ⅱ、Ⅲ、Ⅳ",
+      "D": "Ⅰ、Ⅱ、Ⅲ、Ⅳ"
+    },
+    "answer": null,
+    "explanation": null
+  },
+  {
+    "id": "2024-s06",
+    "year": 2024,
+    "number": 6,
+    "type": "single",
+    "chapter": "查找",
+    "topic": "KMP修正next数组最大滑动距离",
+    "difficulty": 2,
+    "question": "KMP 算法使用修正后的 next 数组进行模式匹配，模式串 S=\"aabab\"，当主串中某字符与 S 中某字符失配时，S 将向右滑动的最长距离是（ ）。",
+    "options": {
+      "A": "5",
+      "B": "4",
+      "C": "3",
+      "D": "2"
+    },
+    "answer": null,
+    "explanation": null
+  },
+  {
+    "id": "2024-s07",
+    "year": 2024,
+    "number": 7,
+    "type": "single",
+    "chapter": "树与二叉树",
+    "topic": "二叉搜索树中子树关键字范围",
+    "difficulty": 2,
+    "question": "一棵二叉搜索树如下图所示，k1、k2、k3 分别是对应结点保存的关键字，子树 T 的任一结点中保存的关键字 x 满足的是（ ）。（图为二叉搜索树：根为 k1，k1 的左子树为三角形，右孩子为 k2；k2 的左孩子为 k3、右子树为三角形；k3 的左子树为三角形、右孩子为子树 T；原图见 images/2024/page-1.png 第7题处）",
+    "options": {
+      "A": "x<k1",
+      "B": "x>k2",
+      "C": "k1<x<k3",
+      "D": "k3<x<k2"
+    },
+    "answer": null,
+    "explanation": null
+  },
+  {
+    "id": "2024-s08",
+    "year": 2024,
+    "number": 8,
+    "type": "single",
+    "chapter": "排序",
+    "topic": "快速排序一趟划分性质",
+    "difficulty": 1,
+    "question": "使用快速排序算法对含 n(n≥3)个元素的数组 M 进行排序，若第一趟排序将 M 中除枢轴外的 n-1 个元素划分为均不为空的 P 和 Q 两块，则下列叙述中，正确的是（ ）。",
+    "options": {
+      "A": "P 与 Q 块间有序",
+      "B": "P 与 Q 块内有序",
+      "C": "P 和 Q 的元素个数大致相等",
+      "D": "P 中和 Q 中均不存在相等的元素"
+    },
+    "answer": null,
+    "explanation": null
+  },
+  {
+    "id": "2024-s09",
+    "year": 2024,
+    "number": 9,
+    "type": "single",
+    "chapter": "树与二叉树",
+    "topic": "大根堆两次删除并调整",
+    "difficulty": 3,
+    "question": "已知关键字序列 28, 22, 20, 19, 8, 12, 15, 5 是大根堆（最大堆），对该堆进行两次删除操作后，得到的新堆是（ ）。",
+    "options": {
+      "A": "20, 19, 15, 12, 8, 5",
+      "B": "20, 19, 15, 5, 8, 12",
+      "C": "20, 19, 12, 15, 8, 5",
+      "D": "20, 19, 8, 12, 15, 5"
+    },
+    "answer": null,
+    "explanation": null
+  },
+  {
+    "id": "2024-s10",
+    "year": 2024,
+    "number": 10,
+    "type": "single",
+    "chapter": "排序",
+    "topic": "二路归并排序比较次数",
+    "difficulty": 2,
+    "question": "现有由关键字组成的 3 个有序序列（3, 5）、（7, 9）和（6），若按从左至右的次序选择有序序列进行二路归并排序，则关键字之间的总比较次数是（ ）。",
+    "options": {
+      "A": "3",
+      "B": "4",
+      "C": "5",
+      "D": "6"
+    },
+    "answer": null,
+    "explanation": null
+  },
+  {
+    "id": "2024-s11",
+    "year": 2024,
+    "number": 11,
+    "type": "single",
+    "chapter": "排序",
+    "topic": "败者树冠军结点内容",
+    "difficulty": 1,
+    "question": "在外排序中，利用败者树对初始为升序的归并段进行多路归并，败者树中记录\"冠军\"的结点保存的是（ ）。",
+    "options": {
+      "A": "最大关键字",
+      "B": "最小关键字",
+      "C": "最大关键字所在的归并段号",
+      "D": "最小关键字所在的归并段号"
+    },
+    "answer": null,
+    "explanation": null
+  },
+  {
+    "id": "2024-c41",
+    "year": 2024,
+    "number": 41,
+    "type": "comprehensive",
+    "chapter": "图",
+    "topic": "拓扑序列唯一性判定算法设计",
+    "difficulty": 3,
+    "score": 13,
+    "question": "2023 年 10 月 26 日，神舟十七号载人飞船发射取得圆满成功，再次彰显了中国航天事业的辉煌成就。载人航天工程是包含众多子工程的复杂系统工程，为了保证工程的有序开展，需要明确各子工程的前序子工程，以协调各子工程的实施。该问题可以简化、抽象为有向图的拓扑序列问题。已知有向图 G 采用邻接矩阵存储，类型定义如下：\ntypedef struct                    //图的类型定义\n{\n    int numVertices, numEdges;    //图的顶点数和有向边数\n    char VerticesList[MAXV];      //顶点表，MAXV 为已定义常量\n    int Edge[MAXV][MAXV];         //邻接矩阵\n}MGraph;\n\n请设计算法：int uniquely(MGraph G)，判定 G 是否存在唯一的拓扑序列，若是，则返回 1，否则返回 0。要求如下：\n（1）给出算法的基本设计思想。（4 分）\n（2）根据设计思想，采用 C 或 C++语言描述算法，关键之处给出注释。（9 分）",
+    "options": null,
+    "answer": null,
+    "explanation": null
+  },
+  {
+    "id": "2024-c42",
+    "year": 2024,
+    "number": 42,
+    "type": "comprehensive",
+    "chapter": "查找",
+    "topic": "散列表平方探查法构造与查找",
+    "difficulty": 3,
+    "score": 10,
+    "question": "将关键字序列 20, 3, 11, 18, 9, 14, 7 依次存储到初始为空、长度为 11 的散列表 HT 中，散列函数 H(key)=(key×3)%11。H(key) 计算出的初始散列地址为 H0，发生冲突时探查地址序列是 H1, H2, H3, …，其中，Hk=(H0+k²)%11，k=1, 2, 3, …。\n请回答下列问题：\n（1）画出所构造的 HT，并计算 HT 的装填因子。（6 分）\n（2）给出在 HT 中查找关键字 14 的关键字比较序列。（2 分）\n（3）在 HT 中查找关键字 8，确认查找失败时的散列地址是多少？（2 分）",
+    "options": null,
+    "answer": null,
+    "explanation": null
+  }
+]

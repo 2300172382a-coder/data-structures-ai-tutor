@@ -1,0 +1,228 @@
+[
+  {
+    "id": "2011-s01",
+    "year": 2011,
+    "number": 1,
+    "type": "single",
+    "chapter": "线性表",
+    "topic": "程序片段时间复杂度分析",
+    "difficulty": 2,
+    "question": "设 n 是描述问题规模的非负整数，下面程序片段的时间复杂度是______。\nx=2;\nwhile(x<n/2)\n    x=2*x;",
+    "options": {
+      "A": "O(log₂n)",
+      "B": "O(n)",
+      "C": "O(nlog₂n)",
+      "D": "O(n²)"
+    },
+    "answer": null,
+    "explanation": null
+  },
+  {
+    "id": "2011-s02",
+    "year": 2011,
+    "number": 2,
+    "type": "single",
+    "chapter": "栈队列和数组",
+    "topic": "以 d 开头的出栈序列计数",
+    "difficulty": 2,
+    "question": "元素 a, b, c, d, e 依次进入初始为空的栈中，若元素进栈后可停留、可出栈，直到所有元素都出栈，则在所有可能的出栈序列中，以元素 d 开头的序列个数是______。",
+    "options": {
+      "A": "3",
+      "B": "4",
+      "C": "5",
+      "D": "6"
+    },
+    "answer": null,
+    "explanation": null
+  },
+  {
+    "id": "2011-s03",
+    "year": 2011,
+    "number": 3,
+    "type": "single",
+    "chapter": "栈队列和数组",
+    "topic": "循环队列 front 与 rear 初值",
+    "difficulty": 2,
+    "question": "已知循环队列存储在一维数组 A[0…n-1] 中，且队列非空时 front 和 rear 分别指向队头元素和队尾元素。若初始时队列为空，且要求第 1 个进入队列的元素存储在 A[0] 处，则初始时 front 和 rear 的值分别是______。",
+    "options": {
+      "A": "0, 0",
+      "B": "0, n-1",
+      "C": "n-1, 0",
+      "D": "n-1, n-1"
+    },
+    "answer": null,
+    "explanation": null
+  },
+  {
+    "id": "2011-s04",
+    "year": 2011,
+    "number": 4,
+    "type": "single",
+    "chapter": "树与二叉树",
+    "topic": "完全二叉树叶结点数",
+    "difficulty": 2,
+    "question": "若一棵完全二叉树有 768 个结点，则该二叉树中叶结点的个数是______。",
+    "options": {
+      "A": "257",
+      "B": "258",
+      "C": "384",
+      "D": "385"
+    },
+    "answer": null,
+    "explanation": null
+  },
+  {
+    "id": "2011-s05",
+    "year": 2011,
+    "number": 5,
+    "type": "single",
+    "chapter": "树与二叉树",
+    "topic": "由前序后序序列推中序序列",
+    "difficulty": 2,
+    "question": "若一棵二叉树的前序遍历序列和后序遍历序列分别为 1, 2, 3, 4 和 4, 3, 2, 1，则该二叉树的中序遍历序列不会是______。",
+    "options": {
+      "A": "1, 2, 3, 4",
+      "B": "2, 3, 4, 1",
+      "C": "3, 2, 4, 1",
+      "D": "4, 3, 2, 1"
+    },
+    "answer": null,
+    "explanation": null
+  },
+  {
+    "id": "2011-s06",
+    "year": 2011,
+    "number": 6,
+    "type": "single",
+    "chapter": "树与二叉树",
+    "topic": "树转二叉树后无右孩子结点数",
+    "difficulty": 3,
+    "question": "已知一棵有 2011 个结点的树，其叶结点个数为 116，该树对应的二叉树中无右孩子的结点个数是______。",
+    "options": {
+      "A": "115",
+      "B": "116",
+      "C": "1895",
+      "D": "1896"
+    },
+    "answer": null,
+    "explanation": null
+  },
+  {
+    "id": "2011-s07",
+    "year": 2011,
+    "number": 7,
+    "type": "single",
+    "chapter": "查找",
+    "topic": "二叉排序树查找路径判定",
+    "difficulty": 2,
+    "question": "对下列关键字序列，不可能构成某二叉排序树中一条查找路径的序列是______。",
+    "options": {
+      "A": "95, 22, 91, 24, 94, 71",
+      "B": "92, 20, 91, 34, 88, 35",
+      "C": "21, 89, 77, 29, 36, 38",
+      "D": "12, 25, 71, 68, 33, 34"
+    },
+    "answer": null,
+    "explanation": null
+  },
+  {
+    "id": "2011-s08",
+    "year": 2011,
+    "number": 8,
+    "type": "single",
+    "chapter": "图",
+    "topic": "图的基本概念",
+    "difficulty": 1,
+    "question": "下列关于图的叙述中，正确的是______。\nⅠ. 回路是简单路径\nⅡ. 存储稀疏图，用邻接矩阵比邻接表更省空间\nⅢ. 若有向图中存在拓扑序列，则该图不存在回路",
+    "options": {
+      "A": "仅 Ⅱ",
+      "B": "仅 Ⅰ、Ⅱ",
+      "C": "仅 Ⅲ",
+      "D": "仅 Ⅰ、Ⅲ"
+    },
+    "answer": null,
+    "explanation": null
+  },
+  {
+    "id": "2011-s09",
+    "year": 2011,
+    "number": 9,
+    "type": "single",
+    "chapter": "查找",
+    "topic": "散列表查找效率的改进措施",
+    "difficulty": 1,
+    "question": "为提高散列（Hash）表的查找效率，可以采取的正确措施是______。\nⅠ. 增大装填（载）因子\nⅡ. 设计冲突（碰撞）少的散列函数\nⅢ. 处理冲突（碰撞）时避免产生聚集（堆积）现象",
+    "options": {
+      "A": "仅 Ⅲ",
+      "B": "仅 Ⅰ、Ⅱ",
+      "C": "仅 Ⅱ",
+      "D": "仅 Ⅱ、Ⅲ"
+    },
+    "answer": null,
+    "explanation": null
+  },
+  {
+    "id": "2011-s10",
+    "year": 2011,
+    "number": 10,
+    "type": "single",
+    "chapter": "排序",
+    "topic": "快速排序的存储方式",
+    "difficulty": 1,
+    "question": "为实现快速排序算法，待排序序列宜采用的存储方式是______。",
+    "options": {
+      "A": "顺序存储",
+      "B": "散列存储",
+      "C": "链式存储",
+      "D": "索引存储"
+    },
+    "answer": null,
+    "explanation": null
+  },
+  {
+    "id": "2011-s11",
+    "year": 2011,
+    "number": 11,
+    "type": "single",
+    "chapter": "排序",
+    "topic": "大根堆插入调整比较次数",
+    "difficulty": 2,
+    "question": "已知序列 25, 13, 10, 12, 9 是大根堆，在序列尾部插入新元素 18，将其再调整为大根堆，调整过程中元素之间进行的比较次数是______。",
+    "options": {
+      "A": "1",
+      "B": "2",
+      "C": "4",
+      "D": "5"
+    },
+    "answer": null,
+    "explanation": null
+  },
+  {
+    "id": "2011-c41",
+    "year": 2011,
+    "number": 41,
+    "type": "comprehensive",
+    "chapter": "图",
+    "topic": "上三角邻接矩阵压缩与关键路径",
+    "difficulty": 3,
+    "score": 8,
+    "question": "已知有 6 个顶点（顶点编号为 0~5）的有向带权图 G，其邻接矩阵 A 为上三角矩阵，按行为主序（行优先）保存在如下的一维数组中：\n4, 6, ∞, ∞, ∞, 5, ∞, ∞, ∞, 4, 3, ∞, ∞, 3, 3\n要求：\n（1）写出图 G 的邻接矩阵 A。\n（2）画出有向带权图 G。\n（3）求图 G 的关键路径，并计算该关键路径的长度。",
+    "options": null,
+    "answer": null,
+    "explanation": null
+  },
+  {
+    "id": "2011-c42",
+    "year": 2011,
+    "number": 42,
+    "type": "comprehensive",
+    "chapter": "查找",
+    "topic": "两个等长有序序列的中位数",
+    "difficulty": 3,
+    "score": 15,
+    "question": "一个长度为 L（L≥1）的升序序列 S，处在第 ⌈L/2⌉ 个位置的数称为 S 的中位数。例如，若序列 S1=(11, 13, 15, 17, 19)，则 S1 的中位数是 15。两个序列的中位数是含它们所有元素的升序序列的中位数。例如，若 S2=(2, 4, 6, 8, 20)，则 S1 和 S2 的中位数是 11。现有两个等长升序序列 A 和 B，试设计一个在时间和空间两方面都尽可能高效的算法，找出两个序列 A 和 B 的中位数。要求：\n（1）给出算法的基本设计思想。\n（2）根据设计思想，采用 C、C++ 或 Java 语言描述算法，关键之处给出注释。\n（3）说明你所设计算法的时间复杂度和空间复杂度。",
+    "options": null,
+    "answer": null,
+    "explanation": null
+  }
+]

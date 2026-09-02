@@ -1,0 +1,210 @@
+[
+  {
+    "id": "2012-s01",
+    "year": 2012,
+    "number": 1,
+    "type": "single",
+    "chapter": "线性表",
+    "topic": "递归算法时间复杂度分析",
+    "difficulty": 1,
+    "question": "求整数 n（n≥0）阶乘的递归算法如下，其时间复杂度是______。\nint fact(int n) {\n    if (n<=1) return 1;\n    return n*fact(n-1);\n}",
+    "options": {
+      "A": "O(log₂n)",
+      "B": "O(n)",
+      "C": "O(nlog₂n)",
+      "D": "O(n²)"
+    },
+    "answer": null,
+    "explanation": null
+  },
+  {
+    "id": "2012-s02",
+    "year": 2012,
+    "number": 2,
+    "type": "single",
+    "chapter": "栈队列和数组",
+    "topic": "中缀转后缀时操作符栈的最大深度",
+    "difficulty": 3,
+    "question": "已知操作符包括 '+'、'-'、'*'、'/'、'(' 和 ')'。将中缀表达式 a+b-a*((c+d)/e-f)+g 转换为等价的后缀表达式 ab+acd+e/f-*-g+ 时，用栈来存放暂时还不能确定运算次序的操作符，若栈初始时为空，则转换过程中同时保存在栈中的操作符的最大个数是______。",
+    "options": {
+      "A": "5",
+      "B": "7",
+      "C": "8",
+      "D": "11"
+    },
+    "answer": null,
+    "explanation": null
+  },
+  {
+    "id": "2012-s03",
+    "year": 2012,
+    "number": 3,
+    "type": "single",
+    "chapter": "树与二叉树",
+    "topic": "由前序后序序列确定根的孩子结点",
+    "difficulty": 2,
+    "question": "若一棵二叉树的前序遍历序列为 a, e, b, d, c，后序遍历序列为 b, c, d, e, a，则根结点的孩子结点______。",
+    "options": {
+      "A": "只有 e",
+      "B": "有 e、b",
+      "C": "有 e、c",
+      "D": "无法确定"
+    },
+    "answer": null,
+    "explanation": null
+  },
+  {
+    "id": "2012-s04",
+    "year": 2012,
+    "number": 4,
+    "type": "single",
+    "chapter": "树与二叉树",
+    "topic": "平衡二叉树最少结点数递推",
+    "difficulty": 2,
+    "question": "若平衡二叉树的高度为 6，且所有非叶结点的平衡因子均为 1，则该平衡二叉树的结点总数为______。",
+    "options": {
+      "A": "10",
+      "B": "20",
+      "C": "32",
+      "D": "33"
+    },
+    "answer": null,
+    "explanation": null
+  },
+  {
+    "id": "2012-s05",
+    "year": 2012,
+    "number": 5,
+    "type": "single",
+    "chapter": "图",
+    "topic": "邻接表存储下BFS的时间复杂度",
+    "difficulty": 1,
+    "question": "对有 n 个结点、e 条边且使用邻接表存储的有向图进行广度优先遍历，其算法时间复杂度是______。",
+    "options": {
+      "A": "O(n)",
+      "B": "O(e)",
+      "C": "O(n+e)",
+      "D": "O(ne)"
+    },
+    "answer": null,
+    "explanation": null
+  },
+  {
+    "id": "2012-s06",
+    "year": 2012,
+    "number": 6,
+    "type": "single",
+    "chapter": "图",
+    "topic": "上三角邻接矩阵的拓扑序列",
+    "difficulty": 2,
+    "question": "若用邻接矩阵存储有向图，矩阵中主对角线以下的元素均为零，则关于该图拓扑序列的结论是______。",
+    "options": {
+      "A": "存在，且唯一",
+      "B": "存在，且不唯一",
+      "C": "存在，可能不唯一",
+      "D": "无法确定是否存在"
+    },
+    "answer": null,
+    "explanation": null
+  },
+  {
+    "id": "2012-s07",
+    "year": 2012,
+    "number": 7,
+    "type": "single",
+    "chapter": "图",
+    "topic": "Dijkstra求最短路径的目标顶点次序",
+    "difficulty": 3,
+    "question": "如右图所示的有向带权图（顶点 a、b、c、d、e、f；有向边及权值：a→b 为 2、a→c 为 5、b→c 为 1、b→d 为 3、c→d 为 3、c→e 为 4、c→f 为 1、d→e 为 1、d→f 为 4；原图见 images/2012/page-1.png 第7题处），若采用迪杰斯特拉（Dijkstra）算法求从源点 a 到其他各顶点的最短路径，则得到的第一条最短路径的目标顶点是 b，第二条最短路径的目标顶点是 c，后续得到的其余各最短路径的目标顶点依次是______。",
+    "options": {
+      "A": "d, e, f",
+      "B": "e, d, f",
+      "C": "f, d, e",
+      "D": "f, e, d"
+    },
+    "answer": null,
+    "explanation": null
+  },
+  {
+    "id": "2012-s08",
+    "year": 2012,
+    "number": 8,
+    "type": "single",
+    "chapter": "图",
+    "topic": "最小生成树性质辨析",
+    "difficulty": 1,
+    "question": "下列关于最小生成树的叙述中，正确的是______。\nⅠ. 最小生成树的代价唯一\nⅡ. 所有权值最小的边一定会出现在所有的最小生成树中\nⅢ. 使用普里姆（Prim）算法从不同顶点开始得到的最小生成树一定相同\nⅣ. 使用普里姆算法和克鲁斯卡尔（Kruskal）算法得到的最小生成树总不相同",
+    "options": {
+      "A": "仅 Ⅰ",
+      "B": "仅 Ⅱ",
+      "C": "仅 Ⅰ、Ⅲ",
+      "D": "仅 Ⅱ、Ⅳ"
+    },
+    "answer": null,
+    "explanation": null
+  },
+  {
+    "id": "2012-s09",
+    "year": 2012,
+    "number": 9,
+    "type": "single",
+    "chapter": "查找",
+    "topic": "3阶B树删除关键字后的最右叶结点",
+    "difficulty": 3,
+    "question": "已知一棵 3 阶 B-树（根结点为 45，根的左孩子为 [17, 35]、右孩子为 [55, 65]；叶结点自左至右为 [10]、[21]、[37]、[47]、[60, 62]、[78]；原图见 images/2012/page-2.png 第9题处），删除关键字 78 得到一棵新 B-树，其最右叶结点中的关键字是______。",
+    "options": {
+      "A": "60",
+      "B": "60, 62",
+      "C": "62, 65",
+      "D": "65"
+    },
+    "answer": null,
+    "explanation": null
+  },
+  {
+    "id": "2012-s10",
+    "year": 2012,
+    "number": 10,
+    "type": "single",
+    "chapter": "排序",
+    "topic": "一趟排序即可确定元素最终位置的方法",
+    "difficulty": 1,
+    "question": "在内部排序过程中，对尚未确定最终位置的所有元素进行一遍处理称为一趟排序。下列排序方法中，每一趟排序结束都至少能够确定一个元素最终位置的方法是______。\nⅠ. 简单选择排序\nⅡ. 希尔排序\nⅢ. 快速排序\nⅣ. 堆排序\nⅤ. 二路归并排序",
+    "options": {
+      "A": "仅 Ⅰ、Ⅲ、Ⅳ",
+      "B": "仅 Ⅰ、Ⅲ、Ⅴ",
+      "C": "仅 Ⅱ、Ⅲ、Ⅳ",
+      "D": "仅 Ⅲ、Ⅳ、Ⅴ"
+    },
+    "answer": null,
+    "explanation": null
+  },
+  {
+    "id": "2012-c41",
+    "year": 2012,
+    "number": 41,
+    "type": "comprehensive",
+    "chapter": "线性表",
+    "topic": "多个不等长有序表的合并策略",
+    "difficulty": 3,
+    "score": 10,
+    "question": "设有 6 个有序表 A、B、C、D、E、F，分别含有 10、35、40、50、60 和 200 个数据元素，各表中元素按升序排列。要求通过 5 次两两合并，将 6 个表最终合并成 1 个升序表，并在最坏情况下比较的总次数达到最小。请回答下列问题：\n1) 给出完整的合并过程，并求出最坏情况下比较的总次数。\n2) 根据你的合并过程，描述 N（N≥2）个不等长升序表的合并策略，并说明理由。",
+    "options": null,
+    "answer": null,
+    "explanation": null
+  },
+  {
+    "id": "2012-c42",
+    "year": 2012,
+    "number": 42,
+    "type": "comprehensive",
+    "chapter": "线性表",
+    "topic": "求单链表共同后缀的起始位置",
+    "difficulty": 3,
+    "score": 13,
+    "question": "假定采用带头结点的单链表保存单词，当两个单词有相同的后缀时，则可共享相同的后缀存储空间，例如，\"loading\" 和 \"being\" 的存储映像如下：str1 指向链表 l→o→a→d→i→n→g，str2 指向链表 b→e→i→n→g，两链表自结点 i 起共享后缀 i→n→g，指针 p 指向共享后缀的起始结点 i（原图见 images/2012/page-6.png 顶部）。设 str1 和 str2 分别指向两个单词所在单链表的头结点，链表结点结构为 data | next。请设计一个时间上尽可能高效的算法，找出由 str1 和 str2 所指向两个链表共同后缀的起始位置（如图中字符 i 所在结点的位置 p）。要求：\n1) 给出算法的基本设计思想。\n2) 根据设计思想，采用 C 或 C++ 或 Java 语言描述算法，关键之处给出注释。\n3) 说明你所设计算法的时间复杂度。",
+    "options": null,
+    "answer": null,
+    "explanation": null
+  }
+]

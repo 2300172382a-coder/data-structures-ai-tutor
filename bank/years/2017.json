@@ -1,0 +1,228 @@
+[
+  {
+    "id": "2017-s01",
+    "year": 2017,
+    "number": 1,
+    "type": "single",
+    "chapter": "线性表",
+    "topic": "累加循环函数的时间复杂度",
+    "difficulty": 2,
+    "question": "下列函数的时间复杂度是______。\nint func(int n) {\n    int i = 0, sum = 0;\n    while (sum < n)\n        sum += ++i;\n    return i;\n}",
+    "options": {
+      "A": "O(log₂n)",
+      "B": "O(n^(1/2))",
+      "C": "O(n)",
+      "D": "O(nlog₂n)"
+    },
+    "answer": null,
+    "explanation": null
+  },
+  {
+    "id": "2017-s02",
+    "year": 2017,
+    "number": 2,
+    "type": "single",
+    "chapter": "栈队列和数组",
+    "topic": "关于栈的叙述正误判定",
+    "difficulty": 1,
+    "question": "下列关于栈的叙述中，错误的是______。\nⅠ. 采用非递归方式重写递归程序时必须使用栈\nⅡ. 函数调用时，系统要用栈保存必要的信息\nⅢ. 只要确定了入栈次序，即可确定出栈次序\nⅣ. 栈是一种受限的线性表，允许在其两端进行操作",
+    "options": {
+      "A": "仅Ⅰ",
+      "B": "仅Ⅰ、Ⅱ、Ⅲ",
+      "C": "仅Ⅰ、Ⅲ、Ⅳ",
+      "D": "仅Ⅱ、Ⅲ、Ⅳ"
+    },
+    "answer": null,
+    "explanation": null
+  },
+  {
+    "id": "2017-s03",
+    "year": 2017,
+    "number": 3,
+    "type": "single",
+    "chapter": "栈队列和数组",
+    "topic": "稀疏矩阵压缩存储的两种结构",
+    "difficulty": 1,
+    "question": "适用于压缩存储稀疏矩阵的两种存储结构是______。",
+    "options": {
+      "A": "三元组表和十字链表",
+      "B": "三元组表和邻接矩阵",
+      "C": "十字链表和二叉链表",
+      "D": "邻接矩阵和十字链表"
+    },
+    "answer": null,
+    "explanation": null
+  },
+  {
+    "id": "2017-s04",
+    "year": 2017,
+    "number": 4,
+    "type": "single",
+    "chapter": "树与二叉树",
+    "topic": "先序与中序序列相同的条件",
+    "difficulty": 2,
+    "question": "要使一棵非空二叉树的先序序列与中序序列相同，其所有非叶结点须满足的条件是______。",
+    "options": {
+      "A": "只有左子树",
+      "B": "只有右子树",
+      "C": "结点的度均为 1",
+      "D": "结点的度均为 2"
+    },
+    "answer": null,
+    "explanation": null
+  },
+  {
+    "id": "2017-s05",
+    "year": 2017,
+    "number": 5,
+    "type": "single",
+    "chapter": "树与二叉树",
+    "topic": "由后序序列确定同层结点",
+    "difficulty": 2,
+    "question": "已知一棵二叉树的树形如下图所示，其后序序列为 e, a, c, b, d, g, f，树中与结点 a 同层的结点是______。（图形题：根结点为 f；f 的左孩子为 c、右孩子为 g；c 只有左孩子 a，a 只有左孩子 e；g 只有左孩子 d，d 只有左孩子 b。原图见 images/2017/page-1.png 第5题处）",
+    "options": {
+      "A": "c",
+      "B": "d",
+      "C": "f",
+      "D": "g"
+    },
+    "answer": null,
+    "explanation": null
+  },
+  {
+    "id": "2017-s06",
+    "year": 2017,
+    "number": 6,
+    "type": "single",
+    "chapter": "树与二叉树",
+    "topic": "哈夫曼编码序列的译码结果",
+    "difficulty": 2,
+    "question": "已知字符集 {a, b, c, d, e, f, g, h}，若各字符的哈夫曼编码依次是 0100, 10, 0000, 0101, 001, 011, 11, 0001，则编码序列 0100011001001011110101 的译码结果是______。",
+    "options": {
+      "A": "acgabfh",
+      "B": "adbagbb",
+      "C": "afbeagd",
+      "D": "afeefgd"
+    },
+    "answer": null,
+    "explanation": null
+  },
+  {
+    "id": "2017-s07",
+    "year": 2017,
+    "number": 7,
+    "type": "single",
+    "chapter": "图",
+    "topic": "由边数与顶点度数求最少顶点数",
+    "difficulty": 2,
+    "question": "已知无向图 G 含有 16 条边，其中度为 4 的顶点个数为 3，度为 3 的顶点个数为 4，其他顶点的度均小于 3。图 G 所含的顶点个数至少是______。",
+    "options": {
+      "A": "10",
+      "B": "11",
+      "C": "13",
+      "D": "15"
+    },
+    "answer": null,
+    "explanation": null
+  },
+  {
+    "id": "2017-s08",
+    "year": 2017,
+    "number": 8,
+    "type": "single",
+    "chapter": "查找",
+    "topic": "折半查找判定树的形态判定",
+    "difficulty": 3,
+    "question": "下列二叉树中，可能成为折半查找判定树（不含外部结点）的是______。（图形题：A、B、C、D 为四棵结点数相同、树形互不相同的二叉树，结点以空心圆表示、未标注关键字。原图见 images/2017/page-2.png 第8题处）",
+    "options": {
+      "A": "（二叉树图形）",
+      "B": "（二叉树图形）",
+      "C": "（二叉树图形）",
+      "D": "（二叉树图形）"
+    },
+    "answer": null,
+    "explanation": null
+  },
+  {
+    "id": "2017-s09",
+    "year": 2017,
+    "number": 9,
+    "type": "single",
+    "chapter": "查找",
+    "topic": "B+树的适用应用场景",
+    "difficulty": 1,
+    "question": "下列应用中，适合使用 B+ 树的是______。",
+    "options": {
+      "A": "编译器中的词法分析",
+      "B": "关系型数据库系统中的索引",
+      "C": "网络中的路由表快速查找",
+      "D": "操作系统的磁盘空闲空间管理"
+    },
+    "answer": null,
+    "explanation": null
+  },
+  {
+    "id": "2017-s10",
+    "year": 2017,
+    "number": 10,
+    "type": "single",
+    "chapter": "排序",
+    "topic": "选择归并排序而非插入排序的理由",
+    "difficulty": 2,
+    "question": "在内部排序时，若选择了归并排序而没有选择插入排序，则可能的理由是______。\nⅠ. 归并排序的程序代码更短\nⅡ. 归并排序的占用空间更少\nⅢ. 归并排序的运行效率更高",
+    "options": {
+      "A": "仅Ⅱ",
+      "B": "仅Ⅲ",
+      "C": "仅Ⅰ、Ⅱ",
+      "D": "仅Ⅰ、Ⅲ"
+    },
+    "answer": null,
+    "explanation": null
+  },
+  {
+    "id": "2017-s11",
+    "year": 2017,
+    "number": 11,
+    "type": "single",
+    "chapter": "排序",
+    "topic": "顺序存储换链式存储后效率降低的排序",
+    "difficulty": 2,
+    "question": "下列排序方法中，若将顺序存储更换为链式存储，则算法的时间效率会降低的是______。\nⅠ. 插入排序\nⅡ. 选择排序\nⅢ. 起泡排序\nⅣ. 希尔排序\nⅤ. 堆排序",
+    "options": {
+      "A": "仅Ⅰ、Ⅱ",
+      "B": "仅Ⅱ、Ⅲ",
+      "C": "仅Ⅲ、Ⅳ",
+      "D": "仅Ⅳ、Ⅴ"
+    },
+    "answer": null,
+    "explanation": null
+  },
+  {
+    "id": "2017-c41",
+    "year": 2017,
+    "number": 41,
+    "type": "comprehensive",
+    "chapter": "树与二叉树",
+    "topic": "表达式树转等价中缀表达式的算法设计",
+    "difficulty": 3,
+    "score": 15,
+    "question": "请设计一个算法，将给定的表达式树（二叉树）转换为等价的中缀表达式（通过括号反映操作符的计算次序）并输出。例如，当下列两棵表达式树作为算法的输入时，输出的等价中缀表达式分别为 (a+b)*(c*(-d)) 和 (a*b)+(-(c-d))。（图形题，两棵表达式树——树一：根为 *，其左子树根为 +（左、右孩子分别为操作数 a、b），其右子树根为 *（左孩子为操作数 c，右孩子为单目运算符 −，该 − 仅有右孩子 d）；树二：根为 +，其左子树根为 *（左、右孩子分别为操作数 a、b），其右子树为单目运算符 −（仅有左孩子，该左子树根为 −，其左、右孩子分别为 c、d）。原图见 images/2017/page-5.png 第41题处）\n二叉树结点定义如下：\ntypedef struct node {\n    char data[10];      // 存储操作数或操作符\n    struct node *left, *right;\n} BTree;\n要求：\n1. 给出算法的基本设计思想；\n2. 根据设计思想，采用 C 或 C++ 语言描述算法，关键之处给出注释。",
+    "options": null,
+    "answer": null,
+    "explanation": null
+  },
+  {
+    "id": "2017-c42",
+    "year": 2017,
+    "number": 42,
+    "type": "comprehensive",
+    "chapter": "图",
+    "topic": "Prim算法选边次序与MST唯一性条件",
+    "difficulty": 2,
+    "score": 8,
+    "question": "使用 Prim（普里姆）算法求带权连通图的最小（代价）生成树（MST）。请回答下列问题。\n1. 对下列图 G，从顶点 A 开始求 G 的 MST，依次给出按算法选出的边；\n2. 图 G 的 MST 是唯一的吗？\n3. 对任意的带权连通图，满足什么条件时，其 MST 是唯一的？\n（图形题：带权无向图 G，顶点 A、B、C、D、E；边及权值：A-B=6、A-E=5、A-D=4、B-C=4、C-E=5、C-D=6、D-E=4。原图见 images/2017/page-6.png 第42题处）",
+    "options": null,
+    "answer": null,
+    "explanation": null
+  }
+]

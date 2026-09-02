@@ -1,0 +1,228 @@
+[
+  {
+    "id": "2010-s01",
+    "year": 2010,
+    "number": 1,
+    "type": "single",
+    "chapter": "栈队列和数组",
+    "topic": "进栈出栈序列合法性",
+    "difficulty": 2,
+    "question": "若元素 a, b, c, d, e, f 依次进栈，允许进栈、退栈操作交替进行，但不允许连续三次退栈操作，则不可能得到的出栈序列是______。",
+    "options": {
+      "A": "dcebfa",
+      "B": "cbdaef",
+      "C": "bcaefd",
+      "D": "afedcb"
+    },
+    "answer": null,
+    "explanation": null
+  },
+  {
+    "id": "2010-s02",
+    "year": 2010,
+    "number": 2,
+    "type": "single",
+    "chapter": "栈队列和数组",
+    "topic": "输出受限的双端队列",
+    "difficulty": 2,
+    "question": "某队列允许在其两端进行入队操作，但仅允许在一端进行出队操作。若元素 a, b, c, d, e 依次入队后再进行出队操作，则不可能得到的出队顺序是______。",
+    "options": {
+      "A": "bacde",
+      "B": "dbace",
+      "C": "dbcae",
+      "D": "ecbad"
+    },
+    "answer": null,
+    "explanation": null
+  },
+  {
+    "id": "2010-s03",
+    "year": 2010,
+    "number": 3,
+    "type": "single",
+    "chapter": "树与二叉树",
+    "topic": "后序线索二叉树",
+    "difficulty": 2,
+    "question": "下列线索二叉树中（用虚线表示线索），符合后序线索树定义的是______。（图形题：四个选项均为线索二叉树图形，原图见 images/2010/page-1.png 第3题处）",
+    "options": {
+      "A": "（线索二叉树图形，见原图）",
+      "B": "（线索二叉树图形，见原图）",
+      "C": "（线索二叉树图形，见原图）",
+      "D": "（线索二叉树图形，见原图）"
+    },
+    "answer": null,
+    "explanation": null
+  },
+  {
+    "id": "2010-s04",
+    "year": 2010,
+    "number": 4,
+    "type": "single",
+    "chapter": "树与二叉树",
+    "topic": "平衡二叉树的插入与旋转",
+    "difficulty": 2,
+    "question": "在右图所示的平衡二叉树中，插入关键字 48 后得到一棵新平衡二叉树。在新平衡二叉树中，关键字 37 所在结点的左、右子结点中保存的关键字分别是______。（原图：根结点为 24，左孩子 13、右孩子 53；53 的左孩子 37、右孩子 90，见 images/2010/page-1.png 第4题处）",
+    "options": {
+      "A": "13, 48",
+      "B": "24, 48",
+      "C": "24, 53",
+      "D": "24, 90"
+    },
+    "answer": null,
+    "explanation": null
+  },
+  {
+    "id": "2010-s05",
+    "year": 2010,
+    "number": 5,
+    "type": "single",
+    "chapter": "树与二叉树",
+    "topic": "树的度与叶结点计数",
+    "difficulty": 2,
+    "question": "在一棵度为 4 的树 T 中，若有 20 个度为 4 的结点，10 个度为 3 的结点，1 个度为 2 的结点，10 个度为 1 的结点，则树 T 的叶结点个数是______。",
+    "options": {
+      "A": "41",
+      "B": "82",
+      "C": "113",
+      "D": "122"
+    },
+    "answer": null,
+    "explanation": null
+  },
+  {
+    "id": "2010-s06",
+    "year": 2010,
+    "number": 6,
+    "type": "single",
+    "chapter": "树与二叉树",
+    "topic": "哈夫曼树性质",
+    "difficulty": 1,
+    "question": "对 n（n≥2）个权值均不相同的字符构成哈夫曼树。下列关于该哈夫曼树的叙述中，错误的是______。",
+    "options": {
+      "A": "该树一定是一棵完全二叉树",
+      "B": "树中一定没有度为 1 的结点",
+      "C": "树中两个权值最小的结点一定是兄弟结点",
+      "D": "树中任一非叶结点的权值一定不小于下一层任一结点的权值"
+    },
+    "answer": null,
+    "explanation": null
+  },
+  {
+    "id": "2010-s07",
+    "year": 2010,
+    "number": 7,
+    "type": "single",
+    "chapter": "图",
+    "topic": "保证连通的最少边数",
+    "difficulty": 2,
+    "question": "若无向图 G=(V,E) 中含有 7 个顶点，要保证图 G 在任何情况下都是连通的，则需要的边数最少是______。",
+    "options": {
+      "A": "6",
+      "B": "15",
+      "C": "16",
+      "D": "21"
+    },
+    "answer": null,
+    "explanation": null
+  },
+  {
+    "id": "2010-s08",
+    "year": 2010,
+    "number": 8,
+    "type": "single",
+    "chapter": "图",
+    "topic": "拓扑序列个数",
+    "difficulty": 2,
+    "question": "对右图进行拓扑排序，可以得到不同的拓扑序列的个数是______。（原图：有向图，顶点 a、b、c、d、e；有向边为 a→e、a→b、a→c、b→c、c→d、e→d，见 images/2010/page-2.png 第8题处）",
+    "options": {
+      "A": "4",
+      "B": "3",
+      "C": "2",
+      "D": "1"
+    },
+    "answer": null,
+    "explanation": null
+  },
+  {
+    "id": "2010-s09",
+    "year": 2010,
+    "number": 9,
+    "type": "single",
+    "chapter": "查找",
+    "topic": "折半查找最多比较次数",
+    "difficulty": 2,
+    "question": "已知一个长度为 16 的顺序表 L，其元素按关键字有序排列。若采用折半查找法查找一个 L 中不存在的元素，则关键字的比较次数最多是______。",
+    "options": {
+      "A": "4",
+      "B": "5",
+      "C": "6",
+      "D": "7"
+    },
+    "answer": null,
+    "explanation": null
+  },
+  {
+    "id": "2010-s10",
+    "year": 2010,
+    "number": 10,
+    "type": "single",
+    "chapter": "排序",
+    "topic": "快速排序递归次数",
+    "difficulty": 1,
+    "question": "采用递归方式对顺序表进行快速排序。下列关于递归次数的叙述中，正确的是______。",
+    "options": {
+      "A": "递归次数与初始数据的排列次序无关",
+      "B": "每次划分后，先处理较长的分区可以减少递归次数",
+      "C": "每次划分后，先处理较短的分区可以减少递归次数",
+      "D": "递归次数与每次划分后得到的分区的处理顺序无关"
+    },
+    "answer": null,
+    "explanation": null
+  },
+  {
+    "id": "2010-s11",
+    "year": 2010,
+    "number": 11,
+    "type": "single",
+    "chapter": "排序",
+    "topic": "由排序过程识别排序方法",
+    "difficulty": 2,
+    "question": "对一组数据（2, 12, 16, 88, 5, 10）进行排序，若前三趟排序结果如下：第一趟排序结果：2, 12, 16, 5, 10, 88；第二趟排序结果：2, 12, 5, 10, 16, 88；第三趟排序结果：2, 5, 10, 12, 16, 88。则采用的排序方法可能是______。",
+    "options": {
+      "A": "冒泡排序",
+      "B": "希尔排序",
+      "C": "归并排序",
+      "D": "基数排序"
+    },
+    "answer": null,
+    "explanation": null
+  },
+  {
+    "id": "2010-c41",
+    "year": 2010,
+    "number": 41,
+    "type": "comprehensive",
+    "chapter": "查找",
+    "topic": "散列表构造与平均查找长度",
+    "difficulty": 2,
+    "score": 10,
+    "question": "将关键字序列（7, 8, 30, 11, 18, 9, 14）散列存储到散列表中。散列表的存储空间是一个下标从 0 开始的一维数组，散列函数为 H(key) = (key×3) mod 7，处理冲突采用线性探测再散列法，要求装填（载）因子为 0.7。\n1）请画出所构造的散列表。\n2）分别计算等概率情况下查找成功和查找不成功的平均查找长度。",
+    "options": null,
+    "answer": null,
+    "explanation": null
+  },
+  {
+    "id": "2010-c42",
+    "year": 2010,
+    "number": 42,
+    "type": "comprehensive",
+    "chapter": "栈队列和数组",
+    "topic": "数组循环左移算法",
+    "difficulty": 3,
+    "score": 13,
+    "question": "设将 n（n>1）个整数存放到一维数组 R 中。试设计一个在时间和空间两方面都尽可能高效的算法，将 R 中保存的序列循环左移 p（0<p<n）个位置，即将 R 中的数据由（X0, X1, …, Xn-1）变换为（Xp, Xp+1, …, Xn-1, X0, X1, …, Xp-1）。要求：\n1）给出算法的基本设计思想。\n2）根据设计思想，采用 C、C++ 或 Java 语言描述算法，关键之处给出注释。\n3）说明你所设计算法的时间复杂度和空间复杂度。",
+    "options": null,
+    "answer": null,
+    "explanation": null
+  }
+]

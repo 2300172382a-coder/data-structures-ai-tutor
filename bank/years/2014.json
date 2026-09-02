@@ -1,0 +1,228 @@
+[
+  {
+    "id": "2014-s01",
+    "year": 2014,
+    "number": 1,
+    "type": "single",
+    "chapter": "线性表",
+    "topic": "程序段时间复杂度分析",
+    "difficulty": 2,
+    "question": "下列程序段的时间复杂度是______。\ncount=0;\nfor(k=1;k<=n;k*=2)\n    for(j=1;j<=n;j++) count++;",
+    "options": {
+      "A": "O(log₂n)",
+      "B": "O(n)",
+      "C": "O(nlog₂n)",
+      "D": "O(n²)"
+    },
+    "answer": null,
+    "explanation": null
+  },
+  {
+    "id": "2014-s02",
+    "year": 2014,
+    "number": 2,
+    "type": "single",
+    "chapter": "栈队列和数组",
+    "topic": "中缀转后缀过程中栈的内容",
+    "difficulty": 3,
+    "question": "假设栈初始为空。将中缀表达式 a/b+(c*d-e*f)/g 转换为等价的后缀表达式的过程中，当扫描到 f 时，栈中的元素依次是______。",
+    "options": {
+      "A": "+(*-",
+      "B": "+(-*",
+      "C": "/+(*-*",
+      "D": "/+-*"
+    },
+    "answer": null,
+    "explanation": null
+  },
+  {
+    "id": "2014-s03",
+    "year": 2014,
+    "number": 3,
+    "type": "single",
+    "chapter": "栈队列和数组",
+    "topic": "双端循环队列队空队满判定",
+    "difficulty": 2,
+    "question": "循环队列存放在一维数组 A[0…M-1] 中，end1 指向队头元素，end2 指向队尾元素的后一个位置。假设队列两端均可进行入队和出队操作，队列中最多能容纳 M-1 个元素。初始时为空。下列判断队空和队满的条件中，正确的是______。",
+    "options": {
+      "A": "队空：end1 == end2；队满：end1 == (end2+1) mod M",
+      "B": "队空：end1 == end2；队满：end2 == (end1+1) mod (M-1)",
+      "C": "队空：end2 == (end1+1) mod M；队满：end1 == (end2+1) mod M",
+      "D": "队空：end1 == (end2+1) mod M；队满：end2 == (end1+1) mod (M-1)"
+    },
+    "answer": null,
+    "explanation": null
+  },
+  {
+    "id": "2014-s04",
+    "year": 2014,
+    "number": 4,
+    "type": "single",
+    "chapter": "树与二叉树",
+    "topic": "中序线索化的线索指向",
+    "difficulty": 2,
+    "question": "若对如下的二叉树进行中序线索化，则结点 x 的左、右线索指向的结点分别是______。（图：二叉树——根结点 a，a 的左孩子为 b、右孩子为 c；b 的左孩子为 d、右孩子为 x；d 有一个孩子 e。原图见 images/2014/page-1.png 第4题处）",
+    "options": {
+      "A": "e、c",
+      "B": "e、a",
+      "C": "d、c",
+      "D": "b、a"
+    },
+    "answer": null,
+    "explanation": null
+  },
+  {
+    "id": "2014-s05",
+    "year": 2014,
+    "number": 5,
+    "type": "single",
+    "chapter": "树与二叉树",
+    "topic": "森林转二叉树后叶结点的对应",
+    "difficulty": 2,
+    "question": "将森林 F 转换为对应的二叉树 T，F 中叶结点的个数等于______。",
+    "options": {
+      "A": "T 中叶结点的个数",
+      "B": "T 中度为 1 的结点个数",
+      "C": "T 中左孩子指针为空的结点个数",
+      "D": "T 中右孩子指针为空的结点个数"
+    },
+    "answer": null,
+    "explanation": null
+  },
+  {
+    "id": "2014-s06",
+    "year": 2014,
+    "number": 6,
+    "type": "single",
+    "chapter": "树与二叉树",
+    "topic": "前缀编码判定",
+    "difficulty": 2,
+    "question": "5 个字符有如下 4 种编码方案，不是前缀编码的是______。",
+    "options": {
+      "A": "01, 0000, 0001, 001, 1",
+      "B": "011, 000, 001, 010, 1",
+      "C": "000, 001, 010, 011, 100",
+      "D": "0, 100, 110, 1110, 1100"
+    },
+    "answer": null,
+    "explanation": null
+  },
+  {
+    "id": "2014-s07",
+    "year": 2014,
+    "number": 7,
+    "type": "single",
+    "chapter": "图",
+    "topic": "拓扑序列判定",
+    "difficulty": 3,
+    "question": "对如下所示的有向图进行拓扑排序，得到的拓扑序列可能是______。（图：有向图，顶点 1~6；顶点位置：1、2 在顶部，3、4、5 在中部，6 在底部；有向边：3→1、1→2、3→4、1→4、2→5、4→5、4→6，另有 5 与 6 之间的一条边，该边箭头方向以原图为准。原图见 images/2014/page-2.png 第7题处）",
+    "options": {
+      "A": "3, 1, 2, 4, 5, 6",
+      "B": "3, 1, 2, 6, 5, 4",
+      "C": "3, 1, 4, 2, 5, 6",
+      "D": "3, 1, 4, 2, 6, 5"
+    },
+    "answer": null,
+    "explanation": null
+  },
+  {
+    "id": "2014-s08",
+    "year": 2014,
+    "number": 8,
+    "type": "single",
+    "chapter": "查找",
+    "topic": "散列堆积现象的影响",
+    "difficulty": 1,
+    "question": "用哈希（散列）方法处理冲突（碰撞）时可能出现堆积（聚集）现象。下列选项中，会受堆积现象直接影响的是______。",
+    "options": {
+      "A": "存储效率",
+      "B": "散列函数",
+      "C": "装填（装载）因子",
+      "D": "平均查找长度"
+    },
+    "answer": null,
+    "explanation": null
+  },
+  {
+    "id": "2014-s09",
+    "year": 2014,
+    "number": 9,
+    "type": "single",
+    "chapter": "查找",
+    "topic": "B树含关键字结点数的最大值",
+    "difficulty": 3,
+    "question": "在一棵具有 15 个关键字的 6 阶 B 树中，含关键字的结点个数最多是______。",
+    "options": {
+      "A": "5",
+      "B": "6",
+      "C": "8",
+      "D": "15"
+    },
+    "answer": null,
+    "explanation": null
+  },
+  {
+    "id": "2014-s10",
+    "year": 2014,
+    "number": 10,
+    "type": "single",
+    "chapter": "排序",
+    "topic": "希尔排序第一趟的增量",
+    "difficulty": 3,
+    "question": "用希尔排序方法对一个数据序列进行排序时，若第 1 趟排序结果为 9, 1, 4, 13, 7, 8, 20, 23, 15，则该趟排序采用的增量（间隔）可能是______。",
+    "options": {
+      "A": "2",
+      "B": "3",
+      "C": "4",
+      "D": "5"
+    },
+    "answer": null,
+    "explanation": null
+  },
+  {
+    "id": "2014-s11",
+    "year": 2014,
+    "number": 11,
+    "type": "single",
+    "chapter": "排序",
+    "topic": "快速排序第二趟结果判定",
+    "difficulty": 3,
+    "question": "下列选项中，不可能是快速排序第 2 趟排序结果的是______。",
+    "options": {
+      "A": "2, 3, 5, 4, 6, 7, 9",
+      "B": "2, 7, 5, 6, 4, 3, 9",
+      "C": "3, 2, 5, 4, 7, 6, 9",
+      "D": "4, 2, 3, 5, 7, 6, 9"
+    },
+    "answer": null,
+    "explanation": null
+  },
+  {
+    "id": "2014-c41",
+    "year": 2014,
+    "number": 41,
+    "type": "comprehensive",
+    "chapter": "树与二叉树",
+    "topic": "二叉树WPL的算法设计",
+    "difficulty": 3,
+    "score": 13,
+    "question": "二叉树的带权路径长度（WPL）是二叉树中所有叶结点的带权路径长度之和。给定一棵二叉树 T，采用二叉链表存储，结点结构包含 left、weight、right 三个域（left、right 为指针域，weight 为权值域）。其中叶结点的 weight 域保存该结点的非负权值。设 root 为指向 T 的根结点的指针，请设计求 T 的 WPL 的算法，要求：\n1）给出算法的基本设计思想。\n2）使用 C 或 C++ 语言，给出二叉树结点的数据类型定义。\n3）根据设计思想，采用 C 或 C++ 语言描述算法，关键之处给出注释。",
+    "options": null,
+    "answer": null,
+    "explanation": null
+  },
+  {
+    "id": "2014-c42",
+    "year": 2014,
+    "number": 42,
+    "type": "comprehensive",
+    "chapter": "图",
+    "topic": "链式存储结构设计与Dijkstra最短路径",
+    "difficulty": 3,
+    "score": 10,
+    "question": "某网络中的路由器运行 OSPF 路由协议，题42表是路由器 R1 维护的主要链路状态信息（LSI），题42图是根据题42表及 R1 的接口名构造出来的网络拓扑。\n题42表 R1所维护的LSI（每行格式：字段 | R1的LSI | R2的LSI | R3的LSI | R4的LSI | 备注）：\nRouter ID | 10.1.1.1 | 10.1.1.2 | 10.1.1.5 | 10.1.1.6 | 标识路由器的IP地址\nLink1 ID | 10.1.1.2 | 10.1.1.1 | 10.1.1.6 | 10.1.1.5 | 所连接路由器的Router ID\nLink1 IP | 10.1.1.1 | 10.1.1.2 | 10.1.1.5 | 10.1.1.6 | Link1的本地IP地址\nLink1 Metric | 3 | 3 | 6 | 6 | Link1的费用\nLink2 ID | 10.1.1.5 | 10.1.1.6 | 10.1.1.1 | 10.1.1.2 | 所连接路由器的Router ID\nLink2 IP | 10.1.1.9 | 10.1.1.13 | 10.1.1.10 | 10.1.1.14 | Link2的本地IP地址\nLink2 Metric | 2 | 4 | 2 | 4 | Link2的费用\nNet1 Prefix | 192.1.1.0/24 | 192.1.6.0/24 | 192.1.5.0/24 | 192.1.7.0/24 | 直连网络Net1的网络前缀\nNet1 Metric | 1 | 1 | 1 | 1 | 到达直连网络Net1的费用\n题42图（原图见 images/2014/page-5.png 第42题处）：路由器 R1、R2、R3、R4 及网络 N1~N4；R1—R2 链路（R1 侧 IP 10.1.1.1，R2 侧 IP 10.1.1.2，费用 3）；R1—R3 链路（R1 侧 IP 10.1.1.9，R3 侧 IP 10.1.1.10，费用 2）；R2—R4 链路（R2 侧 IP 10.1.1.13，R4 侧 IP 10.1.1.14，费用 4）；R3—R4 链路（R3 侧 IP 10.1.1.5，R4 侧 IP 10.1.1.6，费用 6）；R1 直连网络 N1（192.1.1.0/24，费用 1）；R2 直连 N2（192.1.6.0/24，费用 1）；R3 直连 N3（192.1.5.0/24，费用 1）；R4 直连 N4（192.1.7.0/24，费用 1）。\n请回答下列问题：\n1）本题中的网络可抽象为数据结构中的哪种逻辑结构？\n2）针对题42表中的内容，设计合理的链式存储结构，以保存题42表中的链路状态信息（LSI）。要求给出链式存储结构的数据类型定义，并画出对应题42表的链式存储结构示意图（示意图中可以仅以ID标识结点）。\n3）按照迪杰斯特拉（Dijkstra）算法的策略，依次给出 R1 到题42图中子网 192.1.x.x 的最短路径及费用。",
+    "options": null,
+    "answer": null,
+    "explanation": null
+  }
+]

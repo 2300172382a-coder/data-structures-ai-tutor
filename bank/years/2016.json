@@ -1,0 +1,228 @@
+[
+  {
+    "id": "2016-s01",
+    "year": 2016,
+    "number": 1,
+    "type": "single",
+    "chapter": "线性表",
+    "topic": "单链表存储状态与链接地址",
+    "difficulty": 2,
+    "question": "已知表头元素为 c 的单链表在内存中的存储状态如下表所示（地址自 1000H 起，每单元 4 字节，每单元含元素与链接地址）：1000H 存 a、链接地址 1010H；1004H 存 b、链接地址 100CH；1008H 存 c、链接地址 1000H；100CH 存 d、链接地址 NULL；1010H 存 e、链接地址 1004H。现将 f 存放于 1014H 处并插入到单链表中，若 f 在逻辑上位于 a 和 e 之间，则 a, e, f 的“链接地址”依次是______。",
+    "options": {
+      "A": "1010H，1014H，1004H",
+      "B": "1010H，1004H，1014H",
+      "C": "1014H，1010H，1004H",
+      "D": "1014H，1004H，1010H"
+    },
+    "answer": null,
+    "explanation": null
+  },
+  {
+    "id": "2016-s02",
+    "year": 2016,
+    "number": 2,
+    "type": "single",
+    "chapter": "线性表",
+    "topic": "双向循环链表删除结点的语句序列",
+    "difficulty": 1,
+    "question": "已知一个带有表头结点的双向循环链表 L，结点结构为（prev | data | next），其中 prev 和 next 分别是指向其直接前驱和直接后继结点的指针。现要删除指针 p 所指的结点，正确的语句序列是______。",
+    "options": {
+      "A": "p->next->prev = p->prev; p->prev->next = p->prev; free(p);",
+      "B": "p->next->prev = p->next; p->prev->next = p->next; free(p);",
+      "C": "p->next->prev = p->next; p->prev->next = p->prev; free(p);",
+      "D": "p->next->prev = p->prev; p->prev->next = p->next; free(p);"
+    },
+    "answer": null,
+    "explanation": null
+  },
+  {
+    "id": "2016-s03",
+    "year": 2016,
+    "number": 3,
+    "type": "single",
+    "chapter": "栈队列和数组",
+    "topic": "多队列调度最少轨道数",
+    "difficulty": 3,
+    "question": "设有如下图所示的火车车轨，入口到出口之间有 n 条轨道，列车的行进方向均为从左至右，列车可驶入任意一条轨道。现有编号为 1~9 的 9 列列车，驶入的次序依次是 8, 4, 2, 5, 3, 9, 1, 6, 7。若期望驶出的次序依次为 1~9，则 n 至少是______。（图形题：铁路调度示意图，左端为“入口”，右端为“出口”，中间为 n 条平行轨道。原图见 images/2016/page-1.png 第3题处）",
+    "options": {
+      "A": "2",
+      "B": "3",
+      "C": "4",
+      "D": "5"
+    },
+    "answer": null,
+    "explanation": null
+  },
+  {
+    "id": "2016-s04",
+    "year": 2016,
+    "number": 4,
+    "type": "single",
+    "chapter": "栈队列和数组",
+    "topic": "三对角矩阵行优先压缩存储下标",
+    "difficulty": 2,
+    "question": "有一个 100 阶的三对角矩阵 M，其元素 mi,j（1≤i≤100，1≤j≤100）按行优先依次压缩存入下标从 0 开始的一维数组 N 中。元素 m30,30 在数组 N 中的下标是______。",
+    "options": {
+      "A": "86",
+      "B": "87",
+      "C": "88",
+      "D": "89"
+    },
+    "answer": null,
+    "explanation": null
+  },
+  {
+    "id": "2016-s05",
+    "year": 2016,
+    "number": 5,
+    "type": "single",
+    "chapter": "树与二叉树",
+    "topic": "由边数和结点数求森林中树的个数",
+    "difficulty": 2,
+    "question": "若森林 F 有 15 条边、25 个结点，则 F 包含树的个数是______。",
+    "options": {
+      "A": "8",
+      "B": "9",
+      "C": "10",
+      "D": "11"
+    },
+    "answer": null,
+    "explanation": null
+  },
+  {
+    "id": "2016-s06",
+    "year": 2016,
+    "number": 6,
+    "type": "single",
+    "chapter": "图",
+    "topic": "有向图深度优先搜索序列判定",
+    "difficulty": 2,
+    "question": "下列选项中，不是下图深度优先搜索序列的是______。（图形题：有向图，顶点 V1~V5；弧为 V1→V2、V1→V3、V1→V5、V2→V5、V3→V2、V4→V3、V5→V4。原图见 images/2016/page-2.png 第6题处）",
+    "options": {
+      "A": "V1, V5, V4, V3, V2",
+      "B": "V1, V3, V2, V5, V4",
+      "C": "V1, V2, V5, V4, V3",
+      "D": "V1, V2, V3, V4, V5"
+    },
+    "answer": null,
+    "explanation": null
+  },
+  {
+    "id": "2016-s07",
+    "year": 2016,
+    "number": 7,
+    "type": "single",
+    "chapter": "图",
+    "topic": "邻接表存储下拓扑排序的时间复杂度",
+    "difficulty": 1,
+    "question": "若将 n 个顶点 e 条弧的有向图采用邻接表存储，则拓扑排序算法的时间复杂度是______。",
+    "options": {
+      "A": "O(n)",
+      "B": "O(n+e)",
+      "C": "O(n²)",
+      "D": "O(n×e)"
+    },
+    "answer": null,
+    "explanation": null
+  },
+  {
+    "id": "2016-s08",
+    "year": 2016,
+    "number": 8,
+    "type": "single",
+    "chapter": "图",
+    "topic": "Dijkstra依次得到最短路径的目标顶点",
+    "difficulty": 3,
+    "question": "使用迪杰斯特拉（Dijkstra）算法求下图中从顶点 1 到其他各顶点的最短路径，依次得到的各最短路径的目标顶点是______。（图形题：带权有向图，顶点 1~6；边及权值：1—2(5)、2—3(2)、1—4(2)、1—5(4)、2—4(9)、2—5(6)、3—5(6)、4—5(7)、5—6(5)、3—6(2)；各弧的具体方向以原图为准。原图见 images/2016/page-2.png 第8题处）",
+    "options": {
+      "A": "5, 2, 3, 4, 6",
+      "B": "5, 2, 3, 6, 4",
+      "C": "5, 2, 4, 3, 6",
+      "D": "5, 2, 6, 3, 4"
+    },
+    "answer": null,
+    "explanation": null
+  },
+  {
+    "id": "2016-s09",
+    "year": 2016,
+    "number": 9,
+    "type": "single",
+    "chapter": "查找",
+    "topic": "间隔3跳跃查找与折半查找比较次数",
+    "difficulty": 2,
+    "question": "在有 n（n>1000）个元素的升序数组 A 中查找关键字 x。查找算法的伪代码如下所示。\nk=0;\nwhile(k<n 且 A[k]<x) k=k+3;\nif(k<n 且 A[k]==x) 查找成功;\nelse if(k-1<n 且 A[k-1]==x) 查找成功;\nelse if(k-2<n 且 A[k-2]==x) 查找成功;\nelse 查找失败;\n本算法与折半查找算法相比，有可能具有更少比较次数的情形是______。",
+    "options": {
+      "A": "当 x 不在数组中",
+      "B": "当 x 接近数组开头处",
+      "C": "当 x 接近数组结尾处",
+      "D": "当 x 位于数组中间位置"
+    },
+    "answer": null,
+    "explanation": null
+  },
+  {
+    "id": "2016-s10",
+    "year": 2016,
+    "number": 10,
+    "type": "single",
+    "chapter": "查找",
+    "topic": "B+树不同于B树的特点",
+    "difficulty": 1,
+    "question": "B+ 树不同于 B 树的特点之一是______。",
+    "options": {
+      "A": "能支持顺序查找",
+      "B": "结点中含有关键字",
+      "C": "根结点至少有两个分支",
+      "D": "所有叶结点都在同一层上"
+    },
+    "answer": null,
+    "explanation": null
+  },
+  {
+    "id": "2016-s11",
+    "year": 2016,
+    "number": 11,
+    "type": "single",
+    "chapter": "排序",
+    "topic": "10TB数据文件的外部排序方法",
+    "difficulty": 1,
+    "question": "对 10TB 的数据文件进行排序，应使用的方法是______。",
+    "options": {
+      "A": "希尔排序",
+      "B": "堆排序",
+      "C": "快速排序",
+      "D": "归并排序"
+    },
+    "answer": null,
+    "explanation": null
+  },
+  {
+    "id": "2016-c42",
+    "year": 2016,
+    "number": 42,
+    "type": "comprehensive",
+    "chapter": "树与二叉树",
+    "topic": "正则k叉树叶结点数与结点数最值推导",
+    "difficulty": 3,
+    "score": 8,
+    "question": "如果一棵非空 k（k≥2）叉树中每个非叶结点都有 k 个孩子，则称 T 为正则 k 叉树。请回答下列问题并给出推导过程。\n1. 若 T 有 m 个非叶结点，则 T 中的叶结点有多少个？\n2. 若 T 的高度为 h（单结点的树 h=1），则 T 的结点数最多为多少个？最少为多少个？",
+    "options": null,
+    "answer": null,
+    "explanation": null
+  },
+  {
+    "id": "2016-c43",
+    "year": 2016,
+    "number": 43,
+    "type": "comprehensive",
+    "chapter": "排序",
+    "topic": "基于快速排序划分的集合划分算法设计",
+    "difficulty": 3,
+    "score": 15,
+    "question": "已知由 n（n≥2）个正整数构成的集合 A={ak | 0≤k<n}，将其划分为两个不相交的子集 A1 和 A2，元素个数分别是 n1 和 n2，A1 和 A2 中元素之和分别为 S1 和 S2。设计一个尽可能高效的划分算法，满足 |n1-n2| 最小且 |S1-S2| 最大。要求：\n1. 给出算法的基本设计思想；\n2. 根据设计思想，采用 C 或 C++ 语言描述算法，关键之处给出注释；\n3. 说明你所设计算法的平均时间复杂度和空间复杂度。",
+    "options": null,
+    "answer": null,
+    "explanation": null
+  }
+]
