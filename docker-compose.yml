@@ -1,0 +1,52 @@
+name: data-structures-ai-tutor
+
+services:
+  ollama:
+    image: ollama/ollama:latest
+    container_name: ds-ollama
+    restart: unless-stopped
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama-data:/root/.ollama
+
+  model-init:
+    image: ollama/ollama:latest
+    container_name: ds-model-init
+    depends_on:
+      - ollama
+    environment:
+      OLLAMA_HOST: http://ollama:11434
+      OLLAMA_MODEL: ${OLLAMA_MODEL:-qwen3:4b}
+    entrypoint:
+      - /bin/sh
+      - -c
+      - |
+        until ollama list >/dev/null 2>&1; do sleep 2; done
+        ollama pull "$${OLLAMA_MODEL}"
+    restart: "no"
+
+  open-webui:
+    image: ghcr.io/open-webui/open-webui:main
+    container_name: ds-open-webui
+    restart: unless-stopped
+    depends_on:
+      model-init:
+        condition: service_completed_successfully
+    ports:
+      - "${WEBUI_PORT:-3000}:8080"
+    environment:
+      OLLAMA_BASE_URL: http://ollama:11434
+      WEBUI_NAME: 数据结构 AI 助教
+      WEBUI_SECRET_KEY: ${WEBUI_SECRET_KEY:-change-me-before-sharing}
+      ENABLE_SIGNUP: "true"
+      ENABLE_RAG_HYBRID_SEARCH: "true"
+      RAG_EMBEDDING_MODEL: sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2
+    volumes:
+      - open-webui-data:/app/backend/data
+      - ./bank:/app/backend/data-structures-bank:ro
+
+volumes:
+  ollama-data:
+  open-webui-data:
+
