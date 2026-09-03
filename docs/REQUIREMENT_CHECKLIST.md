@@ -13,7 +13,7 @@
 | 源码与 Git 开发记录 | 源码齐全，分阶段提交，另生成可克隆 bundle | 项目 `.git`、`data-structures-ai-tutor-history.bundle` | 完成 |
 | Codex 交互记录 | 记录需求、决策、失败与修复、证据路径 | `docs/CODEX_INTERACTION_LOG.md` | 完成 |
 | 项目报告 | 架构、数据、实现、测试、局限与复现说明 | `docs/PROJECT_REPORT.md` | 完成 |
-| Git 托管仓库链接 | 当前环境没有 GitHub CLI、远程地址或用户授权，不能伪造外部链接 | 本地完整 Git 历史与 bundle 已交付；提交前由小组推送后补 URL | 待小组账号操作 |
+| Git 托管仓库链接 | 当前环境没有远程地址或用户账号授权，不能伪造外部链接 | 本地完整历史、bundle 和 `docs/GIT_PUBLISHING.md` 已交付；提交前由小组推送后补 URL | 待小组账号操作 |
 
 ## Docker 判断
 

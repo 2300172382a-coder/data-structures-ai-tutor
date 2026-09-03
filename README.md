@@ -37,6 +37,8 @@ python scripts/render_acceptance_report.py
 
 实际大模型结果见 `test-results/acceptance-results.json` 和 `test-results/acceptance-test-report.md`。
 
+将仓库发布到 GitHub/Gitee 的两条命令和 bundle 恢复方法见 [Git 仓库发布说明](docs/GIT_PUBLISHING.md)。
+
 ## 目录
 
 ```text
