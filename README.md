@@ -11,7 +11,7 @@ GitHub 仓库：<https://github.com/2300172382a-coder/data-structures-ai-tutor>�
 - 218 道结构化真题，覆盖 2009–2025 年、六个核心章节；184 道客观题带标准答案与解析。
 - 一个可在 Open WebUI 对话中真实调用的 Workspace Tool，提供随机抽题、客观题判分、题库搜索、章节统计和先修关系 5 个函数。
 - 系统提示词包含身份、范围、输出格式、分层解释、引用、查无资料处理和学术诚信约束。
-- 15 项 Open WebUI 实际验收、5 项优化前后对比、13 项工具单元测试和数据质量检查。
+- 15 项 Open WebUI 实际验收、5 项优化前后对比、13 项工具单元测试、1 项模型配置回归和数据质量检查。
 
 ## 当前机器直接启动（不需要 Docker）
 
@@ -21,13 +21,15 @@ GitHub 仓库：<https://github.com/2300172382a-coder/data-structures-ai-tutor>�
 powershell -ExecutionPolicy Bypass -File .\scripts\start-native.ps1
 ```
 
-等待出现 `Ready: http://127.0.0.1:3000` 后访问该地址，使用已创建的本机管理员账号登录并选择“数据结构 AI 助教”。停止服务：
+等待出现 `Ready: http://127.0.0.1:3000` 后访问该地址，使用已创建的本机管理员账号登录。“数据结构 AI 助教”已设为新对话默认模型；旧对话顶部若仍显示 `qwen2.5-3b-instruct` 也可继续使用，或新建对话切换到课程助教。停止服务：
 
 ```powershell
 powershell -ExecutionPolicy Bypass -File .\scripts\stop-native.ps1
 ```
 
 模型服务默认使用单槽 16K 上下文，足以容纳课程系统提示词、RAG 片段和正常对话。若曾运行旧版本脚本，请先停止再重新启动，新的上下文参数才会生效。
+
+初始化脚本还会关闭 Open WebUI 为本地基础模型默认附加的隐藏内置工具。该工具清单会让简单问候也膨胀到约 6K tokens；关闭后同类实测仅 30 tokens，基础模型在当前机器约 1 秒返回。课程题库工具与 RAG 仍由课程模型单独配置。
 
 首次在另一台 Windows 机器部署时，先运行 `scripts/setup-native.ps1` 下载运行环境，再按 [部署手册](docs/DEPLOYMENT.md) 执行一次初始化。Docker Compose 只是可选方案，题目没有要求必须使用 Docker。
 

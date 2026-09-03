@@ -49,7 +49,7 @@ powershell -ExecutionPolicy Bypass -File .\scripts\stop-native.ps1
      --password "请换成强密码"
    ```
 
-初始化脚本可重复运行：它创建/复用 28 份完整知识库和 11 份教学核心库，导入题库工具、设置 Valve 题库路径、创建课程模型并应用 `config/rag-config.json`。
+初始化脚本可重复运行：它创建/复用 28 份完整知识库和 11 份教学核心库，导入题库工具、设置 Valve 题库路径、创建课程模型、将其设为默认模型、关闭基础模型不需要的隐藏内置工具，并应用 `config/rag-config.json`。
 
 ## C. 可选 Docker Compose
 
@@ -97,6 +97,7 @@ $env:OPENWEBUI_PASSWORD = '你的密码'
 - 端口占用：给 `start-native.ps1` 传入 `-WebPort` 或 `-ModelPort`，并保持两端配置一致。
 - 启动较慢：Open WebUI 首次加载中文向量模型约需 1–2 分钟。
 - 出现 `request (...) exceeds the available context size`：先执行停止脚本，再重新运行最新版启动脚本；可用 `http://127.0.0.1:11435/props` 确认 `n_ctx` 为 16384、`total_slots` 为 1。
+- 提问后只显示闪烁光标：先按 `F5` 刷新，已完成的回复会从对话记录恢复；再重新运行一次初始化脚本。旧配置会给 `qwen2.5-3b-instruct` 注入约 6K tokens 的隐藏工具定义，CPU 首字等待接近 2 分钟；新配置已关闭该注入，同类问候实测约 1 秒返回。
 - 无法下载：ModelScope 下载可断点重试；确认 Git LFS 能获取 BGE 权重。
 - 工具找不到题库：在 Workspace > Tools > Valves 检查 `bank_path`。
 - 修改知识文件后：重新运行初始化脚本或在 Workspace > Knowledge 中重传对应文件。

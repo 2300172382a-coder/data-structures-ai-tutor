@@ -127,7 +127,7 @@ def configure_model(client: Client, project_root: Path, core_kb: dict, base_mode
         },
         "meta": {
             "description": "基于核心教学资料、完整真题档案和结构化题库的数据结构课程助教",
-            "capabilities": {"file_context": True, "citations": True},
+            "capabilities": {"builtin_tools": False, "file_context": True, "citations": True},
             "knowledge": [{"name": CORE_KB_NAME, "type": "collection", "id": core_kb["id"]}],
             "toolIds": [TOOL_ID],
             "tags": [{"name": "数据结构"}, {"name": "课程助教"}],
@@ -139,6 +139,25 @@ def configure_model(client: Client, project_root: Path, core_kb: dict, base_mode
     exists = client.session.get(f"{client.base_url}/api/v1/models/model?id={MODEL_ID}", timeout=30).ok
     endpoint = "/api/v1/models/model/update" if exists else "/api/v1/models/create"
     client.request("POST", endpoint, json=payload)
+
+
+def configure_model_defaults(client: Client) -> None:
+    """Prefer the course model and avoid expensive hidden tools on local CPU inference."""
+    config = client.request("GET", "/api/v1/configs/models")
+    default_metadata = dict(config.get("DEFAULT_MODEL_METADATA") or {})
+    capabilities = dict(default_metadata.get("capabilities") or {})
+    capabilities["builtin_tools"] = False
+    default_metadata["capabilities"] = capabilities
+
+    client.request(
+        "POST",
+        "/api/v1/configs/models",
+        json={
+            **config,
+            "DEFAULT_MODELS": MODEL_ID,
+            "DEFAULT_MODEL_METADATA": default_metadata,
+        },
+    )
     client.request("GET", "/api/models?refresh=true")
 
 
@@ -172,6 +191,7 @@ def main() -> int:
     full_count, core_count = upload_knowledge(client, project_root, full_kb, core_kb)
     configure_tool(client, project_root, bank_path)
     configure_model(client, project_root, core_kb, args.base_model)
+    configure_model_defaults(client)
     rag_config = json.loads((project_root / "config" / "rag-config.json").read_text(encoding="utf-8"))
     client.request("POST", "/api/v1/retrieval/config/update", json=rag_config)
 
