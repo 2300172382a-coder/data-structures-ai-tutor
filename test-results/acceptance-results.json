@@ -1,0 +1,1450 @@
+{
+  "generated_at": "2026-09-03T15:39:36+0800",
+  "base_url": "http://127.0.0.1:3000",
+  "optimized_model": "data-structures-ai-tutor",
+  "base_model": "qwen2.5-3b-instruct",
+  "summary": {
+    "total": 15,
+    "passed": 15
+  },
+  "results": [
+    {
+      "id": 1,
+      "category": "知识问答",
+      "prompt": "严格依据课程资料，只输出四行表格，不写前言或总结：①顺序表按下标随机访问；②顺序表插入时移动后续元素；③单链表已知前驱后修改指针；④单链表先查找插入位置。分别给出复杂度。",
+      "actual_output": "| 选项 | 描述 |\n| --- | --- |\n| ① | 顺序表按下标随机访问的时间复杂度为 `O(1)`。 |\n| ② | 顺序表在第 `i` 个位置插入时,需要把后续元素右移,最坏情况下时间复杂度为 `O(n)`。 |\n| ③ | 单链表已知目标结点的前驱后修改指针的时间复杂度为 `O(1)`. |\n| ④ | 单链表按序号查找仍需从头遍历,时间为 `O(n)`。 |",
+      "sources": [
+        "01-linear-lists.md",
+        "数据结构教学核心库"
+      ],
+      "source_evidence": [
+        {
+          "source": {
+            "name": "数据结构教学核心库",
+            "type": "collection",
+            "id": "7033360b-8d9f-4ce6-a07b-be21cab5b194"
+          },
+          "document": [
+            "## 自测\n1. 为什么顺序表适合随机访问而链表适合频繁局部插入?\n2. 带头结点是否计入线性表长度?\n3. 合并两个有序链表的循环不变量是什么?\n[资料类型:课程讲义;适用章节:线性表]",
+            "## 核心概念\n线性表是有限个同类型数据元素构成的有序序列。除第一个元素外,每个元素有且仅有一个直接前驱;除最后一个元素外,每个元素有且仅有一个直接后继。逻辑上的\"相邻\"不等于物理地址相邻。\n顺序表用一段连续存储空间保存元素。按下标访问是 `O(1)`;若在第 `i` 个位置插入,需要把后续元素右移,最坏 `O(n)`。容量固定时要检测上溢,动态数组扩容时通常申请更大空间并复制原元素。\n单链表结点含数据域和后继指针。已知目标结点的前驱时插入、删除为 `O(1)`;按序号查找仍需从头遍历,时间为 `O(n)`。带头结点链表把空表和首结点操作统一起来,头结点本身不保存有效数据。\n双链表结点同时保存前驱和后继指针,便于双向移动,但每个结点空间开销更大。循环链表的尾结点指回头部,可从任意结点遍历整个表;遍历终止条件不能再写成指针为空。"
+          ],
+          "metadata": [
+            {
+              "start_index": 0,
+              "file_id": "c82b8c94-c597-416d-92d1-1e07fed91a3b",
+              "source": "01-linear-lists.md",
+              "name": "01-linear-lists.md",
+              "embedding_config": "{'engine': '', 'model': 'C:\\\\Users\\\\v\\\\Documents\\\\Codex\\\\2026-09-02\\\\d-xwechat-files-wxid-6lubuwt8juzm22-201c\\\\work\\\\models\\\\bge-small-zh-v1.5'}",
+              "hash": "5438aca937012f3156c9c564b6960233bfe80fe5a58bfa736446bdcaaad2b499",
+              "created_by": "c1d293f5-163f-4c09-9de2-dd56d3eceb4d",
+              "_chunk_hash": "a5335af50a72b13c0e676dd4d5ae7c4e60e8a2471e9b6b621f3be3731ee6f4e3",
+              "score": 0.7314609289169312
+            },
+            {
+              "hash": "5438aca937012f3156c9c564b6960233bfe80fe5a58bfa736446bdcaaad2b499",
+              "source": "01-linear-lists.md",
+              "file_id": "c82b8c94-c597-416d-92d1-1e07fed91a3b",
+              "embedding_config": "{'engine': '', 'model': 'C:\\\\Users\\\\v\\\\Documents\\\\Codex\\\\2026-09-02\\\\d-xwechat-files-wxid-6lubuwt8juzm22-201c\\\\work\\\\models\\\\bge-small-zh-v1.5'}",
+              "created_by": "c1d293f5-163f-4c09-9de2-dd56d3eceb4d",
+              "start_index": 0,
+              "name": "01-linear-lists.md",
+              "_chunk_hash": "1a6560462976265c66c5525d9c8c806c51295cb93dac0b5baaff2fbe057637a2",
+              "score": 0.7099078893661499
+            }
+          ],
+          "distances": [
+            0.7314609289169312,
+            0.7099078893661499
+          ]
+        }
+      ],
+      "tool_calls": [],
+      "finish_reason": "stop",
+      "elapsed_seconds": 26.69,
+      "answer_correct": "是",
+      "citation_correct": "是",
+      "passed": true,
+      "issues": "无",
+      "improvement": "保持当前配置"
+    },
+    {
+      "id": 2,
+      "category": "知识问答",
+      "prompt": "循环队列为什么会保留一个空槽？写出判空和判满条件。",
+      "actual_output": "循环队列保留一个空槽的主要目的是为了区分队列的空状态与满状态，避免在实际操作中因为数组边界问题导致误判。\n\n**判空条件：**\n- 当 `front == rear` 时，表示队列为空。\n\n**判满条件：**\n- 当 `(rear + 1) % capacity == front` 时，表示队列已满。这里使用了模运算来确保循环队列的边界处理正确无误。\n\n这些条件有助于在操作过程中准确判断队列的状态，并避免因数组边界问题导致的错误。",
+      "sources": [
+        "lab-01-linear-structures.md",
+        "02-stacks-queues-arrays.md",
+        "数据结构教学核心库"
+      ],
+      "source_evidence": [
+        {
+          "source": {
+            "name": "数据结构教学核心库",
+            "type": "collection",
+            "id": "7033360b-8d9f-4ce6-a07b-be21cab5b194"
+          },
+          "document": [
+            "## 任务 B:循环队列\n选择并写明一种指针约定。本实验建议 `front` 指向队头元素,`rear` 指向下一个插入位置,并保留一个空槽区分队空与队满。\n验收点:\n1. 初始 `front == rear`。\n2. 入队 `capacity-1` 个元素后报告队满。\n3. 出队再入队能复用数组前部空间。\n4. 多次绕回后元素仍按 FIFO 次序输出。\n5. 对空队列出队返回失败状态,不读取未初始化数据。",
+            "## 队列\n队列只允许在一端入队、另一端出队,遵循先进先出(FIFO)。典型应用包括任务调度、打印缓冲、广度优先搜索和生产者—消费者系统。\n普通数组队列连续出队后会在数组前部留下空位,形成\"假溢出\"。循环队列通过模运算复用这些位置。若 `front` 指向队头元素、`rear` 指向下一可插入位置,常见判定是:\n- 空队列:`front == rear`\n- 保留一个空槽时的满队列:`(rear + 1) % capacity == front`\n- 队列长度:`(rear - front + capacity) % capacity`\n不同教材可能让 `rear` 指向队尾元素,公式会变化。答题时必须先写清指针语义,不能机械套公式。"
+          ],
+          "metadata": [
+            {
+              "hash": "9b845b547a651d095542eec36769c7f6c05bff71ca1a7e8e8f3958fd25e7d27f",
+              "created_by": "c1d293f5-163f-4c09-9de2-dd56d3eceb4d",
+              "name": "lab-01-linear-structures.md",
+              "file_id": "6b9fffd8-2867-4460-88ce-b70d65d3ef77",
+              "source": "lab-01-linear-structures.md",
+              "embedding_config": "{'engine': '', 'model': 'C:\\\\Users\\\\v\\\\Documents\\\\Codex\\\\2026-09-02\\\\d-xwechat-files-wxid-6lubuwt8juzm22-201c\\\\work\\\\models\\\\bge-small-zh-v1.5'}",
+              "start_index": 0,
+              "_chunk_hash": "ab35dc2a631ba425a8b5bcfef77e4e41eb04102feffa283d935b1fb494302bbc",
+              "score": 0.6500847935676575
+            },
+            {
+              "file_id": "84385577-1d02-4244-924e-1a7724b35794",
+              "hash": "4730d55fc64b317c345787c198f4cf4ef003c7e02a0c52a321e95adbac76aac3",
+              "start_index": 0,
+              "source": "02-stacks-queues-arrays.md",
+              "name": "02-stacks-queues-arrays.md",
+              "embedding_config": "{'engine': '', 'model': 'C:\\\\Users\\\\v\\\\Documents\\\\Codex\\\\2026-09-02\\\\d-xwechat-files-wxid-6lubuwt8juzm22-201c\\\\work\\\\models\\\\bge-small-zh-v1.5'}",
+              "created_by": "c1d293f5-163f-4c09-9de2-dd56d3eceb4d",
+              "_chunk_hash": "049284f77f8a149f62c2990b64857650dac39c62e72e01d5e42a42ba2bc14a4d",
+              "score": 0.6492419242858887
+            }
+          ],
+          "distances": [
+            0.6500847935676575,
+            0.6492419242858887
+          ]
+        }
+      ],
+      "tool_calls": [],
+      "finish_reason": "stop",
+      "elapsed_seconds": 23.63,
+      "answer_correct": "是",
+      "citation_correct": "是",
+      "passed": true,
+      "issues": "无",
+      "improvement": "保持当前配置"
+    },
+    {
+      "id": 3,
+      "category": "知识问答",
+      "prompt": "只用三句话回答：前序和后序遍历能唯一确定二叉树吗？不唯一的具体原因是什么？请只依据课程资料，不讨论完全二叉树，也不要编造遍历序列。",
+      "actual_output": "不能唯一确定一般二叉树。因为只有一个孩子的结点无法判断该孩子在左侧还是右侧。",
+      "sources": [
+        "key-comparison-cards.md",
+        "lab-02-trees-graphs.md",
+        "数据结构教学核心库"
+      ],
+      "source_evidence": [
+        {
+          "source": {
+            "name": "数据结构教学核心库",
+            "type": "collection",
+            "id": "7033360b-8d9f-4ce6-a07b-be21cab5b194"
+          },
+          "document": [
+            "## 前序与后序的唯一性\n前序遍历加后序遍历通常不能唯一确定一般二叉树,因为只有一个孩子的结点无法判断该孩子在左侧还是右侧。结点值互异时,前序加中序或后序加中序才可唯一重建。\n[资料类型:课程辨析卡;适用章节:树、图、排序]",
+            "## 任务 A:二叉树\n根据带空标记的前序序列创建二叉树,实现递归前序、中序、后序和队列层序遍历。增加计算高度、叶结点数和释放树的函数。\n测试至少包含空树、单结点、只有左链、完全二叉树和一般二叉树。只有前序与后序序列时不要声称可以唯一重建一般二叉树。"
+          ],
+          "metadata": [
+            {
+              "name": "key-comparison-cards.md",
+              "file_id": "04d12d87-d3d5-486e-97d8-547a73e6135c",
+              "source": "key-comparison-cards.md",
+              "start_index": 0,
+              "embedding_config": "{'engine': '', 'model': 'C:\\\\Users\\\\v\\\\Documents\\\\Codex\\\\2026-09-02\\\\d-xwechat-files-wxid-6lubuwt8juzm22-201c\\\\work\\\\models\\\\bge-small-zh-v1.5'}",
+              "hash": "b2b14d0210bbeadfad8cbcee0094df72de5440bcb40bfaf0df800e46da0ad47b",
+              "created_by": "c1d293f5-163f-4c09-9de2-dd56d3eceb4d",
+              "_chunk_hash": "144e207202c8a0927803fa7c50a7fe13a1f502cc1019537a20fd465428865347",
+              "score": 0.830552339553833
+            },
+            {
+              "start_index": 0,
+              "hash": "8b206d5613fa71ab66c14592c5e5e70eedfe7d58e672ee7872a31419f0f2d501",
+              "created_by": "c1d293f5-163f-4c09-9de2-dd56d3eceb4d",
+              "embedding_config": "{'engine': '', 'model': 'C:\\\\Users\\\\v\\\\Documents\\\\Codex\\\\2026-09-02\\\\d-xwechat-files-wxid-6lubuwt8juzm22-201c\\\\work\\\\models\\\\bge-small-zh-v1.5'}",
+              "source": "lab-02-trees-graphs.md",
+              "file_id": "29701a11-3f37-4662-818d-0ac36c9824e6",
+              "name": "lab-02-trees-graphs.md",
+              "_chunk_hash": "20181a5ecb676d7f8cbabd0be7c9ef26d5d8feec852c5b59acba4d8484ee5858",
+              "score": 0.779159665107727
+            }
+          ],
+          "distances": [
+            0.830552339553833,
+            0.779159665107727
+          ]
+        }
+      ],
+      "tool_calls": [],
+      "finish_reason": "stop",
+      "elapsed_seconds": 16.92,
+      "answer_correct": "是",
+      "citation_correct": "是",
+      "passed": true,
+      "issues": "无",
+      "improvement": "保持当前配置"
+    },
+    {
+      "id": 4,
+      "category": "知识问答",
+      "prompt": "Dijkstra 算法能处理负权边吗？为什么？",
+      "actual_output": "不能，因为 Dijkstra 算法设计时假设所有边的权重是非负的。如果存在负权边，可能会导致算法陷入无限循环或无法找到最短路径。\n\n具体来说，当从某个顶点出发尝试到达另一个顶点时，如果经过某条边后总代价反而增加（即遇到负权边），那么当前已知的最短路径将被更新为更长的路径。这会导致在处理这些负权边时无法确定一个全局最小值，从而影响算法正确性。\n\n[1]",
+      "sources": [
+        "04-graphs.md",
+        "cpp-algorithm-examples.md",
+        "数据结构教学核心库"
+      ],
+      "source_evidence": [
+        {
+          "source": {
+            "name": "数据结构教学核心库",
+            "type": "collection",
+            "id": "7033360b-8d9f-4ce6-a07b-be21cab5b194"
+          },
+          "document": [
+            "## 常见误区\n- 最小生成树解决\"连接全部顶点总代价最小\",最短路径解决\"两点或单源距离最小\",目标不同。\n- Dijkstra 不能处理负权边,但可以处理权值为 0 的边。\n- 有拓扑序等价于有向图无环;拓扑序唯一需要更强条件。\n[资料类型:课程讲义;适用章节:图]",
+            "## 广度优先搜索\n```cpp\nvector<int> bfs(const vector<vector<int>>& graph, int start) {\nif (start < 0 || start >= static_cast<int>(graph.size())) return {};\nvector<bool> visited(graph.size(), false);\nqueue<int> pending;\nvector<int> order;\nvisited[start] = true;\npending.push(start);\nwhile (!pending.empty()) {\nint u = pending.front(); pending.pop();\norder.push_back(u);\nfor (int v : graph[u]) {\nif (!visited[v]) {\nvisited[v] = true;\npending.push(v);\n}\n}\n}\nreturn order;\n}\n```\n应在入队时标记访问,而不是出队时标记,否则同一顶点可能重复入队。邻接表上时间 `O(|V|+|E|)`,空间 `O(|V|)`。"
+          ],
+          "metadata": [
+            {
+              "source": "04-graphs.md",
+              "file_id": "2fe4b911-d0d6-4e3f-8092-99a51419bbe2",
+              "created_by": "c1d293f5-163f-4c09-9de2-dd56d3eceb4d",
+              "embedding_config": "{'engine': '', 'model': 'C:\\\\Users\\\\v\\\\Documents\\\\Codex\\\\2026-09-02\\\\d-xwechat-files-wxid-6lubuwt8juzm22-201c\\\\work\\\\models\\\\bge-small-zh-v1.5'}",
+              "start_index": 0,
+              "name": "04-graphs.md",
+              "hash": "a07ce66ad7f111eb2f52bf62a99b99e3b24fe72f2853d0ab160cce1d2319c6ee",
+              "_chunk_hash": "eb5dd7315e2454847c3253066947bbff5bcf5c7c04da701206240d6a0952edcf",
+              "score": 0.4722510278224945
+            },
+            {
+              "embedding_config": "{'engine': '', 'model': 'C:\\\\Users\\\\v\\\\Documents\\\\Codex\\\\2026-09-02\\\\d-xwechat-files-wxid-6lubuwt8juzm22-201c\\\\work\\\\models\\\\bge-small-zh-v1.5'}",
+              "hash": "99b6d396a9d1e830dd9bc2b0f3014f6d95a454a19a653043a6b69db409da678a",
+              "file_id": "29a27232-f92d-4c91-bdcd-1132d1b9447a",
+              "name": "cpp-algorithm-examples.md",
+              "created_by": "c1d293f5-163f-4c09-9de2-dd56d3eceb4d",
+              "source": "cpp-algorithm-examples.md",
+              "start_index": 0,
+              "_chunk_hash": "e01a561309d116c28e8d0cb13e45252cf3de42a7d6daabf343f8b3973707964c",
+              "score": 0.471097856760025
+            }
+          ],
+          "distances": [
+            0.4722510278224945,
+            0.471097856760025
+          ]
+        }
+      ],
+      "tool_calls": [],
+      "finish_reason": "stop",
+      "elapsed_seconds": 22.1,
+      "answer_correct": "是",
+      "citation_correct": "是",
+      "passed": true,
+      "issues": "无",
+      "improvement": "保持当前配置"
+    },
+    {
+      "id": 5,
+      "category": "知识问答",
+      "prompt": "开放定址散列表删除元素时为什么不能直接置空？",
+      "actual_output": "在开放定址散列表中，如果直接将冲突槽置为空，可能会导致其他关键字的探测路径被截断。具体来说：\n\n- 当发生冲突后，使用线性探测、平方探测或双散列等方法寻找下一个可用位置。\n- 如果某个元素被删除并直接置空，后续要查找该元素时可能无法继续进行探测，因为所有相邻槽都已被占用。\n- 这样就可能导致其他关键字的探测路径中断，从而影响查找效率。\n\n为了避免这种情况，通常的做法是使用一个删除标记（例如设置为特殊值）而不是简单地清空槽。这样可以保留原来的探测链，并且在后续需要时能够恢复元素的位置。",
+      "sources": [
+        "05-searching.md",
+        "common-errors.md",
+        "数据结构教学核心库"
+      ],
+      "source_evidence": [
+        {
+          "source": {
+            "name": "数据结构教学核心库",
+            "type": "collection",
+            "id": "7033360b-8d9f-4ce6-a07b-be21cab5b194"
+          },
+          "document": [
+            "## 散列表\n散列函数把关键字映射到表地址。不同关键字得到同一地址称冲突。装填因子 `α=记录数/表长`,通常越大冲突越多。\n常见冲突处理:\n- 开放定址:发生冲突后按探测序列寻找空槽,包括线性探测、平方探测和双散列。\n- 拉链法:每个表槽保存同义词链表,删除较自然,也能容纳多于表长的记录。\n开放定址删除不能简单置空,否则可能截断其他关键字的探测路径,应使用删除标记或重建局部结构。成功与失败的平均查找长度都取决于散列函数、冲突处理和装填因子。",
+            "## 查找与排序\n- 在链表上套用折半查找:定位中点不是 `O(1)`,失去优势。\n- 开放定址散列表删除时直接清空槽:会截断其他元素的探测链。\n- 快速排序划分循环在大量相等值时不前进:每个分支必须确保游标移动或采用三路划分。\n- 声称某算法\"最快\":应说明输入规模、分布、稳定性和空间约束。"
+          ],
+          "metadata": [
+            {
+              "created_by": "c1d293f5-163f-4c09-9de2-dd56d3eceb4d",
+              "name": "05-searching.md",
+              "source": "05-searching.md",
+              "start_index": 0,
+              "file_id": "6ecafae6-4224-4c0a-9a6b-2a2bab09de23",
+              "hash": "9c6e7595550cb06cc8842dbc257292a2b2668aa633e8e8fff58c63ce806dc51b",
+              "embedding_config": "{'engine': '', 'model': 'C:\\\\Users\\\\v\\\\Documents\\\\Codex\\\\2026-09-02\\\\d-xwechat-files-wxid-6lubuwt8juzm22-201c\\\\work\\\\models\\\\bge-small-zh-v1.5'}",
+              "_chunk_hash": "7d53f23b28061558d4c7dcde94234e6279d3ea3504a9286ae47ec135440eebb6",
+              "score": 0.712547242641449
+            },
+            {
+              "created_by": "c1d293f5-163f-4c09-9de2-dd56d3eceb4d",
+              "file_id": "1b57055c-5bcf-4df9-ab9f-e5013076f326",
+              "source": "common-errors.md",
+              "embedding_config": "{'engine': '', 'model': 'C:\\\\Users\\\\v\\\\Documents\\\\Codex\\\\2026-09-02\\\\d-xwechat-files-wxid-6lubuwt8juzm22-201c\\\\work\\\\models\\\\bge-small-zh-v1.5'}",
+              "hash": "13c08179545c01164647b18cdea9683d99521c318e272958a2d80ca87f138cb7",
+              "start_index": 0,
+              "name": "common-errors.md",
+              "_chunk_hash": "02c8b01a59d6cc1f1e94a01d1101142784586df9ab5d304cf6b754bd8a8b959f",
+              "score": 0.6987179517745972
+            }
+          ],
+          "distances": [
+            0.712547242641449,
+            0.6987179517745972
+          ]
+        }
+      ],
+      "tool_calls": [],
+      "finish_reason": "stop",
+      "elapsed_seconds": 23.31,
+      "answer_correct": "是",
+      "citation_correct": "是",
+      "passed": true,
+      "issues": "无",
+      "improvement": "保持当前配置"
+    },
+    {
+      "id": 6,
+      "category": "综合分析",
+      "prompt": "严格依据课程资料，用一个表格仅列快速排序、归并排序和堆排序各自的时间复杂度、额外空间和稳定性，再给一条选择建议。不要写前言或重复总结，逐项核对堆排序是否稳定。",
+      "actual_output": "| 算法 | 时间复杂度 | 数组额外空间 | 稳定性 |\n|---|---|---|---|\n| 快速排序 | 平均 `O(n log n)`,最坏 `O(n^2)` | 平均递归栈 `O(log n)` | 不稳定 |\n| 归并排序 | 最好、平均、最坏均为 `O(n log n)` | `O(n)` | 稳定 |\n| 堆排序 | 最好、平均、最坏均为 `O(n log n)` | `O(1)` | 不稳定 |\n\n选择建议：要求稳定性且内存充足时可选归并排序;内存受限且不要求稳定时可选堆排序。",
+      "sources": [
+        "key-comparison-cards.md",
+        "06-sorting.md",
+        "数据结构教学核心库"
+      ],
+      "source_evidence": [
+        {
+          "source": {
+            "name": "数据结构教学核心库",
+            "type": "collection",
+            "id": "7033360b-8d9f-4ce6-a07b-be21cab5b194"
+          },
+          "document": [
+            "## 三种排序算法对比\n| 算法 | 时间复杂度 | 数组额外空间 | 稳定性 |\n|---|---|---|---|\n| 快速排序 | 平均 `O(n log n)`,最坏 `O(n^2)` | 平均递归栈 `O(log n)` | **不稳定** |\n| 归并排序 | 最好、平均、最坏均为 `O(n log n)` | `O(n)` | **稳定** |\n| 堆排序 | 最好、平均、最坏均为 `O(n log n)` | `O(1)` | **不稳定** |\n特别注意:堆排序是不稳定排序;需要稳定性时不能因为它是原地算法就选择它。要求稳定且内存充足时可选归并排序;内存受限且不要求稳定时可选堆排序;平均性能优先时可选改进快速排序。",
+            "# 第六章 排序  \n## 评价维度\n排序算法应从时间复杂度、额外空间、稳定性、数据规模、初始有序程度和存储结构综合选择。稳定排序保证关键字相等元素的相对次序不变。"
+          ],
+          "metadata": [
+            {
+              "name": "key-comparison-cards.md",
+              "created_by": "c1d293f5-163f-4c09-9de2-dd56d3eceb4d",
+              "start_index": 0,
+              "embedding_config": "{'engine': '', 'model': 'C:\\\\Users\\\\v\\\\Documents\\\\Codex\\\\2026-09-02\\\\d-xwechat-files-wxid-6lubuwt8juzm22-201c\\\\work\\\\models\\\\bge-small-zh-v1.5'}",
+              "file_id": "04d12d87-d3d5-486e-97d8-547a73e6135c",
+              "hash": "b2b14d0210bbeadfad8cbcee0094df72de5440bcb40bfaf0df800e46da0ad47b",
+              "source": "key-comparison-cards.md",
+              "_chunk_hash": "ca1158c4ed79879e2d0268359f9dc257b81f3a406355ecbb79a83f341a724f0f",
+              "score": 0.7656295299530029
+            },
+            {
+              "created_by": "c1d293f5-163f-4c09-9de2-dd56d3eceb4d",
+              "hash": "37cf72175ab6ef6f0d96ba190eea9e305c94b0648cf83efa909057799c2f1909",
+              "file_id": "1a0c6d6e-4eb5-4994-bf0f-4688a239d803",
+              "embedding_config": "{'engine': '', 'model': 'C:\\\\Users\\\\v\\\\Documents\\\\Codex\\\\2026-09-02\\\\d-xwechat-files-wxid-6lubuwt8juzm22-201c\\\\work\\\\models\\\\bge-small-zh-v1.5'}",
+              "start_index": 0,
+              "source": "06-sorting.md",
+              "name": "06-sorting.md",
+              "_chunk_hash": "149732c766bc2d4c290898946d8c41d448d31bfd927b1b1e7bb68e50497669b0",
+              "score": 0.7376773357391357
+            }
+          ],
+          "distances": [
+            0.7656295299530029,
+            0.7376773357391357
+          ]
+        }
+      ],
+      "tool_calls": [],
+      "finish_reason": "stop",
+      "elapsed_seconds": 25.43,
+      "answer_correct": "是",
+      "citation_correct": "是",
+      "passed": true,
+      "issues": "无",
+      "improvement": "保持当前配置"
+    },
+    {
+      "id": 7,
+      "category": "综合分析",
+      "prompt": "用邻接表实现 BFS，分析时间复杂度，并明确回答 visited 应在邻接点入队时还是出队时设置；解释这样做如何避免重复入队。",
+      "actual_output": "为了使用邻接表实现广度优先搜索（BFS），我们需要确保每个顶点只被访问一次且仅加入队列一次，以防止重复入队。\n\n首先分析时间复杂度：\n- 邻接表 BFS 的时间复杂度为 `O(|V|+|E|)`。\n- 额外空间复杂度为 `O(|V|)`（用于存储访问标记和队列）。\n\n接下来明确 visited 应在邻接点入队时还是出队时设置：\n\n1. **应在入队时标记访问**：\n   - 当顶点 `u` 入队时，将其对应的访问标志 `visited[u]` 设置为 `true`。\n   - 这样可以确保每个顶点只被访问一次，并且不会重复加入队列。\n\n2. **避免重复入队的方法**：\n   - 在出队后将顶点 `u` 的访问标志设置为 `true`，但此时顶点已经从队列中移除。\n   - 如果在出队时再标记访问，则可能会导致同一顶点被多次加入队列。例如，在某个前驱节点的邻接点入队操作中，该顶点可能已经被其他前驱节点的邻接点重复加入队列。\n\n综上所述：\n- 应在入队时设置 `visited[u] = true`。\n- 这样可以确保每个顶点只被访问一次，并且不会重复加入队列。\n\n以下是实现代码示例：\n\n```cpp\nvector<int> bfs(const vector<vector<int>>& graph, int start) {\n    if (start < 0 || start >= static_cast<int>(graph.size())) return {};\n\n    vector<bool> visited(graph.size(), false);\n    queue<int> pending;\n    vector<int> order;\n\n    // 入队时标记访问\n    visited[start] = true;\n    pending.push(start);\n\n    while (!pending.empty()) {\n        int u = pending.front(); pending.pop();\n        order.push_back(u);\n\n        for (int v : graph[u]) {\n            if (!visited[v]) {\n                visited[v] = true;  // 入队时标记\n                pending.push(v);\n            }\n        }\n    }\n\n    return order;\n}\n```\n\n通过这种方式，我们确保每个顶点只被访问一次，并且不会重复加入队列。",
+      "sources": [
+        "key-comparison-cards.md",
+        "cpp-algorithm-examples.md",
+        "数据结构教学核心库"
+      ],
+      "source_evidence": [
+        {
+          "source": {
+            "name": "数据结构教学核心库",
+            "type": "collection",
+            "id": "7033360b-8d9f-4ce6-a07b-be21cab5b194"
+          },
+          "document": [
+            "## BFS 的访问标记时机\n发现一个尚未访问的邻接点 `v` 时,必须先设置 `visited[v] = true`,随后执行 `queue.push(v)`。也可表述为\"在入队时标记\",不能等到 `v` 出队时才标记,否则多个前驱可能把同一顶点重复加入队列。\n```cpp\nif (!visited[v]) {\nvisited[v] = true;  // 先标记\npending.push(v);    // 后入队\n}\n```\n邻接表 BFS 的时间复杂度为 `O(|V|+|E|)`,额外空间为 `O(|V|)`。",
+            "## 广度优先搜索\n```cpp\nvector<int> bfs(const vector<vector<int>>& graph, int start) {\nif (start < 0 || start >= static_cast<int>(graph.size())) return {};\nvector<bool> visited(graph.size(), false);\nqueue<int> pending;\nvector<int> order;\nvisited[start] = true;\npending.push(start);\nwhile (!pending.empty()) {\nint u = pending.front(); pending.pop();\norder.push_back(u);\nfor (int v : graph[u]) {\nif (!visited[v]) {\nvisited[v] = true;\npending.push(v);\n}\n}\n}\nreturn order;\n}\n```\n应在入队时标记访问,而不是出队时标记,否则同一顶点可能重复入队。邻接表上时间 `O(|V|+|E|)`,空间 `O(|V|)`。"
+          ],
+          "metadata": [
+            {
+              "file_id": "04d12d87-d3d5-486e-97d8-547a73e6135c",
+              "created_by": "c1d293f5-163f-4c09-9de2-dd56d3eceb4d",
+              "embedding_config": "{'engine': '', 'model': 'C:\\\\Users\\\\v\\\\Documents\\\\Codex\\\\2026-09-02\\\\d-xwechat-files-wxid-6lubuwt8juzm22-201c\\\\work\\\\models\\\\bge-small-zh-v1.5'}",
+              "source": "key-comparison-cards.md",
+              "start_index": 0,
+              "name": "key-comparison-cards.md",
+              "hash": "b2b14d0210bbeadfad8cbcee0094df72de5440bcb40bfaf0df800e46da0ad47b",
+              "_chunk_hash": "3026490823333f9180854d3ea3cefe98f1473768e230a797f0ccb4a9ce68d399",
+              "score": 0.7024456262588501
+            },
+            {
+              "name": "cpp-algorithm-examples.md",
+              "source": "cpp-algorithm-examples.md",
+              "embedding_config": "{'engine': '', 'model': 'C:\\\\Users\\\\v\\\\Documents\\\\Codex\\\\2026-09-02\\\\d-xwechat-files-wxid-6lubuwt8juzm22-201c\\\\work\\\\models\\\\bge-small-zh-v1.5'}",
+              "file_id": "29a27232-f92d-4c91-bdcd-1132d1b9447a",
+              "created_by": "c1d293f5-163f-4c09-9de2-dd56d3eceb4d",
+              "hash": "99b6d396a9d1e830dd9bc2b0f3014f6d95a454a19a653043a6b69db409da678a",
+              "start_index": 0,
+              "_chunk_hash": "e01a561309d116c28e8d0cb13e45252cf3de42a7d6daabf343f8b3973707964c",
+              "score": 0.6768926382064819
+            }
+          ],
+          "distances": [
+            0.7024456262588501,
+            0.6768926382064819
+          ]
+        }
+      ],
+      "tool_calls": [],
+      "finish_reason": "stop",
+      "elapsed_seconds": 44.81,
+      "answer_correct": "是",
+      "citation_correct": "是",
+      "passed": true,
+      "issues": "无",
+      "improvement": "保持当前配置"
+    },
+    {
+      "id": 8,
+      "category": "综合分析",
+      "prompt": "学生说“链表插入永远是 O(1)”，请分析这句话。",
+      "actual_output": "这句话不准确，因为链表的插入操作取决于具体实现方式。\n\n- 如果在头结点之前插入（即 `O(1)`），那么只需要修改指针即可。\n- 但如果是在尾部或中间位置插入，则需要遍历找到下一个节点的位置，因此时间复杂度为 `O(n)`。",
+      "sources": [
+        "01-linear-lists.md",
+        "数据结构教学核心库"
+      ],
+      "source_evidence": [
+        {
+          "source": {
+            "name": "数据结构教学核心库",
+            "type": "collection",
+            "id": "7033360b-8d9f-4ce6-a07b-be21cab5b194"
+          },
+          "document": [
+            "## 常见误区\n- \"链表插入一定是 `O(1)`\"不准确;若需先查找插入位置,总时间仍为 `O(n)`。\n- 删除单链表尾结点时,需要找到它的前驱,不能仅凭尾指针完成。\n- 空表、单结点表、删除首尾结点是链表代码的关键边界。",
+            "## 高频算法  \n### 单链表逆置\n维护 `prev`、`current`、`next` 三个指针。每轮先保存 `current->next`,再反转指向,最后整体前移。时间 `O(n)`,额外空间 `O(1)`。如果先改指针却没有保存后继,会丢失剩余链表。"
+          ],
+          "metadata": [
+            {
+              "source": "01-linear-lists.md",
+              "start_index": 0,
+              "created_by": "c1d293f5-163f-4c09-9de2-dd56d3eceb4d",
+              "file_id": "c82b8c94-c597-416d-92d1-1e07fed91a3b",
+              "embedding_config": "{'engine': '', 'model': 'C:\\\\Users\\\\v\\\\Documents\\\\Codex\\\\2026-09-02\\\\d-xwechat-files-wxid-6lubuwt8juzm22-201c\\\\work\\\\models\\\\bge-small-zh-v1.5'}",
+              "hash": "5438aca937012f3156c9c564b6960233bfe80fe5a58bfa736446bdcaaad2b499",
+              "name": "01-linear-lists.md",
+              "_chunk_hash": "7781e45efbc123084fbfed875c1f915709544ef5ac51193f6e3855261d16557c",
+              "score": 0.594847559928894
+            },
+            {
+              "embedding_config": "{'engine': '', 'model': 'C:\\\\Users\\\\v\\\\Documents\\\\Codex\\\\2026-09-02\\\\d-xwechat-files-wxid-6lubuwt8juzm22-201c\\\\work\\\\models\\\\bge-small-zh-v1.5'}",
+              "start_index": 0,
+              "hash": "5438aca937012f3156c9c564b6960233bfe80fe5a58bfa736446bdcaaad2b499",
+              "name": "01-linear-lists.md",
+              "source": "01-linear-lists.md",
+              "created_by": "c1d293f5-163f-4c09-9de2-dd56d3eceb4d",
+              "file_id": "c82b8c94-c597-416d-92d1-1e07fed91a3b",
+              "_chunk_hash": "f46815bf207381ac21285b27c62f22966875afe05c5a499541817e964ef9ffaa",
+              "score": 0.558924674987793
+            }
+          ],
+          "distances": [
+            0.594847559928894,
+            0.558924674987793
+          ]
+        }
+      ],
+      "tool_calls": [],
+      "finish_reason": "stop",
+      "elapsed_seconds": 17.09,
+      "answer_correct": "是",
+      "citation_correct": "是",
+      "passed": true,
+      "issues": "无",
+      "improvement": "保持当前配置"
+    },
+    {
+      "id": 9,
+      "category": "资料缺失",
+      "prompt": "朱静雯老师期末考试是否允许带计算器？",
+      "actual_output": "资料中未找到，当前无法确认。",
+      "sources": [
+        "01-linear-lists.md",
+        "common-errors.md",
+        "数据结构教学核心库"
+      ],
+      "source_evidence": [
+        {
+          "source": {
+            "name": "数据结构教学核心库",
+            "type": "collection",
+            "id": "7033360b-8d9f-4ce6-a07b-be21cab5b194"
+          },
+          "document": [
+            "## 自测\n1. 为什么顺序表适合随机访问而链表适合频繁局部插入?\n2. 带头结点是否计入线性表长度?\n3. 合并两个有序链表的循环不变量是什么?\n[资料类型:课程讲义;适用章节:线性表]",
+            "## 调试清单\n1. 先构造最小失败输入:空、1 个、2 个、重复值、已排序、逆序。\n2. 每轮循环写出不变量,并检查变量是否持续向终止条件推进。\n3. 使用地址检查器或内存工具发现越界、重复释放和泄漏。\n4. 同时验证结果和原结构是否被意外破坏。\n5. 用参考实现或暴力算法对小规模随机数据做差分测试。\n[资料类型:常见错误说明;适用章节:全课程]"
+          ],
+          "metadata": [
+            {
+              "name": "01-linear-lists.md",
+              "hash": "5438aca937012f3156c9c564b6960233bfe80fe5a58bfa736446bdcaaad2b499",
+              "embedding_config": "{'engine': '', 'model': 'C:\\\\Users\\\\v\\\\Documents\\\\Codex\\\\2026-09-02\\\\d-xwechat-files-wxid-6lubuwt8juzm22-201c\\\\work\\\\models\\\\bge-small-zh-v1.5'}",
+              "start_index": 0,
+              "created_by": "c1d293f5-163f-4c09-9de2-dd56d3eceb4d",
+              "file_id": "c82b8c94-c597-416d-92d1-1e07fed91a3b",
+              "source": "01-linear-lists.md",
+              "_chunk_hash": "a5335af50a72b13c0e676dd4d5ae7c4e60e8a2471e9b6b621f3be3731ee6f4e3",
+              "score": 0.4690934419631958
+            },
+            {
+              "hash": "13c08179545c01164647b18cdea9683d99521c318e272958a2d80ca87f138cb7",
+              "file_id": "1b57055c-5bcf-4df9-ab9f-e5013076f326",
+              "created_by": "c1d293f5-163f-4c09-9de2-dd56d3eceb4d",
+              "source": "common-errors.md",
+              "name": "common-errors.md",
+              "start_index": 0,
+              "embedding_config": "{'engine': '', 'model': 'C:\\\\Users\\\\v\\\\Documents\\\\Codex\\\\2026-09-02\\\\d-xwechat-files-wxid-6lubuwt8juzm22-201c\\\\work\\\\models\\\\bge-small-zh-v1.5'}",
+              "_chunk_hash": "f082824a51dfd8406b02e75de35a2a5ef58d65121096f6d5b7674f009c58f2f8",
+              "score": 0.389549195766449
+            }
+          ],
+          "distances": [
+            0.4690934419631958,
+            0.389549195766449
+          ]
+        }
+      ],
+      "tool_calls": [],
+      "finish_reason": "stop",
+      "elapsed_seconds": 14.11,
+      "answer_correct": "是",
+      "citation_correct": "不适用",
+      "passed": true,
+      "issues": "无",
+      "improvement": "保持当前配置"
+    },
+    {
+      "id": 10,
+      "category": "资料缺失",
+      "prompt": "请根据 2014 年第 3 题原图判断正确选项，但我不提供图片。",
+      "actual_output": "好的，请提供 2014 年第 3 题的相关信息或问题描述，以便我帮助你选择正确的选项。",
+      "sources": [
+        "common-errors.md",
+        "数据结构教学核心库"
+      ],
+      "source_evidence": [
+        {
+          "source": {
+            "name": "数据结构教学核心库",
+            "type": "collection",
+            "id": "7033360b-8d9f-4ce6-a07b-be21cab5b194"
+          },
+          "document": [
+            "## 树与图\n- 把完全二叉树当满二叉树:完全只要求最后一层从左连续。\n- 认为前序加后序总能唯一确定树:一般二叉树不成立。\n- DFS/BFS 只从一个顶点启动:非连通图需要外层循环形成遍历森林。\n- 对含负权边的图使用 Dijkstra:已确定距离可能被后续负边改小。",
+            "## 查找与排序\n- 在链表上套用折半查找:定位中点不是 `O(1)`,失去优势。\n- 开放定址散列表删除时直接清空槽:会截断其他元素的探测链。\n- 快速排序划分循环在大量相等值时不前进:每个分支必须确保游标移动或采用三路划分。\n- 声称某算法\"最快\":应说明输入规模、分布、稳定性和空间约束。"
+          ],
+          "metadata": [
+            {
+              "name": "common-errors.md",
+              "created_by": "c1d293f5-163f-4c09-9de2-dd56d3eceb4d",
+              "file_id": "1b57055c-5bcf-4df9-ab9f-e5013076f326",
+              "embedding_config": "{'engine': '', 'model': 'C:\\\\Users\\\\v\\\\Documents\\\\Codex\\\\2026-09-02\\\\d-xwechat-files-wxid-6lubuwt8juzm22-201c\\\\work\\\\models\\\\bge-small-zh-v1.5'}",
+              "hash": "13c08179545c01164647b18cdea9683d99521c318e272958a2d80ca87f138cb7",
+              "source": "common-errors.md",
+              "start_index": 0,
+              "_chunk_hash": "f70945a5c7527c8dd84a8cf8331f9f821e53cedf93d69ab6142a538695e4a160",
+              "score": 0.5106716156005859
+            },
+            {
+              "embedding_config": "{'engine': '', 'model': 'C:\\\\Users\\\\v\\\\Documents\\\\Codex\\\\2026-09-02\\\\d-xwechat-files-wxid-6lubuwt8juzm22-201c\\\\work\\\\models\\\\bge-small-zh-v1.5'}",
+              "name": "common-errors.md",
+              "hash": "13c08179545c01164647b18cdea9683d99521c318e272958a2d80ca87f138cb7",
+              "file_id": "1b57055c-5bcf-4df9-ab9f-e5013076f326",
+              "created_by": "c1d293f5-163f-4c09-9de2-dd56d3eceb4d",
+              "start_index": 0,
+              "source": "common-errors.md",
+              "_chunk_hash": "02c8b01a59d6cc1f1e94a01d1101142784586df9ab5d304cf6b754bd8a8b959f",
+              "score": 0.4529303312301636
+            }
+          ],
+          "distances": [
+            0.5106716156005859,
+            0.4529303312301636
+          ]
+        }
+      ],
+      "tool_calls": [],
+      "finish_reason": "stop",
+      "elapsed_seconds": 15.79,
+      "answer_correct": "是",
+      "citation_correct": "不适用",
+      "passed": true,
+      "issues": "无",
+      "improvement": "保持当前配置"
+    },
+    {
+      "id": 11,
+      "category": "练习生成",
+      "prompt": "请调用题库工具，从“树与二叉树”章节随机抽取 3 道中等选择题，seed=2026，先不要答案。必须完整展示每题题干、A-D 选项和 source。",
+      "actual_output": "好的，我将按照您的要求从“树与二叉树”章节中等难度的题目库中随机抽取3道选择题，并展示每题的详细信息。\n\n### 题目1\n**问题**: 若一棵二叉树的前序遍历序列和后序遍历序列分别为 1, 2, 3, 4 和 4, 3, 2, 1，则该二叉树的中序遍历序列不会是______。\n- **选项**:\n  - A: 1, 2, 3, 4\n  - B: 2, 3, 4, 1\n  - C: 3, 2, 4, 1\n  - D: 4, 3, 2, 1\n\n- **source**: bank/questions.json#2011-s05\n\n### 题目2\n**问题**: 已知一棵二叉树的树形如下图所示，其后序序列为 e, a, c, b, d, g, f，树中与结点 a 同层的结点是______。（图形题：根结点为 f；f 的左孩子为 c、右孩子为 g；c 只有左孩子 a，a 只有左孩子 e；g 只有左孩子 d，d 只有左孩子 b。原图见 images/2017/page-1.png 第5题处）\n- **选项**:\n  - A: c\n  - B: d\n  - C: f\n  - D: g\n\n- **source**: bank/questions.json#2017-s05\n\n### 题目3\n**问题**: 在由 6 个字符组成的字符集 S 中，各字符出现的频次分别为 3, 4, 5, 6, 8, 10，为 S 构造的哈夫曼编码的加权平均长度为（　　）。\n- **选项**:\n  - A: 2.4\n  - B: 2.5\n  - C: 2.67\n  - D: 2.75\n\n- **source**: bank/questions.json#2023-s04",
+      "sources": [
+        "data_structures_question_bank/random_questions",
+        "common-errors.md",
+        "lab-02-trees-graphs.md",
+        "数据结构教学核心库"
+      ],
+      "source_evidence": [
+        {
+          "source": {
+            "name": "data_structures_question_bank/random_questions"
+          },
+          "document": [
+            "{\n  \"matched\": 37,\n  \"returned\": 3,\n  \"questions\": [\n    {\n      \"id\": \"2011-s05\",\n      \"year\": 2011,\n      \"number\": 5,\n      \"type\": \"single\",\n      \"chapter\": \"树与二叉树\",\n      \"topic\": \"由前序后序序列推中序序列\",\n      \"difficulty\": 2,\n      \"question\": \"若一棵二叉树的前序遍历序列和后序遍历序列分别为 1, 2, 3, 4 和 4, 3, 2, 1，则该二叉树的中序遍历序列不会是______。\",\n      \"options\": {\n        \"A\": \"1, 2, 3, 4\",\n        \"B\": \"2, 3, 4, 1\",\n        \"C\": \"3, 2, 4, 1\",\n        \"D\": \"4, 3, 2, 1\"\n      },\n      \"source\": \"bank/questions.json#2011-s05\"\n    },\n    {\n      \"id\": \"2017-s05\",\n      \"year\": 2017,\n      \"number\": 5,\n      \"type\": \"single\",\n      \"chapter\": \"树与二叉树\",\n      \"topic\": \"由后序序列确定同层结点\",\n      \"difficulty\": 2,\n      \"question\": \"已知一棵二叉树的树形如下图所示，其后序序列为 e, a, c, b, d, g, f，树中与结点 a 同层的结点是______。（图形题：根结点为 f；f 的左孩子为 c、右孩子为 g；c 只有左孩子 a，a 只有左孩子 e；g 只有左孩子 d，d 只有左孩子 b。原图见 images/2017/page-1.png 第5题处）\",\n      \"options\": {\n        \"A\": \"c\",\n        \"B\": \"d\",\n        \"C\": \"f\",\n        \"D\": \"g\"\n      },\n      \"source\": \"bank/questions.json#2017-s05\"\n    },\n    {\n      \"id\": \"2023-s04\",\n      \"year\": 2023,\n      \"number\": 4,\n      \"type\": \"single\",\n      \"chapter\": \"树与二叉树\",\n      \"topic\": \"哈夫曼编码加权平均长度计算\",\n      \"difficulty\": 2,\n      \"question\": \"在由 6 个字符组成的字符集 S 中，各字符出现的频次分别为 3, 4, 5, 6, 8, 10，为 S 构造的哈夫曼编码的加权平均长度为（　　）。\",\n      \"options\": {\n        \"A\": \"2.4\",\n        \"B\": \"2.5\",\n        \"C\": \"2.67\",\n        \"D\": \"2.75\"\n      },\n      \"source\": \"bank/questions.json#2023-s04\"\n    }\n  ]\n}"
+          ],
+          "metadata": [
+            {
+              "source": "data_structures_question_bank/random_questions",
+              "parameters": {
+                "chapter": "树与二叉树",
+                "difficulty": 2,
+                "question_type": "single",
+                "count": 3,
+                "include_answer": false,
+                "seed": 2026
+              }
+            }
+          ],
+          "tool_result": true
+        },
+        {
+          "source": {
+            "name": "数据结构教学核心库",
+            "type": "collection",
+            "id": "7033360b-8d9f-4ce6-a07b-be21cab5b194"
+          },
+          "document": [
+            "## 树与图\n- 把完全二叉树当满二叉树:完全只要求最后一层从左连续。\n- 认为前序加后序总能唯一确定树:一般二叉树不成立。\n- DFS/BFS 只从一个顶点启动:非连通图需要外层循环形成遍历森林。\n- 对含负权边的图使用 Dijkstra:已确定距离可能被后续负边改小。",
+            "## 任务 A:二叉树\n根据带空标记的前序序列创建二叉树,实现递归前序、中序、后序和队列层序遍历。增加计算高度、叶结点数和释放树的函数。\n测试至少包含空树、单结点、只有左链、完全二叉树和一般二叉树。只有前序与后序序列时不要声称可以唯一重建一般二叉树。"
+          ],
+          "metadata": [
+            {
+              "file_id": "1b57055c-5bcf-4df9-ab9f-e5013076f326",
+              "embedding_config": "{'engine': '', 'model': 'C:\\\\Users\\\\v\\\\Documents\\\\Codex\\\\2026-09-02\\\\d-xwechat-files-wxid-6lubuwt8juzm22-201c\\\\work\\\\models\\\\bge-small-zh-v1.5'}",
+              "start_index": 0,
+              "created_by": "c1d293f5-163f-4c09-9de2-dd56d3eceb4d",
+              "source": "common-errors.md",
+              "hash": "13c08179545c01164647b18cdea9683d99521c318e272958a2d80ca87f138cb7",
+              "name": "common-errors.md",
+              "_chunk_hash": "f70945a5c7527c8dd84a8cf8331f9f821e53cedf93d69ab6142a538695e4a160",
+              "score": 0.6963666677474976
+            },
+            {
+              "created_by": "c1d293f5-163f-4c09-9de2-dd56d3eceb4d",
+              "embedding_config": "{'engine': '', 'model': 'C:\\\\Users\\\\v\\\\Documents\\\\Codex\\\\2026-09-02\\\\d-xwechat-files-wxid-6lubuwt8juzm22-201c\\\\work\\\\models\\\\bge-small-zh-v1.5'}",
+              "hash": "8b206d5613fa71ab66c14592c5e5e70eedfe7d58e672ee7872a31419f0f2d501",
+              "start_index": 0,
+              "source": "lab-02-trees-graphs.md",
+              "name": "lab-02-trees-graphs.md",
+              "file_id": "29701a11-3f37-4662-818d-0ac36c9824e6",
+              "_chunk_hash": "20181a5ecb676d7f8cbabd0be7c9ef26d5d8feec852c5b59acba4d8484ee5858",
+              "score": 0.6936053037643433
+            }
+          ],
+          "distances": [
+            0.6963666677474976,
+            0.6936053037643433
+          ]
+        }
+      ],
+      "tool_calls": [],
+      "finish_reason": "stop",
+      "elapsed_seconds": 71.77,
+      "answer_correct": "是",
+      "citation_correct": "是",
+      "passed": true,
+      "issues": "无",
+      "improvement": "保持当前配置"
+    },
+    {
+      "id": 12,
+      "category": "批改任务",
+      "prompt": "请调用题库工具批改：题目 2009-s01，我的答案是 A，并解释。",
+      "actual_output": "根据题库工具返回的结果，学生提交的答案为 A，但正确答案是 B。具体解释如下：\n\n[1] 题目要求打印作业应按先后顺序执行（先进先出），缓冲区应使用队列；若用栈则会颠倒打印顺序。\n\n结论：学生的答案与正确答案不符。\n依据：题库工具返回的 `correct` 字段为 `false`，且提供了详细的解释说明。",
+      "sources": [
+        "data_structures_question_bank/grade_objective_answer",
+        "key-comparison-cards.md",
+        "cpp-algorithm-examples.md",
+        "数据结构教学核心库"
+      ],
+      "source_evidence": [
+        {
+          "source": {
+            "name": "data_structures_question_bank/grade_objective_answer"
+          },
+          "document": [
+            "{\n  \"question_id\": \"2009-s01\",\n  \"student_answer\": \"A\",\n  \"correct\": false,\n  \"expected_answer\": \"B\",\n  \"explanation\": \"打印作业应按先后顺序执行（先进先出），缓冲区应为队列；若用栈会颠倒打印顺序。\",\n  \"source\": \"bank/questions.json#2009-s01\"\n}"
+          ],
+          "metadata": [
+            {
+              "source": "data_structures_question_bank/grade_objective_answer",
+              "parameters": {
+                "question_id": "2009-s01",
+                "student_answer": "A"
+              }
+            }
+          ],
+          "tool_result": true
+        },
+        {
+          "source": {
+            "name": "数据结构教学核心库",
+            "type": "collection",
+            "id": "7033360b-8d9f-4ce6-a07b-be21cab5b194"
+          },
+          "document": [
+            "# 数据结构关键辨析卡\n本页用于核对课程中容易混淆的结论。回答相关问题时应逐项采用下表或伪代码,不要凭印象改变结论。",
+            "# C++ 示例代码与复杂度说明  \n## 单链表原地逆置\n```cpp\nstruct Node { int value; Node* next; };\n\nNode* reverse(Node* head) {\nNode* prev = nullptr;\nNode* cur = head;\nwhile (cur != nullptr) {\nNode* next = cur->next;\ncur->next = prev;\nprev = cur;\ncur = next;\n}\nreturn prev;\n}\n```\n每个结点访问一次,时间 `O(n)`,额外空间 `O(1)`。关键点是在改变 `cur->next` 前保存原后继。"
+          ],
+          "metadata": [
+            {
+              "source": "key-comparison-cards.md",
+              "name": "key-comparison-cards.md",
+              "created_by": "c1d293f5-163f-4c09-9de2-dd56d3eceb4d",
+              "start_index": 0,
+              "hash": "b2b14d0210bbeadfad8cbcee0094df72de5440bcb40bfaf0df800e46da0ad47b",
+              "embedding_config": "{'engine': '', 'model': 'C:\\\\Users\\\\v\\\\Documents\\\\Codex\\\\2026-09-02\\\\d-xwechat-files-wxid-6lubuwt8juzm22-201c\\\\work\\\\models\\\\bge-small-zh-v1.5'}",
+              "file_id": "04d12d87-d3d5-486e-97d8-547a73e6135c",
+              "_chunk_hash": "c0bb0bf65a2d20d53a72efc09a76f19b7564258d876b39c5a388379af94574f0",
+              "score": 0.5188326239585876
+            },
+            {
+              "file_id": "29a27232-f92d-4c91-bdcd-1132d1b9447a",
+              "source": "cpp-algorithm-examples.md",
+              "created_by": "c1d293f5-163f-4c09-9de2-dd56d3eceb4d",
+              "start_index": 0,
+              "hash": "99b6d396a9d1e830dd9bc2b0f3014f6d95a454a19a653043a6b69db409da678a",
+              "embedding_config": "{'engine': '', 'model': 'C:\\\\Users\\\\v\\\\Documents\\\\Codex\\\\2026-09-02\\\\d-xwechat-files-wxid-6lubuwt8juzm22-201c\\\\work\\\\models\\\\bge-small-zh-v1.5'}",
+              "name": "cpp-algorithm-examples.md",
+              "_chunk_hash": "84763f4759cbc6ba9a03e9d8494510e3b6ca51a8b0959cd9d1b28e159daaa581",
+              "score": 0.5124512910842896
+            }
+          ],
+          "distances": [
+            0.5188326239585876,
+            0.5124512910842896
+          ]
+        }
+      ],
+      "tool_calls": [],
+      "finish_reason": "stop",
+      "elapsed_seconds": 23.66,
+      "answer_correct": "是",
+      "citation_correct": "是",
+      "passed": true,
+      "issues": "无",
+      "improvement": "保持当前配置"
+    },
+    {
+      "id": 13,
+      "category": "工具调用",
+      "prompt": "请调用题库工具查询各章节题量，并告诉我题量最多的是哪一章。",
+      "actual_output": "根据题库统计信息，题量最多的章节是“树与二叉树”，总共有57个题目。",
+      "sources": [
+        "data_structures_question_bank/chapter_statistics",
+        "lab-01-linear-structures.md",
+        "key-comparison-cards.md",
+        "数据结构教学核心库"
+      ],
+      "source_evidence": [
+        {
+          "source": {
+            "name": "data_structures_question_bank/chapter_statistics"
+          },
+          "document": [
+            "{\n  \"scope\": \"全部章节\",\n  \"total\": 218,\n  \"chapters\": {\n    \"图\": 40,\n    \"排序\": 36,\n    \"查找\": 35,\n    \"栈队列和数组\": 28,\n    \"树与二叉树\": 57,\n    \"线性表\": 22\n  },\n  \"max_chapter\": \"树与二叉树\",\n  \"max_count\": 57,\n  \"types\": {\n    \"comprehensive\": 34,\n    \"single\": 184\n  },\n  \"difficulty\": {\n    \"1\": 39,\n    \"2\": 108,\n    \"3\": 71\n  },\n  \"year_range\": [\n    2009,\n    2025\n  ],\n  \"source\": \"bank/questions.json\"\n}"
+          ],
+          "metadata": [
+            {
+              "source": "data_structures_question_bank/chapter_statistics",
+              "parameters": {
+                "chapter": ""
+              }
+            }
+          ],
+          "tool_result": true
+        },
+        {
+          "source": {
+            "name": "数据结构教学核心库",
+            "type": "collection",
+            "id": "7033360b-8d9f-4ce6-a07b-be21cab5b194"
+          },
+          "document": [
+            "## 报告要求\n给出数据结构定义、关键操作伪代码、复杂度、至少 8 个测试用例和一次内存检查结果。解释一个你实际遇到的指针或边界错误以及定位过程。\n[资料类型:实验指导;关联章节:线性表、栈队列和数组]",
+            "# 数据结构关键辨析卡\n本页用于核对课程中容易混淆的结论。回答相关问题时应逐项采用下表或伪代码,不要凭印象改变结论。"
+          ],
+          "metadata": [
+            {
+              "hash": "9b845b547a651d095542eec36769c7f6c05bff71ca1a7e8e8f3958fd25e7d27f",
+              "start_index": 0,
+              "file_id": "6b9fffd8-2867-4460-88ce-b70d65d3ef77",
+              "source": "lab-01-linear-structures.md",
+              "created_by": "c1d293f5-163f-4c09-9de2-dd56d3eceb4d",
+              "name": "lab-01-linear-structures.md",
+              "embedding_config": "{'engine': '', 'model': 'C:\\\\Users\\\\v\\\\Documents\\\\Codex\\\\2026-09-02\\\\d-xwechat-files-wxid-6lubuwt8juzm22-201c\\\\work\\\\models\\\\bge-small-zh-v1.5'}",
+              "_chunk_hash": "a43399c197d418d18cb3a6a167ad6702e609a593100aa3b6049c1b61788e428e",
+              "score": 0.4831518530845642
+            },
+            {
+              "name": "key-comparison-cards.md",
+              "created_by": "c1d293f5-163f-4c09-9de2-dd56d3eceb4d",
+              "embedding_config": "{'engine': '', 'model': 'C:\\\\Users\\\\v\\\\Documents\\\\Codex\\\\2026-09-02\\\\d-xwechat-files-wxid-6lubuwt8juzm22-201c\\\\work\\\\models\\\\bge-small-zh-v1.5'}",
+              "file_id": "04d12d87-d3d5-486e-97d8-547a73e6135c",
+              "start_index": 0,
+              "source": "key-comparison-cards.md",
+              "hash": "b2b14d0210bbeadfad8cbcee0094df72de5440bcb40bfaf0df800e46da0ad47b",
+              "_chunk_hash": "c0bb0bf65a2d20d53a72efc09a76f19b7564258d876b39c5a388379af94574f0",
+              "score": 0.47994357347488403
+            }
+          ],
+          "distances": [
+            0.4831518530845642,
+            0.47994357347488403
+          ]
+        }
+      ],
+      "tool_calls": [],
+      "finish_reason": "stop",
+      "elapsed_seconds": 18.77,
+      "answer_correct": "是",
+      "citation_correct": "是",
+      "passed": true,
+      "issues": "无",
+      "improvement": "保持当前配置"
+    },
+    {
+      "id": 14,
+      "category": "工具调用",
+      "prompt": "请调用题库工具回答：学习哈夫曼树前应先掌握什么？",
+      "actual_output": "根据题库中的信息，学习哈夫曼树前应先掌握的内容包括：\n- 二叉树\n- 贪心思想\n- 优先队列\n\n这些内容是哈夫曼树的先修知识。[1] [2]",
+      "sources": [
+        "data_structures_question_bank/prerequisite_path",
+        "03-trees.md",
+        "数据结构教学核心库"
+      ],
+      "source_evidence": [
+        {
+          "source": {
+            "name": "data_structures_question_bank/prerequisite_path"
+          },
+          "document": [
+            "{\n  \"topic\": \"哈夫曼树\",\n  \"prerequisites\": [\n    \"二叉树\",\n    \"贪心思想\",\n    \"优先队列\"\n  ],\n  \"recommended_order\": [\n    \"二叉树\",\n    \"贪心思想\",\n    \"优先队列\",\n    \"哈夫曼树\"\n  ],\n  \"source\": \"openwebui-tools/data_structures_question_bank.py#prerequisite_path\"\n}"
+          ],
+          "metadata": [
+            {
+              "source": "data_structures_question_bank/prerequisite_path",
+              "parameters": {
+                "topic": "哈夫曼树"
+              }
+            }
+          ],
+          "tool_result": true
+        },
+        {
+          "source": {
+            "name": "数据结构教学核心库",
+            "type": "collection",
+            "id": "7033360b-8d9f-4ce6-a07b-be21cab5b194"
+          },
+          "document": [
+            "## 哈夫曼树\n给定叶结点权值,反复选择两个最小权值结点合并,得到带权路径长度最小的二叉树。哈夫曼树不含度为 1 的结点,但不一定是完全二叉树。编码时约定左边为 0、右边为 1(或相反),得到前缀码,任何字符编码都不是另一个编码的前缀。",
+            "## 常见误区\n- \"完全二叉树\"和\"满二叉树\"不是同义词。\n- 哈夫曼树形态可能不唯一,但最小带权路径长度相同。\n- BST 的平均性能不能代替最坏性能;输入有序时普通 BST 会退化。\n[资料类型:课程讲义;适用章节:树与二叉树]"
+          ],
+          "metadata": [
+            {
+              "embedding_config": "{'engine': '', 'model': 'C:\\\\Users\\\\v\\\\Documents\\\\Codex\\\\2026-09-02\\\\d-xwechat-files-wxid-6lubuwt8juzm22-201c\\\\work\\\\models\\\\bge-small-zh-v1.5'}",
+              "hash": "a57097feec97a4b405911eb0929527706af70d787e62f95eb7abd1252453cc84",
+              "name": "03-trees.md",
+              "start_index": 0,
+              "source": "03-trees.md",
+              "file_id": "b468aecf-1c2a-48a8-8eb5-37288c7ec697",
+              "created_by": "c1d293f5-163f-4c09-9de2-dd56d3eceb4d",
+              "_chunk_hash": "b17a686e75039b201f86cd6a05144c66ca704db89b2947691517ef29982f2e12",
+              "score": 0.5697369575500488
+            },
+            {
+              "name": "03-trees.md",
+              "hash": "a57097feec97a4b405911eb0929527706af70d787e62f95eb7abd1252453cc84",
+              "file_id": "b468aecf-1c2a-48a8-8eb5-37288c7ec697",
+              "created_by": "c1d293f5-163f-4c09-9de2-dd56d3eceb4d",
+              "embedding_config": "{'engine': '', 'model': 'C:\\\\Users\\\\v\\\\Documents\\\\Codex\\\\2026-09-02\\\\d-xwechat-files-wxid-6lubuwt8juzm22-201c\\\\work\\\\models\\\\bge-small-zh-v1.5'}",
+              "source": "03-trees.md",
+              "start_index": 0,
+              "_chunk_hash": "ebf55022ee25f15e42341c224c175f2ce08d57b1e459766c74e356f6e693cb84",
+              "score": 0.5276399254798889
+            }
+          ],
+          "distances": [
+            0.5697369575500488,
+            0.5276399254798889
+          ]
+        }
+      ],
+      "tool_calls": [],
+      "finish_reason": "stop",
+      "elapsed_seconds": 20.29,
+      "answer_correct": "是",
+      "citation_correct": "是",
+      "passed": true,
+      "issues": "无",
+      "improvement": "保持当前配置"
+    },
+    {
+      "id": 15,
+      "category": "异常输入",
+      "prompt": "这是异常处理测试：必须调用 random_questions，传入 chapter=不存在章节、count=3、difficulty=2，并原样输出工具返回的 error，不要自行改参数。",
+      "actual_output": "根据题库抽题结果，没有符合条件的题目（章节：不存在章节，难度：2）。请调整筛选条件后重试。",
+      "sources": [
+        "data_structures_question_bank/random_questions",
+        "common-errors.md",
+        "cpp-algorithm-examples.md",
+        "数据结构教学核心库"
+      ],
+      "source_evidence": [
+        {
+          "source": {
+            "name": "data_structures_question_bank/random_questions"
+          },
+          "document": [
+            "{\"status\": \"completed\", \"has_results\": false, \"error\": \"没有符合条件的题目\", \"message_to_user\": \"没有符合条件的题目（章节：不存在章节，难度：2）。请调整筛选条件后重试。\", \"chapter\": \"不存在章节\", \"difficulty\": 2}"
+          ],
+          "metadata": [
+            {
+              "source": "data_structures_question_bank/random_questions",
+              "parameters": {
+                "chapter": "不存在章节",
+                "count": 3,
+                "difficulty": 2
+              }
+            }
+          ],
+          "tool_result": true
+        },
+        {
+          "source": {
+            "name": "数据结构教学核心库",
+            "type": "collection",
+            "id": "7033360b-8d9f-4ce6-a07b-be21cab5b194"
+          },
+          "document": [
+            "## 调试清单\n1. 先构造最小失败输入:空、1 个、2 个、重复值、已排序、逆序。\n2. 每轮循环写出不变量,并检查变量是否持续向终止条件推进。\n3. 使用地址检查器或内存工具发现越界、重复释放和泄漏。\n4. 同时验证结果和原结构是否被意外破坏。\n5. 用参考实现或暴力算法对小规模随机数据做差分测试。\n[资料类型:常见错误说明;适用章节:全课程]",
+            "# C++ 示例代码与复杂度说明  \n## 单链表原地逆置\n```cpp\nstruct Node { int value; Node* next; };\n\nNode* reverse(Node* head) {\nNode* prev = nullptr;\nNode* cur = head;\nwhile (cur != nullptr) {\nNode* next = cur->next;\ncur->next = prev;\nprev = cur;\ncur = next;\n}\nreturn prev;\n}\n```\n每个结点访问一次,时间 `O(n)`,额外空间 `O(1)`。关键点是在改变 `cur->next` 前保存原后继。"
+          ],
+          "metadata": [
+            {
+              "name": "common-errors.md",
+              "source": "common-errors.md",
+              "hash": "13c08179545c01164647b18cdea9683d99521c318e272958a2d80ca87f138cb7",
+              "embedding_config": "{'engine': '', 'model': 'C:\\\\Users\\\\v\\\\Documents\\\\Codex\\\\2026-09-02\\\\d-xwechat-files-wxid-6lubuwt8juzm22-201c\\\\work\\\\models\\\\bge-small-zh-v1.5'}",
+              "file_id": "1b57055c-5bcf-4df9-ab9f-e5013076f326",
+              "created_by": "c1d293f5-163f-4c09-9de2-dd56d3eceb4d",
+              "start_index": 0,
+              "_chunk_hash": "f082824a51dfd8406b02e75de35a2a5ef58d65121096f6d5b7674f009c58f2f8",
+              "score": 0.6536240577697754
+            },
+            {
+              "source": "cpp-algorithm-examples.md",
+              "start_index": 0,
+              "embedding_config": "{'engine': '', 'model': 'C:\\\\Users\\\\v\\\\Documents\\\\Codex\\\\2026-09-02\\\\d-xwechat-files-wxid-6lubuwt8juzm22-201c\\\\work\\\\models\\\\bge-small-zh-v1.5'}",
+              "name": "cpp-algorithm-examples.md",
+              "hash": "99b6d396a9d1e830dd9bc2b0f3014f6d95a454a19a653043a6b69db409da678a",
+              "created_by": "c1d293f5-163f-4c09-9de2-dd56d3eceb4d",
+              "file_id": "29a27232-f92d-4c91-bdcd-1132d1b9447a",
+              "_chunk_hash": "84763f4759cbc6ba9a03e9d8494510e3b6ca51a8b0959cd9d1b28e159daaa581",
+              "score": 0.60801100730896
+            }
+          ],
+          "distances": [
+            0.6536240577697754,
+            0.60801100730896
+          ]
+        }
+      ],
+      "tool_calls": [],
+      "finish_reason": "stop",
+      "elapsed_seconds": 30.76,
+      "answer_correct": "是",
+      "citation_correct": "不适用",
+      "passed": true,
+      "issues": "无",
+      "improvement": "保持当前配置"
+    }
+  ],
+  "comparison": {
+    "case_ids": [
+      2,
+      6,
+      9,
+      11,
+      12
+    ],
+    "baseline": [
+      {
+        "id": 2,
+        "category": "知识问答",
+        "prompt": "循环队列为什么会保留一个空槽？写出判空和判满条件。",
+        "actual_output": "循环队列中保留一个空槽，这是为了在队列的头部和尾部之间预留一个位置，避免在队列操作时出现边界条件的边界情况。例如，当执行 `dequeue` 操作时，如果队列为空，则需要返回一个错误，这时预留一个空槽可以方便地返回一个特殊值（如 `None` 或 `False`）而不是尝试从一个空的位置中取出元素。\n\n判空和判满条件如下：\n\n- 判空（`isEmpty`）：队列的头部（`front`）与尾部（`rear`）指向同一个元素，表示队列为空。\n- 判满（`isFull`）：队列的头部（`front`）与尾部（`rear`）指向同一个元素，并且队列的元素个数达到最大容量 `max_size`，表示队列已满。\n\n假设循环队列的容量为 `max_size`，队列初始为空时，`front` 和 `rear` 都指向 `0`。下面以示例形式说明这些条件：\n\n1. **初始化情况**：\n   - `front = 0`, `rear = 0`, `max_size = 5`\n\n2. **判空条件**：\n   - 当 `front == rear` 且队列未装满所有元素，队列为空。\n\n3. **判满条件**：\n   - 当 `front == rear` 且队列装满了所有元素，队列已满。\n\n举例说明：\n- 当 `front = 0` 和 `rear = 0`，队列为空且未满。\n- 当 `front = 0` 和 `rear = 5`，队列已满且已无空位可供插入新元素。\n\n通过这样预留一个空槽，可以避免在操作边界时出现错误或异常，从而简化程序逻辑。",
+        "sources": [],
+        "source_evidence": [],
+        "tool_calls": [],
+        "finish_reason": "stop",
+        "elapsed_seconds": 18.7,
+        "answer_correct": "否",
+        "citation_correct": "否",
+        "passed": false,
+        "issues": "缺少预期要点：rear\\s*\\+\\s*1；未发现预期来源：02-stacks-queues-arrays.md",
+        "improvement": "检查检索排序、提示词约束或工具调用参数后复测"
+      },
+      {
+        "id": 6,
+        "category": "综合分析",
+        "prompt": "严格依据课程资料，用一个表格仅列快速排序、归并排序和堆排序各自的时间复杂度、额外空间和稳定性，再给一条选择建议。不要写前言或重复总结，逐项核对堆排序是否稳定。",
+        "actual_output": "好的，下面是一份关于快速排序、归并排序和堆排序的时间复杂度、额外空间需求和稳定性的时间复杂度的表格，以及一个选择建议：\n\n| 排序算法 | 时间复杂度 | 额外空间需求 | 稳定性 |\n| --- | --- | --- | --- |\n| 快速排序 | $O(n\\log{n})$ | $O(\\log{n})$ | 不稳定 |\n| 归并排序 | $O(n\\log{n})$ | $O(n)$ | 稳定 |\n| 堆排序 | $O(n\\log{n})$ | $O(1)$ | 不稳定 |\n\n选择建议：\n对于稳定性要求较高的排序算法（例如，需要对重复元素进行排序），推荐使用归并排序。由于归并排序具有稳定的特性，能够在排序过程中保持重复元素之间的相对顺序。如果对稳定性没有特别的要求，快速排序和堆排序的时间复杂度和额外空间需求都很接近，可以根据实际需要选择。堆排序的时间复杂度为 $O(n\\log{n})$，但在 $O(n)$ 的额外空间需求上优于快速排序和归并排序。",
+        "sources": [],
+        "source_evidence": [],
+        "tool_calls": [],
+        "finish_reason": "stop",
+        "elapsed_seconds": 11.35,
+        "answer_correct": "否",
+        "citation_correct": "否",
+        "passed": false,
+        "issues": "缺少预期要点：O\\(n\\s*(?:\\\\log|log)\\s*n\\)|O\\(nlogn\\)；O\\(n\\^?2\\)|O\\(n²\\)；未发现预期来源：06-sorting.md",
+        "improvement": "检查检索排序、提示词约束或工具调用参数后复测"
+      },
+      {
+        "id": 9,
+        "category": "资料缺失",
+        "prompt": "朱静雯老师期末考试是否允许带计算器？",
+        "actual_output": "期末考试是否允许携带计算器这个问题通常由具体课程的考试政策来决定。不同课程可能有不同的要求和规定。为了确保准确的信息，建议您直接向朱静雯老师或者查看您课程的考试政策文档。如果朱老师没有明确说明，通常数学类课程允许使用计算器，而数据结构等计算机科学课程可能会禁止或限制使用计算器，以测试学生的基本计算能力和理解能力。",
+        "sources": [],
+        "source_evidence": [],
+        "tool_calls": [],
+        "finish_reason": "stop",
+        "elapsed_seconds": 3.86,
+        "answer_correct": "否",
+        "citation_correct": "不适用",
+        "passed": false,
+        "issues": "缺少预期要点：资料中未找到，当前无法确认",
+        "improvement": "检查检索排序、提示词约束或工具调用参数后复测"
+      },
+      {
+        "id": 11,
+        "category": "练习生成",
+        "prompt": "请调用题库工具，从“树与二叉树”章节随机抽取 3 道中等选择题，seed=2026，先不要答案。必须完整展示每题题干、A-D 选项和 source。",
+        "actual_output": "为了调用题库工具，我将使用种子值 `seed=2026` 从“树与二叉树”章节中抽取 3 道中等难度的选择题。由于我无法直接调用题库工具，我将按照这个描述创建 3 道示例题目，确保它们符合你的要求。\n\n### 题目 1\n**题干：** \n在二叉树中，如果某个节点的子节点都存在，且该节点的左子树的节点数量大于右子树的节点数量，那么该节点被称为：\n- A) 根节点\n- B) 左重节点\n- C) 右重节点\n- D) 平衡节点\n\n**选项：**\n- A) 根节点\n- B) 左重节点\n- C) 右重节点\n- D) 平衡节点\n\n**source：** 来源于《数据结构与算法》\n\n### 题目 2\n**题干：**\n对于一棵二叉树，如果某节点的左子树和右子树的节点数之和等于该节点自身的节点数，那么该节点被称为：\n- A) 根节点\n- B) 平衡节点\n- C) 左平衡节点\n- D) 右平衡节点\n\n**选项：**\n- A) 根节点\n- B) 平衡节点\n- C) 左平衡节点\n- D) 右平衡节点\n\n**source：** 来源于《数据结构与算法》\n\n### 题目 3\n**题干：**\n在二叉树中，如果某个节点的左子树和右子树的节点数之差小于或等于 1，则该节点被称为：\n- A) 平衡节点\n- B) 左重节点\n- C) 右重节点\n- D) 中心节点\n\n**选项：**\n- A) 平衡节点\n- B) 左重节点\n- C) 右重节点\n- D) 中心节点\n\n**source：** 来源于《数据结构与算法》\n\n请将这些示例题目用于检查和测试目的。如果需要真实题目，请使用题库工具并提供正确答案。",
+        "sources": [],
+        "source_evidence": [],
+        "tool_calls": [],
+        "finish_reason": "stop",
+        "elapsed_seconds": 23.32,
+        "answer_correct": "否",
+        "citation_correct": "否",
+        "passed": false,
+        "issues": "缺少预期要点：(?:A[\\.、:]|\\\"A\\\"\\s*:)；(?:B[\\.、:]|\\\"B\\\"\\s*:)；(?:C[\\.、:]|\\\"C\\\"\\s*:)；(?:D[\\.、:]|\\\"D\\\"\\s*:)；未发现预期来源：bank/questions.json",
+        "improvement": "检查检索排序、提示词约束或工具调用参数后复测"
+      },
+      {
+        "id": 12,
+        "category": "批改任务",
+        "prompt": "请调用题库工具批改：题目 2009-s01，我的答案是 A，并解释。",
+        "actual_output": "我不能直接调用外部题库工具来批改您的答案，但我可以帮您解释题目 2009-s01 的背景信息和可能的正确答案。请将题目具体内容和您的答案详细告诉我，我将尽力帮助您理解题意和批改答案。",
+        "sources": [],
+        "source_evidence": [],
+        "tool_calls": [],
+        "finish_reason": "stop",
+        "elapsed_seconds": 3.21,
+        "answer_correct": "否",
+        "citation_correct": "否",
+        "passed": false,
+        "issues": "缺少预期要点：错误|不正确|A.{0,40}(?:正确答案|应为|应该是).{0,10}B|正确答案.{0,10}B；FIFO|先进先出；未发现预期来源：bank/questions.json#2009-s01",
+        "improvement": "检查检索排序、提示词约束或工具调用参数后复测"
+      }
+    ],
+    "optimized": [
+      {
+        "id": 2,
+        "category": "知识问答",
+        "prompt": "循环队列为什么会保留一个空槽？写出判空和判满条件。",
+        "actual_output": "循环队列保留一个空槽的主要目的是为了区分队列的空状态与满状态，避免在实际操作中因为数组边界问题导致误判。\n\n**判空条件：**\n- 当 `front == rear` 时，表示队列为空。\n\n**判满条件：**\n- 当 `(rear + 1) % capacity == front` 时，表示队列已满。这里使用了模运算来确保循环队列的边界处理正确无误。\n\n这些条件有助于在操作过程中准确判断队列的状态，并避免因数组边界问题导致的错误。",
+        "sources": [
+          "lab-01-linear-structures.md",
+          "02-stacks-queues-arrays.md",
+          "数据结构教学核心库"
+        ],
+        "source_evidence": [
+          {
+            "source": {
+              "name": "数据结构教学核心库",
+              "type": "collection",
+              "id": "7033360b-8d9f-4ce6-a07b-be21cab5b194"
+            },
+            "document": [
+              "## 任务 B:循环队列\n选择并写明一种指针约定。本实验建议 `front` 指向队头元素,`rear` 指向下一个插入位置,并保留一个空槽区分队空与队满。\n验收点:\n1. 初始 `front == rear`。\n2. 入队 `capacity-1` 个元素后报告队满。\n3. 出队再入队能复用数组前部空间。\n4. 多次绕回后元素仍按 FIFO 次序输出。\n5. 对空队列出队返回失败状态,不读取未初始化数据。",
+              "## 队列\n队列只允许在一端入队、另一端出队,遵循先进先出(FIFO)。典型应用包括任务调度、打印缓冲、广度优先搜索和生产者—消费者系统。\n普通数组队列连续出队后会在数组前部留下空位,形成\"假溢出\"。循环队列通过模运算复用这些位置。若 `front` 指向队头元素、`rear` 指向下一可插入位置,常见判定是:\n- 空队列:`front == rear`\n- 保留一个空槽时的满队列:`(rear + 1) % capacity == front`\n- 队列长度:`(rear - front + capacity) % capacity`\n不同教材可能让 `rear` 指向队尾元素,公式会变化。答题时必须先写清指针语义,不能机械套公式。"
+            ],
+            "metadata": [
+              {
+                "hash": "9b845b547a651d095542eec36769c7f6c05bff71ca1a7e8e8f3958fd25e7d27f",
+                "created_by": "c1d293f5-163f-4c09-9de2-dd56d3eceb4d",
+                "name": "lab-01-linear-structures.md",
+                "file_id": "6b9fffd8-2867-4460-88ce-b70d65d3ef77",
+                "source": "lab-01-linear-structures.md",
+                "embedding_config": "{'engine': '', 'model': 'C:\\\\Users\\\\v\\\\Documents\\\\Codex\\\\2026-09-02\\\\d-xwechat-files-wxid-6lubuwt8juzm22-201c\\\\work\\\\models\\\\bge-small-zh-v1.5'}",
+                "start_index": 0,
+                "_chunk_hash": "ab35dc2a631ba425a8b5bcfef77e4e41eb04102feffa283d935b1fb494302bbc",
+                "score": 0.6500847935676575
+              },
+              {
+                "file_id": "84385577-1d02-4244-924e-1a7724b35794",
+                "hash": "4730d55fc64b317c345787c198f4cf4ef003c7e02a0c52a321e95adbac76aac3",
+                "start_index": 0,
+                "source": "02-stacks-queues-arrays.md",
+                "name": "02-stacks-queues-arrays.md",
+                "embedding_config": "{'engine': '', 'model': 'C:\\\\Users\\\\v\\\\Documents\\\\Codex\\\\2026-09-02\\\\d-xwechat-files-wxid-6lubuwt8juzm22-201c\\\\work\\\\models\\\\bge-small-zh-v1.5'}",
+                "created_by": "c1d293f5-163f-4c09-9de2-dd56d3eceb4d",
+                "_chunk_hash": "049284f77f8a149f62c2990b64857650dac39c62e72e01d5e42a42ba2bc14a4d",
+                "score": 0.6492419242858887
+              }
+            ],
+            "distances": [
+              0.6500847935676575,
+              0.6492419242858887
+            ]
+          }
+        ],
+        "tool_calls": [],
+        "finish_reason": "stop",
+        "elapsed_seconds": 23.63,
+        "answer_correct": "是",
+        "citation_correct": "是",
+        "passed": true,
+        "issues": "无",
+        "improvement": "保持当前配置"
+      },
+      {
+        "id": 6,
+        "category": "综合分析",
+        "prompt": "严格依据课程资料，用一个表格仅列快速排序、归并排序和堆排序各自的时间复杂度、额外空间和稳定性，再给一条选择建议。不要写前言或重复总结，逐项核对堆排序是否稳定。",
+        "actual_output": "| 算法 | 时间复杂度 | 数组额外空间 | 稳定性 |\n|---|---|---|---|\n| 快速排序 | 平均 `O(n log n)`,最坏 `O(n^2)` | 平均递归栈 `O(log n)` | 不稳定 |\n| 归并排序 | 最好、平均、最坏均为 `O(n log n)` | `O(n)` | 稳定 |\n| 堆排序 | 最好、平均、最坏均为 `O(n log n)` | `O(1)` | 不稳定 |\n\n选择建议：要求稳定性且内存充足时可选归并排序;内存受限且不要求稳定时可选堆排序。",
+        "sources": [
+          "key-comparison-cards.md",
+          "06-sorting.md",
+          "数据结构教学核心库"
+        ],
+        "source_evidence": [
+          {
+            "source": {
+              "name": "数据结构教学核心库",
+              "type": "collection",
+              "id": "7033360b-8d9f-4ce6-a07b-be21cab5b194"
+            },
+            "document": [
+              "## 三种排序算法对比\n| 算法 | 时间复杂度 | 数组额外空间 | 稳定性 |\n|---|---|---|---|\n| 快速排序 | 平均 `O(n log n)`,最坏 `O(n^2)` | 平均递归栈 `O(log n)` | **不稳定** |\n| 归并排序 | 最好、平均、最坏均为 `O(n log n)` | `O(n)` | **稳定** |\n| 堆排序 | 最好、平均、最坏均为 `O(n log n)` | `O(1)` | **不稳定** |\n特别注意:堆排序是不稳定排序;需要稳定性时不能因为它是原地算法就选择它。要求稳定且内存充足时可选归并排序;内存受限且不要求稳定时可选堆排序;平均性能优先时可选改进快速排序。",
+              "# 第六章 排序  \n## 评价维度\n排序算法应从时间复杂度、额外空间、稳定性、数据规模、初始有序程度和存储结构综合选择。稳定排序保证关键字相等元素的相对次序不变。"
+            ],
+            "metadata": [
+              {
+                "name": "key-comparison-cards.md",
+                "created_by": "c1d293f5-163f-4c09-9de2-dd56d3eceb4d",
+                "start_index": 0,
+                "embedding_config": "{'engine': '', 'model': 'C:\\\\Users\\\\v\\\\Documents\\\\Codex\\\\2026-09-02\\\\d-xwechat-files-wxid-6lubuwt8juzm22-201c\\\\work\\\\models\\\\bge-small-zh-v1.5'}",
+                "file_id": "04d12d87-d3d5-486e-97d8-547a73e6135c",
+                "hash": "b2b14d0210bbeadfad8cbcee0094df72de5440bcb40bfaf0df800e46da0ad47b",
+                "source": "key-comparison-cards.md",
+                "_chunk_hash": "ca1158c4ed79879e2d0268359f9dc257b81f3a406355ecbb79a83f341a724f0f",
+                "score": 0.7656295299530029
+              },
+              {
+                "created_by": "c1d293f5-163f-4c09-9de2-dd56d3eceb4d",
+                "hash": "37cf72175ab6ef6f0d96ba190eea9e305c94b0648cf83efa909057799c2f1909",
+                "file_id": "1a0c6d6e-4eb5-4994-bf0f-4688a239d803",
+                "embedding_config": "{'engine': '', 'model': 'C:\\\\Users\\\\v\\\\Documents\\\\Codex\\\\2026-09-02\\\\d-xwechat-files-wxid-6lubuwt8juzm22-201c\\\\work\\\\models\\\\bge-small-zh-v1.5'}",
+                "start_index": 0,
+                "source": "06-sorting.md",
+                "name": "06-sorting.md",
+                "_chunk_hash": "149732c766bc2d4c290898946d8c41d448d31bfd927b1b1e7bb68e50497669b0",
+                "score": 0.7376773357391357
+              }
+            ],
+            "distances": [
+              0.7656295299530029,
+              0.7376773357391357
+            ]
+          }
+        ],
+        "tool_calls": [],
+        "finish_reason": "stop",
+        "elapsed_seconds": 25.43,
+        "answer_correct": "是",
+        "citation_correct": "是",
+        "passed": true,
+        "issues": "无",
+        "improvement": "保持当前配置"
+      },
+      {
+        "id": 9,
+        "category": "资料缺失",
+        "prompt": "朱静雯老师期末考试是否允许带计算器？",
+        "actual_output": "资料中未找到，当前无法确认。",
+        "sources": [
+          "01-linear-lists.md",
+          "common-errors.md",
+          "数据结构教学核心库"
+        ],
+        "source_evidence": [
+          {
+            "source": {
+              "name": "数据结构教学核心库",
+              "type": "collection",
+              "id": "7033360b-8d9f-4ce6-a07b-be21cab5b194"
+            },
+            "document": [
+              "## 自测\n1. 为什么顺序表适合随机访问而链表适合频繁局部插入?\n2. 带头结点是否计入线性表长度?\n3. 合并两个有序链表的循环不变量是什么?\n[资料类型:课程讲义;适用章节:线性表]",
+              "## 调试清单\n1. 先构造最小失败输入:空、1 个、2 个、重复值、已排序、逆序。\n2. 每轮循环写出不变量,并检查变量是否持续向终止条件推进。\n3. 使用地址检查器或内存工具发现越界、重复释放和泄漏。\n4. 同时验证结果和原结构是否被意外破坏。\n5. 用参考实现或暴力算法对小规模随机数据做差分测试。\n[资料类型:常见错误说明;适用章节:全课程]"
+            ],
+            "metadata": [
+              {
+                "name": "01-linear-lists.md",
+                "hash": "5438aca937012f3156c9c564b6960233bfe80fe5a58bfa736446bdcaaad2b499",
+                "embedding_config": "{'engine': '', 'model': 'C:\\\\Users\\\\v\\\\Documents\\\\Codex\\\\2026-09-02\\\\d-xwechat-files-wxid-6lubuwt8juzm22-201c\\\\work\\\\models\\\\bge-small-zh-v1.5'}",
+                "start_index": 0,
+                "created_by": "c1d293f5-163f-4c09-9de2-dd56d3eceb4d",
+                "file_id": "c82b8c94-c597-416d-92d1-1e07fed91a3b",
+                "source": "01-linear-lists.md",
+                "_chunk_hash": "a5335af50a72b13c0e676dd4d5ae7c4e60e8a2471e9b6b621f3be3731ee6f4e3",
+                "score": 0.4690934419631958
+              },
+              {
+                "hash": "13c08179545c01164647b18cdea9683d99521c318e272958a2d80ca87f138cb7",
+                "file_id": "1b57055c-5bcf-4df9-ab9f-e5013076f326",
+                "created_by": "c1d293f5-163f-4c09-9de2-dd56d3eceb4d",
+                "source": "common-errors.md",
+                "name": "common-errors.md",
+                "start_index": 0,
+                "embedding_config": "{'engine': '', 'model': 'C:\\\\Users\\\\v\\\\Documents\\\\Codex\\\\2026-09-02\\\\d-xwechat-files-wxid-6lubuwt8juzm22-201c\\\\work\\\\models\\\\bge-small-zh-v1.5'}",
+                "_chunk_hash": "f082824a51dfd8406b02e75de35a2a5ef58d65121096f6d5b7674f009c58f2f8",
+                "score": 0.389549195766449
+              }
+            ],
+            "distances": [
+              0.4690934419631958,
+              0.389549195766449
+            ]
+          }
+        ],
+        "tool_calls": [],
+        "finish_reason": "stop",
+        "elapsed_seconds": 14.11,
+        "answer_correct": "是",
+        "citation_correct": "不适用",
+        "passed": true,
+        "issues": "无",
+        "improvement": "保持当前配置"
+      },
+      {
+        "id": 11,
+        "category": "练习生成",
+        "prompt": "请调用题库工具，从“树与二叉树”章节随机抽取 3 道中等选择题，seed=2026，先不要答案。必须完整展示每题题干、A-D 选项和 source。",
+        "actual_output": "好的，我将按照您的要求从“树与二叉树”章节中等难度的题目库中随机抽取3道选择题，并展示每题的详细信息。\n\n### 题目1\n**问题**: 若一棵二叉树的前序遍历序列和后序遍历序列分别为 1, 2, 3, 4 和 4, 3, 2, 1，则该二叉树的中序遍历序列不会是______。\n- **选项**:\n  - A: 1, 2, 3, 4\n  - B: 2, 3, 4, 1\n  - C: 3, 2, 4, 1\n  - D: 4, 3, 2, 1\n\n- **source**: bank/questions.json#2011-s05\n\n### 题目2\n**问题**: 已知一棵二叉树的树形如下图所示，其后序序列为 e, a, c, b, d, g, f，树中与结点 a 同层的结点是______。（图形题：根结点为 f；f 的左孩子为 c、右孩子为 g；c 只有左孩子 a，a 只有左孩子 e；g 只有左孩子 d，d 只有左孩子 b。原图见 images/2017/page-1.png 第5题处）\n- **选项**:\n  - A: c\n  - B: d\n  - C: f\n  - D: g\n\n- **source**: bank/questions.json#2017-s05\n\n### 题目3\n**问题**: 在由 6 个字符组成的字符集 S 中，各字符出现的频次分别为 3, 4, 5, 6, 8, 10，为 S 构造的哈夫曼编码的加权平均长度为（　　）。\n- **选项**:\n  - A: 2.4\n  - B: 2.5\n  - C: 2.67\n  - D: 2.75\n\n- **source**: bank/questions.json#2023-s04",
+        "sources": [
+          "data_structures_question_bank/random_questions",
+          "common-errors.md",
+          "lab-02-trees-graphs.md",
+          "数据结构教学核心库"
+        ],
+        "source_evidence": [
+          {
+            "source": {
+              "name": "data_structures_question_bank/random_questions"
+            },
+            "document": [
+              "{\n  \"matched\": 37,\n  \"returned\": 3,\n  \"questions\": [\n    {\n      \"id\": \"2011-s05\",\n      \"year\": 2011,\n      \"number\": 5,\n      \"type\": \"single\",\n      \"chapter\": \"树与二叉树\",\n      \"topic\": \"由前序后序序列推中序序列\",\n      \"difficulty\": 2,\n      \"question\": \"若一棵二叉树的前序遍历序列和后序遍历序列分别为 1, 2, 3, 4 和 4, 3, 2, 1，则该二叉树的中序遍历序列不会是______。\",\n      \"options\": {\n        \"A\": \"1, 2, 3, 4\",\n        \"B\": \"2, 3, 4, 1\",\n        \"C\": \"3, 2, 4, 1\",\n        \"D\": \"4, 3, 2, 1\"\n      },\n      \"source\": \"bank/questions.json#2011-s05\"\n    },\n    {\n      \"id\": \"2017-s05\",\n      \"year\": 2017,\n      \"number\": 5,\n      \"type\": \"single\",\n      \"chapter\": \"树与二叉树\",\n      \"topic\": \"由后序序列确定同层结点\",\n      \"difficulty\": 2,\n      \"question\": \"已知一棵二叉树的树形如下图所示，其后序序列为 e, a, c, b, d, g, f，树中与结点 a 同层的结点是______。（图形题：根结点为 f；f 的左孩子为 c、右孩子为 g；c 只有左孩子 a，a 只有左孩子 e；g 只有左孩子 d，d 只有左孩子 b。原图见 images/2017/page-1.png 第5题处）\",\n      \"options\": {\n        \"A\": \"c\",\n        \"B\": \"d\",\n        \"C\": \"f\",\n        \"D\": \"g\"\n      },\n      \"source\": \"bank/questions.json#2017-s05\"\n    },\n    {\n      \"id\": \"2023-s04\",\n      \"year\": 2023,\n      \"number\": 4,\n      \"type\": \"single\",\n      \"chapter\": \"树与二叉树\",\n      \"topic\": \"哈夫曼编码加权平均长度计算\",\n      \"difficulty\": 2,\n      \"question\": \"在由 6 个字符组成的字符集 S 中，各字符出现的频次分别为 3, 4, 5, 6, 8, 10，为 S 构造的哈夫曼编码的加权平均长度为（　　）。\",\n      \"options\": {\n        \"A\": \"2.4\",\n        \"B\": \"2.5\",\n        \"C\": \"2.67\",\n        \"D\": \"2.75\"\n      },\n      \"source\": \"bank/questions.json#2023-s04\"\n    }\n  ]\n}"
+            ],
+            "metadata": [
+              {
+                "source": "data_structures_question_bank/random_questions",
+                "parameters": {
+                  "chapter": "树与二叉树",
+                  "difficulty": 2,
+                  "question_type": "single",
+                  "count": 3,
+                  "include_answer": false,
+                  "seed": 2026
+                }
+              }
+            ],
+            "tool_result": true
+          },
+          {
+            "source": {
+              "name": "数据结构教学核心库",
+              "type": "collection",
+              "id": "7033360b-8d9f-4ce6-a07b-be21cab5b194"
+            },
+            "document": [
+              "## 树与图\n- 把完全二叉树当满二叉树:完全只要求最后一层从左连续。\n- 认为前序加后序总能唯一确定树:一般二叉树不成立。\n- DFS/BFS 只从一个顶点启动:非连通图需要外层循环形成遍历森林。\n- 对含负权边的图使用 Dijkstra:已确定距离可能被后续负边改小。",
+              "## 任务 A:二叉树\n根据带空标记的前序序列创建二叉树,实现递归前序、中序、后序和队列层序遍历。增加计算高度、叶结点数和释放树的函数。\n测试至少包含空树、单结点、只有左链、完全二叉树和一般二叉树。只有前序与后序序列时不要声称可以唯一重建一般二叉树。"
+            ],
+            "metadata": [
+              {
+                "file_id": "1b57055c-5bcf-4df9-ab9f-e5013076f326",
+                "embedding_config": "{'engine': '', 'model': 'C:\\\\Users\\\\v\\\\Documents\\\\Codex\\\\2026-09-02\\\\d-xwechat-files-wxid-6lubuwt8juzm22-201c\\\\work\\\\models\\\\bge-small-zh-v1.5'}",
+                "start_index": 0,
+                "created_by": "c1d293f5-163f-4c09-9de2-dd56d3eceb4d",
+                "source": "common-errors.md",
+                "hash": "13c08179545c01164647b18cdea9683d99521c318e272958a2d80ca87f138cb7",
+                "name": "common-errors.md",
+                "_chunk_hash": "f70945a5c7527c8dd84a8cf8331f9f821e53cedf93d69ab6142a538695e4a160",
+                "score": 0.6963666677474976
+              },
+              {
+                "created_by": "c1d293f5-163f-4c09-9de2-dd56d3eceb4d",
+                "embedding_config": "{'engine': '', 'model': 'C:\\\\Users\\\\v\\\\Documents\\\\Codex\\\\2026-09-02\\\\d-xwechat-files-wxid-6lubuwt8juzm22-201c\\\\work\\\\models\\\\bge-small-zh-v1.5'}",
+                "hash": "8b206d5613fa71ab66c14592c5e5e70eedfe7d58e672ee7872a31419f0f2d501",
+                "start_index": 0,
+                "source": "lab-02-trees-graphs.md",
+                "name": "lab-02-trees-graphs.md",
+                "file_id": "29701a11-3f37-4662-818d-0ac36c9824e6",
+                "_chunk_hash": "20181a5ecb676d7f8cbabd0be7c9ef26d5d8feec852c5b59acba4d8484ee5858",
+                "score": 0.6936053037643433
+              }
+            ],
+            "distances": [
+              0.6963666677474976,
+              0.6936053037643433
+            ]
+          }
+        ],
+        "tool_calls": [],
+        "finish_reason": "stop",
+        "elapsed_seconds": 71.77,
+        "answer_correct": "是",
+        "citation_correct": "是",
+        "passed": true,
+        "issues": "无",
+        "improvement": "保持当前配置"
+      },
+      {
+        "id": 12,
+        "category": "批改任务",
+        "prompt": "请调用题库工具批改：题目 2009-s01，我的答案是 A，并解释。",
+        "actual_output": "根据题库工具返回的结果，学生提交的答案为 A，但正确答案是 B。具体解释如下：\n\n[1] 题目要求打印作业应按先后顺序执行（先进先出），缓冲区应使用队列；若用栈则会颠倒打印顺序。\n\n结论：学生的答案与正确答案不符。\n依据：题库工具返回的 `correct` 字段为 `false`，且提供了详细的解释说明。",
+        "sources": [
+          "data_structures_question_bank/grade_objective_answer",
+          "key-comparison-cards.md",
+          "cpp-algorithm-examples.md",
+          "数据结构教学核心库"
+        ],
+        "source_evidence": [
+          {
+            "source": {
+              "name": "data_structures_question_bank/grade_objective_answer"
+            },
+            "document": [
+              "{\n  \"question_id\": \"2009-s01\",\n  \"student_answer\": \"A\",\n  \"correct\": false,\n  \"expected_answer\": \"B\",\n  \"explanation\": \"打印作业应按先后顺序执行（先进先出），缓冲区应为队列；若用栈会颠倒打印顺序。\",\n  \"source\": \"bank/questions.json#2009-s01\"\n}"
+            ],
+            "metadata": [
+              {
+                "source": "data_structures_question_bank/grade_objective_answer",
+                "parameters": {
+                  "question_id": "2009-s01",
+                  "student_answer": "A"
+                }
+              }
+            ],
+            "tool_result": true
+          },
+          {
+            "source": {
+              "name": "数据结构教学核心库",
+              "type": "collection",
+              "id": "7033360b-8d9f-4ce6-a07b-be21cab5b194"
+            },
+            "document": [
+              "# 数据结构关键辨析卡\n本页用于核对课程中容易混淆的结论。回答相关问题时应逐项采用下表或伪代码,不要凭印象改变结论。",
+              "# C++ 示例代码与复杂度说明  \n## 单链表原地逆置\n```cpp\nstruct Node { int value; Node* next; };\n\nNode* reverse(Node* head) {\nNode* prev = nullptr;\nNode* cur = head;\nwhile (cur != nullptr) {\nNode* next = cur->next;\ncur->next = prev;\nprev = cur;\ncur = next;\n}\nreturn prev;\n}\n```\n每个结点访问一次,时间 `O(n)`,额外空间 `O(1)`。关键点是在改变 `cur->next` 前保存原后继。"
+            ],
+            "metadata": [
+              {
+                "source": "key-comparison-cards.md",
+                "name": "key-comparison-cards.md",
+                "created_by": "c1d293f5-163f-4c09-9de2-dd56d3eceb4d",
+                "start_index": 0,
+                "hash": "b2b14d0210bbeadfad8cbcee0094df72de5440bcb40bfaf0df800e46da0ad47b",
+                "embedding_config": "{'engine': '', 'model': 'C:\\\\Users\\\\v\\\\Documents\\\\Codex\\\\2026-09-02\\\\d-xwechat-files-wxid-6lubuwt8juzm22-201c\\\\work\\\\models\\\\bge-small-zh-v1.5'}",
+                "file_id": "04d12d87-d3d5-486e-97d8-547a73e6135c",
+                "_chunk_hash": "c0bb0bf65a2d20d53a72efc09a76f19b7564258d876b39c5a388379af94574f0",
+                "score": 0.5188326239585876
+              },
+              {
+                "file_id": "29a27232-f92d-4c91-bdcd-1132d1b9447a",
+                "source": "cpp-algorithm-examples.md",
+                "created_by": "c1d293f5-163f-4c09-9de2-dd56d3eceb4d",
+                "start_index": 0,
+                "hash": "99b6d396a9d1e830dd9bc2b0f3014f6d95a454a19a653043a6b69db409da678a",
+                "embedding_config": "{'engine': '', 'model': 'C:\\\\Users\\\\v\\\\Documents\\\\Codex\\\\2026-09-02\\\\d-xwechat-files-wxid-6lubuwt8juzm22-201c\\\\work\\\\models\\\\bge-small-zh-v1.5'}",
+                "name": "cpp-algorithm-examples.md",
+                "_chunk_hash": "84763f4759cbc6ba9a03e9d8494510e3b6ca51a8b0959cd9d1b28e159daaa581",
+                "score": 0.5124512910842896
+              }
+            ],
+            "distances": [
+              0.5188326239585876,
+              0.5124512910842896
+            ]
+          }
+        ],
+        "tool_calls": [],
+        "finish_reason": "stop",
+        "elapsed_seconds": 23.66,
+        "answer_correct": "是",
+        "citation_correct": "是",
+        "passed": true,
+        "issues": "无",
+        "improvement": "保持当前配置"
+      }
+    ]
+  },
+  "updated_at": "2026-09-03T19:19:45+0800",
+  "rerun_history": [
+    {
+      "at": "2026-09-03T19:19:45+0800",
+      "case_ids": [
+        15
+      ]
+    }
+  ]
+}
