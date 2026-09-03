@@ -2,6 +2,8 @@
 
 基于 Open WebUI 的课程专属 AI 应用，已在 Windows 本机使用 Open WebUI 0.11.3、Qwen2.5-3B-Instruct、中文 BGE 向量模型完成实际部署和对话验收。
 
+GitHub 仓库：<https://github.com/2300172382a-coder/data-structures-ai-tutor>（私有；提交给老师前请添加其 GitHub 账号为协作者，或由项目组确认后改为公开）。
+
 ## 完成内容
 
 - 28 份分类知识资料：17 份历年试题、6 份讲义、2 份实验、3 份示例/辨析资料。
