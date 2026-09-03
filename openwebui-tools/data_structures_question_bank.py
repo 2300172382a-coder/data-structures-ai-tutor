@@ -110,7 +110,14 @@ class Tools:
         ]
         if not candidates:
             return json.dumps(
-                {"error": "没有符合条件的题目", "chapter": chapter, "difficulty": difficulty},
+                {
+                    "status": "completed",
+                    "has_results": False,
+                    "error": "没有符合条件的题目",
+                    "message_to_user": f"没有符合条件的题目（章节：{chapter or '全部章节'}，难度：{difficulty}）。请调整筛选条件后重试。",
+                    "chapter": chapter,
+                    "difficulty": difficulty,
+                },
                 ensure_ascii=False,
             )
         size = min(count, self.valves.max_results, len(candidates))
@@ -209,11 +216,15 @@ class Tools:
             return dict(sorted(result.items()))
 
         years = sorted({q.get("year") for q in items if q.get("year")})
+        chapter_counts = counts("chapter")
+        max_chapter, max_count = max(chapter_counts.items(), key=lambda entry: entry[1])
         return json.dumps(
             {
                 "scope": chapter or "全部章节",
                 "total": len(items),
-                "chapters": counts("chapter"),
+                "chapters": chapter_counts,
+                "max_chapter": max_chapter,
+                "max_count": max_count,
                 "types": counts("type"),
                 "difficulty": counts("difficulty"),
                 "year_range": [years[0], years[-1]] if years else [],
@@ -261,4 +272,3 @@ class Tools:
             ensure_ascii=False,
             indent=2,
         )
-

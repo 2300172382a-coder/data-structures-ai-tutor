@@ -1,56 +1,56 @@
 # 数据结构 AI 助教
 
-基于 Open WebUI、Ollama、课程知识库和自定义 Workspace Tool 的课程专属 AI 助教。项目使用 2009–2025 年数据结构真题和自编课程资料，支持知识问答、分层解释、例题与思路、练习生成、答案分析、资料引用和越界提示。
+基于 Open WebUI 的课程专属 AI 应用，已在 Windows 本机使用 Open WebUI 0.11.3、Qwen2.5-3B-Instruct、中文 BGE 向量模型完成实际部署和对话验收。
 
-## 已实现内容
+## 完成内容
 
-- Docker Compose 一键启动 Open WebUI 与 Ollama，默认模型为 `qwen3:4b`。
-- 17 份历年试题知识文档，以及讲义、实验、示例代码和常见错误等分类资料。
-- 严格的课程助教系统提示词：优先检索、强制标注来源、不确定时拒绝编造、遵守学术诚信。
-- 自定义题库工具：随机抽题、客观题判分、题库搜索、章节统计、先修关系查询。
-- 218 道结构化题目，覆盖六个核心章节；184 道客观题含答案与解析。
-- 单元测试、数据质量检查、15 项验收测试矩阵和优化前后对比方案。
+- 28 份分类知识资料：17 份历年试题、6 份讲义、2 份实验、3 份示例/辨析资料。
+- 两层 RAG：28 份完整档案库用于留存和查询，11 份教学核心库作为课程模型默认检索源，避免真题片段污染概念回答。
+- 218 道结构化真题，覆盖 2009–2025 年、六个核心章节；184 道客观题带标准答案与解析。
+- 一个可在 Open WebUI 对话中真实调用的 Workspace Tool，提供随机抽题、客观题判分、题库搜索、章节统计和先修关系 5 个函数。
+- 系统提示词包含身份、范围、输出格式、分层解释、引用、查无资料处理和学术诚信约束。
+- 15 项 Open WebUI 实际验收、5 项优化前后对比、13 项工具单元测试和数据质量检查。
 
-## 快速启动
+## 当前机器直接启动（不需要 Docker）
 
-1. 启动 Docker Desktop。
-2. 将 `.env.example` 复制为 `.env`，修改 `WEBUI_SECRET_KEY`；内存不足时可将模型改为 `qwen3:1.7b`。
-3. 在本目录运行：
+在本目录打开 PowerShell：
 
-   ```powershell
-   docker compose up -d
-   docker compose ps
-   ```
+```powershell
+powershell -ExecutionPolicy Bypass -File .\scripts\start-native.ps1
+```
 
-4. 首次启动会下载镜像、语言模型和多语言嵌入模型。完成后访问 <http://localhost:3000>。
-5. 按 [docs/DEPLOYMENT.md](docs/DEPLOYMENT.md) 创建知识库、导入工具并创建课程模型。
+等待出现 `Ready: http://127.0.0.1:3000` 后访问该地址，使用已创建的本机管理员账号登录并选择“数据结构 AI 助教”。停止服务：
 
-## 本地验证
+```powershell
+powershell -ExecutionPolicy Bypass -File .\scripts\stop-native.ps1
+```
 
-项目代码仅依赖 Python 标准库；Open WebUI 导入工具时会提供 Pydantic。
+首次在另一台 Windows 机器部署时，先运行 `scripts/setup-native.ps1` 下载运行环境，再按 [部署手册](docs/DEPLOYMENT.md) 执行一次初始化。Docker Compose 只是可选方案，题目没有要求必须使用 Docker。
+
+## 验证命令
 
 ```powershell
 python -m unittest discover -s tests -v
 python scripts/validate_data.py
-docker compose config
+python scripts/render_acceptance_report.py
 ```
 
-如果系统没有全局 Python，可使用 Codex 工作区附带的 Python 3.11 运行上述命令。
+实际大模型结果见 `test-results/acceptance-results.json` 和 `test-results/acceptance-test-report.md`。
 
-## 目录说明
+## 目录
 
 ```text
-bank/                  结构化题库及各年份源数据
-knowledge/             可上传到 Open WebUI 的分类知识资料
-openwebui-tools/       可直接粘贴导入的 Workspace Tool
-prompts/               课程模型系统提示词
-scripts/               数据校验与源资料处理脚本
+bank/                  结构化题库及分年数据
+config/                已验证的 RAG 配置
+knowledge/             可上传到 Open WebUI 的四类资料
+openwebui-tools/       Workspace Tool 源码
+prompts/               基线和优化版系统提示词
+scripts/               安装、启动、初始化、验收与数据脚本
 tests/                 自动化单元测试
-test-results/          15 项验收矩阵与测试说明
-docs/                  部署、设计和项目总结
+test-results/          实际验收证据与优化对比
+docs/                  架构、部署、项目报告和交互记录
 ```
 
-## 数据来源与边界
+## 数据边界
 
-题库与历年试题来自教师提供的“数据结构项目.zip”。课程讲义、实验指导、示例代码和常见错误说明由本项目基于通用数据结构课程大纲整理。综合题的标准答案在原始数据中不完整，因此工具只自动判分客观题；综合题由 AI 依据知识库给出分步反馈，避免伪造唯一答案。
-
+历年题来自教师提供的项目压缩包。综合题的权威评分点不完整，因此工具只对客观题自动判分；综合题由 AI 提供形成性反馈。含原图但图像缺失的题目必须明确说明无法确认，不伪造题图或答案。

@@ -75,6 +75,8 @@ class QuestionBankToolTests(unittest.TestCase):
         result = self.call(self.tool.chapter_statistics)
         self.assertEqual(218, result["total"])
         self.assertEqual(57, result["chapters"]["树与二叉树"])
+        self.assertEqual("树与二叉树", result["max_chapter"])
+        self.assertEqual(57, result["max_count"])
         self.assertEqual([2009, 2025], result["year_range"])
 
     def test_prerequisite_path(self):
@@ -85,6 +87,14 @@ class QuestionBankToolTests(unittest.TestCase):
     def test_invalid_difficulty_is_structured_error(self):
         result = self.call(self.tool.random_questions, difficulty=9)
         self.assertIn("error", result)
+
+    def test_unknown_chapter_is_structured_error(self):
+        result = self.call(self.tool.random_questions, chapter="不存在章节", difficulty=2, count=3)
+        self.assertEqual("没有符合条件的题目", result["error"])
+        self.assertEqual("不存在章节", result["chapter"])
+        self.assertEqual("completed", result["status"])
+        self.assertFalse(result["has_results"])
+        self.assertIn("请调整筛选条件后重试", result["message_to_user"])
 
 
 if __name__ == "__main__":

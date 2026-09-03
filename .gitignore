@@ -5,5 +5,7 @@ __pycache__/
 .coverage
 htmlcov/
 data/
+.runtime/
+.runtime-path
+.webui_secret_key
 test-results/runtime-*.json
-

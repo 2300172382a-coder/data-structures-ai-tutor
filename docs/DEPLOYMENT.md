@@ -1,76 +1,100 @@
-# 部署与配置手册
+# 部署与运行手册
 
-## 1. 前置条件
+## 结论：不需要 Docker
 
-- Windows、macOS 或 Linux；推荐 Docker Desktop / Docker Engine + Compose。
-- 建议至少 8 GB 内存；`qwen3:4b` 体验更好，资源不足可在 `.env` 改成 `qwen3:1.7b`。
-- 首次启动需要联网下载 Open WebUI、Ollama 模型和多语言嵌入模型。
+题目要求部署 Open WebUI 并连接至少一个大模型，没有要求必须使用 Docker。本项目已用 Windows 原生方式完整跑通；Docker Compose 仅作为可选的跨平台部署方案。
 
-## 2. 启动服务
+## A. 当前机器直接运行
 
-在项目根目录执行：
+运行环境和 Open WebUI 数据库已经配置好。在项目根目录执行：
+
+```powershell
+powershell -ExecutionPolicy Bypass -File .\scripts\start-native.ps1
+```
+
+脚本会在后台启动：
+
+- Qwen2.5-3B-Instruct GGUF：`127.0.0.1:11435`
+- Open WebUI：`127.0.0.1:3000`
+- 中文向量模型：本地 `bge-small-zh-v1.5`
+
+打开 <http://127.0.0.1:3000>，使用已创建的本机管理员账号登录，选择“数据结构 AI 助教”。日志位于脚本所选运行目录的 `logs/`；当前机器通过被 Git 忽略的 `.runtime-path` 指向已安装运行环境。停止：
+
+```powershell
+powershell -ExecutionPolicy Bypass -File .\scripts\stop-native.ps1
+```
+
+## B. 新机器原生部署
+
+前置条件：Windows 10/11、至少 8 GB 内存（推荐 16 GB）、Git、[uv](https://docs.astral.sh/uv/)。还需一个 `llama-server` 可执行文件；脚本会优先使用 `LLAMA_SERVER_PATH`，其次寻找 Docker Desktop 随附的本地 llama-server。这里即使借用 Docker Desktop 的二进制，也没有使用容器。
+
+1. 准备约 5 GB 可用空间：
+
+   ```powershell
+   powershell -ExecutionPolicy Bypass -File .\scripts\setup-native.ps1
+   ```
+
+2. 启动服务：
+
+   ```powershell
+   powershell -ExecutionPolicy Bypass -File .\scripts\start-native.ps1
+   ```
+
+3. 首次初始化 Open WebUI。把示例账号改成自己的本地账号；若数据库为空，脚本会自动注册第一个管理员，否则用现有管理员登录：
+
+   ```powershell
+   .\.runtime\openwebui-venv\Scripts\python.exe .\scripts\bootstrap_openwebui.py `
+     --email admin@example.local `
+     --password "请换成强密码"
+   ```
+
+初始化脚本可重复运行：它创建/复用 28 份完整知识库和 11 份教学核心库，导入题库工具、设置 Valve 题库路径、创建课程模型并应用 `config/rag-config.json`。
+
+## C. 可选 Docker Compose
+
+如果团队更习惯容器，可执行：
 
 ```powershell
 Copy-Item .env.example .env
-# 编辑 .env，把 WEBUI_SECRET_KEY 换成长随机字符串
+# 修改 .env 中的 WEBUI_SECRET_KEY
 docker compose up -d
 docker compose ps
 docker compose logs -f model-init
 ```
 
-`model-init` 成功退出后，在浏览器打开 <http://localhost:3000>。首次注册的账号作为管理员。不要把实例直接暴露到公网；如需共享，配置 TLS、访问控制并关闭公开注册。
+访问 <http://localhost:3000>。容器方案默认通过 Ollama 使用 `.env` 中的模型；首次启动需下载镜像、模型和向量模型。随后可按界面手动上传 `knowledge/`、导入 `openwebui-tools/data_structures_question_bank.py` 并粘贴 `prompts/system-prompt.md`，也可从宿主机运行初始化脚本并把 `--bank-path` 设为 `/app/backend/data-structures-bank/questions.json`。
 
-若端口冲突，在 `.env` 修改 `WEBUI_PORT`。若模型下载失败，可手动运行：
+不要把服务直接暴露到公网。共享部署应配置 TLS、关闭公开注册并为普通学生仅授予知识库和工具读取/调用权限。
 
-```powershell
-docker compose exec ollama ollama pull qwen3:4b
-```
+## 课程模型配置
 
-## 3. 创建课程知识库
+- 基础模型：`qwen2.5-3b-instruct`
+- Function calling：`legacy`（让 Open WebUI 在服务端执行自定义工具）
+- Temperature：`0.1`
+- Top-p：`0.8`
+- Max tokens：`800`
+- RAG：混合检索，`TOP_K=2`、BM25 权重 `0.7`
+- 默认知识：11 份教学核心库
+- 精确真题：题库工具
 
-1. 进入 `Workspace > Knowledge`，创建“数据结构课程知识库”。
-2. 描述填写：“课程讲义、实验指导、示例代码、常见错误与 2009–2025 历年试题”。
-3. 上传 `knowledge` 目录中的全部 27 份 Markdown。若界面支持目录同步，直接同步整个目录并保留四类子目录。
-4. 等待每个文件处理完成。抽查“哈夫曼树”“Dijkstra”“循环队列”等关键词是否能检索。
-5. 检索模式选择 Focused Retrieval/RAG；启用混合检索。资料较短且需要逐字读取时，可临时使用 Full Context，不要把所有 27 份资料同时完整注入。
+完整的 28 份资料仍保留在“数据结构课程知识库”中；把默认检索限制到核心库是经过失败复测后的设计，能避免同关键词的历年题干覆盖课程讲义。
 
-## 4. 导入自定义工具
-
-1. 进入 `Workspace > Tools`，新建工具。
-2. 将 `openwebui-tools/data_structures_question_bank.py` 全文粘贴并保存。
-3. 在工具 Valves 中确认 `bank_path` 为 `/app/backend/data-structures-bank/questions.json`。
-4. 先手动测试 `chapter_statistics()`，预期总题数为 218。
-5. 只授予课程用户读取/调用权限，不授予普通用户编辑工具权限。
-
-## 5. 创建课程模型
-
-1. 进入 `Workspace > Models`，创建模型“数据结构 AI 助教”。
-2. 基础模型选择 `.env` 中拉取的模型（默认 `qwen3:4b`）。
-3. 把 `prompts/system-prompt.md` 的正文放入 System Prompt。
-4. 附加“数据结构课程知识库”和“数据结构题库工具”。
-5. 保持 Native 工具调用模式；启用知识、工具和引用能力。
-6. 保存后新建对话，输入：“请先查询题库统计，再从图章节抽一道中等选择题，不显示答案。”确认界面出现两次工具调用。
-
-## 6. 验收和留证
-
-按 `test-results/acceptance-test-matrix.md` 逐条测试，把 Open WebUI 实际输出、引用和截图路径填入“运行记录”。然后使用基线提示词和优化提示词分别运行同一组 5 个对比问题，记录引用率、正确率、拒答诚实性和工具调用成功率。
-
-推荐保留以下截图：
-
-- Compose 服务正常状态和模型列表。
-- 知识库文件数量与分类。
-- 课程模型的系统提示词、知识和工具绑定。
-- 正确引用回答、资料缺失拒答、随机抽题、自动判分。
-- 优化前后同一问题的对比。
-
-## 7. 常用维护命令
+## 验收复现
 
 ```powershell
-docker compose ps
-docker compose logs --tail 100 open-webui
-docker compose restart open-webui
-docker compose down
+$env:OPENWEBUI_EMAIL = 'admin@example.local'
+$env:OPENWEBUI_PASSWORD = '你的密码'
+.\.runtime\openwebui-venv\Scripts\python.exe .\scripts\run_acceptance.py `
+  --output .\test-results\acceptance-results.json
+.\.runtime\openwebui-venv\Scripts\python.exe .\scripts\render_acceptance_report.py
 ```
 
-`docker compose down` 会保留命名卷。不要运行 `docker compose down -v`，除非明确要删除全部 Open WebUI 数据和本地模型。
+验收脚本按顺序运行 15 项，避免本地小模型并发时共享缓存导致串题。结构化 JSON 中保存输入、实际输出、来源证据、正确性、问题和改进方式。
 
+## 常见问题
+
+- 端口占用：给 `start-native.ps1` 传入 `-WebPort` 或 `-ModelPort`，并保持两端配置一致。
+- 启动较慢：Open WebUI 首次加载中文向量模型约需 1–2 分钟。
+- 无法下载：ModelScope 下载可断点重试；确认 Git LFS 能获取 BGE 权重。
+- 工具找不到题库：在 Workspace > Tools > Valves 检查 `bank_path`。
+- 修改知识文件后：重新运行初始化脚本或在 Workspace > Knowledge 中重传对应文件。
