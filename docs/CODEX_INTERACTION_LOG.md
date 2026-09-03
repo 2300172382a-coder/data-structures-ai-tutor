@@ -28,6 +28,7 @@
 6. 工具异常结果偶尔未被最终回复完整复述：增加 `status=completed`、`has_results=false`、`message_to_user`，并规定无结果时不得再次调用；定向复测通过。
 7. Windows PowerShell 5.1 把无 BOM 的中文脚本误读后出现解析错误：将 `.ps1` 中的运行期消息改为 ASCII，并用 Windows PowerShell 原样完成停止、启动和健康检查。
 8. 两个回答使用“遍历找到”“请提供相关信息”等同义表达，旧正则误判：保留实际输出，仅扩展语义等价检查词，并在验收 JSON 中记录重新判定与定向复测历史。
+9. Open WebUI 报告请求约 6111 tokens、可用上下文仅 4096：确认 llama-server 将 `--ctx-size 8192` 分给两个并行槽；改为单槽 16384，并以 6201-token 实际请求和 Open WebUI 对话复测通过。
 
 ## 证据位置
 

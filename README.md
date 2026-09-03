@@ -27,6 +27,8 @@ powershell -ExecutionPolicy Bypass -File .\scripts\start-native.ps1
 powershell -ExecutionPolicy Bypass -File .\scripts\stop-native.ps1
 ```
 
+模型服务默认使用单槽 16K 上下文，足以容纳课程系统提示词、RAG 片段和正常对话。若曾运行旧版本脚本，请先停止再重新启动，新的上下文参数才会生效。
+
 首次在另一台 Windows 机器部署时，先运行 `scripts/setup-native.ps1` 下载运行环境，再按 [部署手册](docs/DEPLOYMENT.md) 执行一次初始化。Docker Compose 只是可选方案，题目没有要求必须使用 Docker。
 
 ## 验证命令

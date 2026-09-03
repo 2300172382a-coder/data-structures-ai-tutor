@@ -17,6 +17,7 @@ powershell -ExecutionPolicy Bypass -File .\scripts\start-native.ps1
 - Qwen2.5-3B-Instruct GGUF：`127.0.0.1:11435`
 - Open WebUI：`127.0.0.1:3000`
 - 中文向量模型：本地 `bge-small-zh-v1.5`
+- 模型上下文：单槽 16384 tokens，避免 RAG 请求被并行槽均分为 4096
 
 打开 <http://127.0.0.1:3000>，使用已创建的本机管理员账号登录，选择“数据结构 AI 助教”。日志位于脚本所选运行目录的 `logs/`；当前机器通过被 Git 忽略的 `.runtime-path` 指向已安装运行环境。停止：
 
@@ -95,6 +96,7 @@ $env:OPENWEBUI_PASSWORD = '你的密码'
 
 - 端口占用：给 `start-native.ps1` 传入 `-WebPort` 或 `-ModelPort`，并保持两端配置一致。
 - 启动较慢：Open WebUI 首次加载中文向量模型约需 1–2 分钟。
+- 出现 `request (...) exceeds the available context size`：先执行停止脚本，再重新运行最新版启动脚本；可用 `http://127.0.0.1:11435/props` 确认 `n_ctx` 为 16384、`total_slots` 为 1。
 - 无法下载：ModelScope 下载可断点重试；确认 Git LFS 能获取 BGE 权重。
 - 工具找不到题库：在 Workspace > Tools > Valves 检查 `bank_path`。
 - 修改知识文件后：重新运行初始化脚本或在 Workspace > Knowledge 中重传对应文件。

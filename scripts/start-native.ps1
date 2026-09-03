@@ -3,6 +3,10 @@ param(
     [string]$RuntimeRoot = "",
     [int]$WebPort = 3000,
     [int]$ModelPort = 11435,
+    [ValidateRange(4096, 32768)]
+    [int]$ContextSize = 16384,
+    [ValidateRange(1, 4)]
+    [int]$ParallelSlots = 1,
     [switch]$OpenBrowser
 )
 
@@ -46,8 +50,10 @@ if (-not $modelHealthy) {
         "--alias", "qwen2.5-3b-instruct",
         "--host", "127.0.0.1",
         "--port", "$ModelPort",
-        "--ctx-size", "8192",
-        "--parallel", "2",
+        # llama-server divides --ctx-size across parallel slots. A single
+        # 16K slot safely fits the course prompt, RAG context and response.
+        "--ctx-size", "$ContextSize",
+        "--parallel", "$ParallelSlots",
         "--cache-ram", "1024",
         "--jinja", "--no-ui"
     )
@@ -100,5 +106,6 @@ for ($i = 0; $i -lt 120; $i++) {
 
 $url = "http://127.0.0.1:$WebPort"
 Write-Host "Ready: $url"
+Write-Host "Model context: $ContextSize tokens across $ParallelSlots slot(s)"
 Write-Host "Stop: powershell -ExecutionPolicy Bypass -File .\scripts\stop-native.ps1"
 if ($OpenBrowser) { Start-Process $url }

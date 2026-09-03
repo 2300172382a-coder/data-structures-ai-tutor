@@ -10,7 +10,7 @@
 
 题目要求“部署 Open WebUI 并连接至少一个大模型”，没有限定容器技术，因此 Docker 不是硬性要求。本项目已经用 Windows 原生方式完成实际部署和全部验收：
 
-- 模型服务：llama-server，监听 `127.0.0.1:11435`；
+- 模型服务：llama-server，监听 `127.0.0.1:11435`，使用单槽 16384-token 上下文；
 - 本地模型：Qwen2.5-3B-Instruct GGUF；
 - Web 服务：Open WebUI 0.11.3，监听 `127.0.0.1:3000`；
 - 启停脚本：`scripts/start-native.ps1`、`scripts/stop-native.ps1`；
@@ -101,6 +101,7 @@ Open WebUI 中建立两层知识库：
 - 数据校验：218 道题、28 份知识文件、4 类知识资料均通过；
 - Python 语法、PowerShell 脚本语法和 Compose 配置均通过检查；
 - 初始化脚本已在现有 Open WebUI 上重复执行，确认具有幂等性。
+- 上下文回归：模型 `/props` 返回 `n_ctx=16384`、`total_slots=1`；实际 6201-token 请求成功完成，修复了旧配置 `8192 / 2 = 4096` 导致的 RAG 请求溢出。
 
 ## 八、局限与后续改进
 
