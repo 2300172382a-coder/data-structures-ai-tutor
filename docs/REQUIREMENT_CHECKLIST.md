@@ -13,7 +13,8 @@
 | 源码与 Git 开发记录 | 源码齐全，分阶段提交，另生成可克隆 bundle | 项目 `.git`、`data-structures-ai-tutor-history.bundle` | 完成 |
 | Codex 交互记录 | 记录需求、决策、失败与修复、证据路径 | `docs/CODEX_INTERACTION_LOG.md` | 完成 |
 | 项目报告 | 架构、数据、实现、测试、局限与复现说明 | `docs/PROJECT_REPORT.md` | 完成 |
-| Git 托管仓库链接 | 私有 GitHub 仓库，完整 `main` 历史 | <https://github.com/2300172382a-coder/data-structures-ai-tutor>；提交前添加老师为协作者或确认后公开 | 完成 |
+| Git 托管仓库链接 | 公开 GitHub 仓库，完整 `main` 历史 | <https://github.com/2300172382a-coder/data-structures-ai-tutor>；已匿名访问验证 | 完成 |
+| 最终提交材料 | 将交互记录、总结报告、需求清单、验收报告生成 Word/PDF，并与源码、Git bundle 统一打包 | `docs/FINAL_AUDIT.md` 与最终提交压缩包 | 完成 |
 
 ## Docker 判断
 

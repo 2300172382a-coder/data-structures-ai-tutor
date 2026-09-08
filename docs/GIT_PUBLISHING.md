@@ -1,8 +1,8 @@
 # Git 仓库发布说明
 
-项目已经发布到私有 GitHub 仓库：<https://github.com/2300172382a-coder/data-structures-ai-tutor>。`main` 分支包含完整的分阶段提交。
+项目已经发布到公开 GitHub 仓库：<https://github.com/2300172382a-coder/data-structures-ai-tutor>。`main` 分支包含完整的分阶段提交，无需登录即可查看和克隆。
 
-仓库保持私有是为了避免未经确认公开教师试题。提交给老师前，请在 GitHub 仓库 `Settings > Collaborators` 中添加老师的 GitHub 账号；如果课程明确允许公开，也可在 `Settings > General > Danger Zone` 中修改可见性。
+仓库已按项目提交需要由私有改为公开。提交时直接填写仓库首页 URL；如以后不再需要公开展示，可在课程验收结束后根据教师要求调整可见性。
 
 ## 后续从当前项目推送
 

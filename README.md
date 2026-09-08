@@ -2,7 +2,7 @@
 
 基于 Open WebUI 的课程专属 AI 应用，已在 Windows 本机使用 Open WebUI 0.11.3、Qwen2.5-3B-Instruct、中文 BGE 向量模型完成实际部署和对话验收。
 
-GitHub 仓库：<https://github.com/2300172382a-coder/data-structures-ai-tutor>（私有；提交给老师前请添加其 GitHub 账号为协作者，或由项目组确认后改为公开）。
+GitHub 公开仓库：<https://github.com/2300172382a-coder/data-structures-ai-tutor>。无需登录即可查看源码、文档和完整 `main` 分支提交历史。
 
 ## 完成内容
 
@@ -36,12 +36,10 @@ powershell -ExecutionPolicy Bypass -File .\scripts\stop-native.ps1
 ## 验证命令
 
 ```powershell
-python -m unittest discover -s tests -v
-python scripts/validate_data.py
-python scripts/render_acceptance_report.py
+powershell -ExecutionPolicy Bypass -File .\scripts\run-tests.ps1
 ```
 
-实际大模型结果见 `test-results/acceptance-results.json` 和 `test-results/acceptance-test-report.md`。
+该脚本会优先使用项目 Open WebUI 运行环境中的 Python，依次执行 14 项单元测试、数据校验、Python 语法检查和验收报告重渲染。实际大模型结果见 `test-results/acceptance-results.json` 和 `test-results/acceptance-test-report.md`。
 
 将仓库发布到 GitHub/Gitee 的两条命令和 bundle 恢复方法见 [Git 仓库发布说明](docs/GIT_PUBLISHING.md)。
 
