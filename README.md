@@ -4,6 +4,8 @@
 
 GitHub 公开仓库：<https://github.com/2300172382a-coder/data-structures-ai-tutor>。无需登录即可查看源码、文档和完整 `main` 分支提交历史。
 
+最终作业提交包可在 [`submission/数据结构AI助教-最终提交包.zip`](submission/数据结构AI助教-最终提交包.zip) 下载，内容说明见 [`submission/README.md`](submission/README.md)。
+
 ## 完成内容
 
 - 28 份分类知识资料：17 份历年试题、6 份讲义、2 份实验、3 份示例/辨析资料。
